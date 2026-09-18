@@ -1,1 +1,127 @@
-<h1> Something</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dog Walking Map</title>
+
+    <!-- Link to Leaflet CSS for built-in map components -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- link to map CSS -->
+    <link rel="stylesheet" href="css/map.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header class="map-header">
+
+            <button class="icon-button" id="filterButton">
+                Filter
+            </button>
+
+            <div class="header-text">
+                <h1>MAP</h1>
+                <p>Find Parks or dog friendly places</p>
+            </div>
+
+            <button class="icon-button">
+                Search
+            </button>
+
+        </header>
+
+        <!-- using filter panel control which datasets are displayed on the map.
+            Hidden by default and is controlled through map.js -->
+        <div id="filterPanel" class="filter-panel hidden">
+
+        <div class="filter-title">
+            <h2>Filter Map</h2>
+            <button id="resetFilters">Reset</button>
+        </div>
+
+        <!-- Dog off-leash area filter -->
+        <div class="filter-row">
+            <span>🐾 Off-leash areas</span>
+            <label class="switch">
+                <input type="checkbox" id="offLeashToggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Park filter -->
+        <div class="filter-row">
+            <span>🌳 Parks</span>
+            <label class="switch">
+                <input type="checkbox" id="parkToggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Walking trail filter -->
+        <div class="filter-row">
+            <span>〰 Walking trails</span>
+            <label class="switch">
+                <input type="checkbox" id="trailToggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Drinking fountain filter -->
+        <div class="filter-row">
+            <span>⛲ Drinking fountains</span>
+            <label class="switch">
+                <input type="checkbox" id="fountainToggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Apply the selected dataset filters to the map -->
+        <button id="applyFilters" class="apply-button">
+            Apply
+        </button>
+
+    </div>
+        <main id="map"></main>
+
+        <!-- showing location details when a map location is selected -->
+        <div id="locationDetails" class="location-details hidden">
+            <div class="location-details-header">
+                <h2 id="locationTitle">Location Name</h2>
+                <button id="closeLocationDetails">X</button>
+            </div>
+            <p id="locationSuburb"></p>
+            <p id="locationInfo"></p>
+            <button id="viewRouteButton" class="route-button">
+                View Route
+            </button>
+        </div>
+
+        <nav class="bottom-nav">
+            <button>Home</button>
+            <button>Routes</button>
+            <button class="add-button">+</button>
+            <button>Shop</button>
+            <button>Profile</button>
+        </nav>
+
+    </div>
+
+    <!-- Load the Leaflet JavaScript library, this provides map functions.-->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script src="js/api.js"></script>
+    <script src="js/map.js"></script>
+
+</body>
+
+</html>
