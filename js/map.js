@@ -57,7 +57,7 @@ const trailLayer = L.featureGroup().addTo(map);
 
 
 
-// Get filter interface elements from map.html
+// Get filter interface elements from html file
 const filterButton = document.getElementById("filterButton");
 const filterPanel = document.getElementById("filterPanel");
 const offLeashToggle = document.getElementById("offLeashToggle");
@@ -68,12 +68,18 @@ const applyFilters = document.getElementById("applyFilters");
 const resetFilters = document.getElementById("resetFilters");
 
 
-// Get location details elements from map.html
+// Get location details elements from html file
 const locationDetails = document.getElementById("locationDetails");
 const locationTitle = document.getElementById("locationTitle");
 const locationSuburb = document.getElementById("locationSuburb");
 const locationInfo = document.getElementById("locationInfo");
 const closeLocationDetails = document.getElementById("closeLocationDetails");
+
+
+// Get route planner elements from html file
+const routesButton = document.getElementById("routesButton");
+const routePlanner = document.getElementById("routePlanner");
+const closeRoutePlanner = document.getElementById("closeRoutePlanner");
 
 
 // Open or close the filter panel when the Filter button is clicked
@@ -152,6 +158,16 @@ closeLocationDetails.addEventListener("click", () => {
     locationDetails.classList.add("hidden");
 });
 
+
+// Open the route planner
+routesButton.addEventListener("click", () => {
+    routePlanner.classList.remove("hidden");
+});
+
+// Close the route planner
+closeRoutePlanner.addEventListener("click", () => {
+    routePlanner.classList.add("hidden");
+});
 
 // Load drinking fountain data from Brisbane City Council Open Data
 async function loadFountains() {

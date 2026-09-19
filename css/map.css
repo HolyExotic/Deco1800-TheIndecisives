@@ -283,6 +283,84 @@ body {
     white-space: pre-line;
 }
 
+/* Route planner */
+.route-planner {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 78px;
+
+    padding: 16px;
+
+    background: #fff5df;
+    border: 1px solid #333;
+    border-radius: 18px;
+
+    z-index: 1000;
+}
+
+.route-planner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.route-planner-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.route-planner-header button {
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+
+.planner-label {
+    margin: 16px 0 8px;
+    font-size: 13px;
+}
+
+.time-options {
+    display: flex;
+    gap: 8px;
+}
+
+.time-button {
+    flex: 1;
+    padding: 8px;
+
+    border: 1px solid #333;
+    border-radius: 16px;
+
+    background: white;
+}
+
+.route-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.route-card {
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    background: white;
+    text-align: left;
+}
+
+.route-card strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.route-card span {
+    font-size: 12px;
+}
+
 
 /* Desktop testing */
 

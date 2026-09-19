@@ -104,9 +104,48 @@
             </button>
         </div>
 
+
+        <!-- Route planner for selecting activity time and recommended routes -->
+<div id="routePlanner" class="route-planner hidden">
+
+    <div class="route-planner-header">
+        <h2>Plan Your Walk</h2>
+        <button id="closeRoutePlanner">X</button>
+    </div>
+
+    <p class="planner-label">Activity time</p>
+
+    <div class="time-options">
+        <button class="time-button" data-time="15">15 min</button>
+        <button class="time-button" data-time="30">30 min</button>
+        <button class="time-button" data-time="45">45 min</button>
+    </div>
+
+    <p class="planner-label">Recommended routes</p>
+
+    <div class="route-options">
+
+        <button class="route-card" data-route="1">
+            <strong>Short Park Walk</strong>
+            <span>1.2 km · 15 min</span>
+        </button>
+
+        <button class="route-card" data-route="2">
+            <strong>Off-leash Walk</strong>
+            <span>2.0 km · 30 min</span>
+        </button>
+
+        <button class="route-card" data-route="3">
+            <strong>Riverside Walk</strong>
+            <span>3.1 km · 45 min</span>
+        </button>
+
+    </div>
+
+</div>
         <nav class="bottom-nav">
             <button>Home</button>
-            <button>Routes</button>
+            <button id="routesButton">Routes</button>
             <button class="add-button">+</button>
             <button>Shop</button>
             <button>Profile</button>
