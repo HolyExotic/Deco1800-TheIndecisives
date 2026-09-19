@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 390px;
+  height: 844px;
+  background: #EDE8D0;
+  position: relative;
+}
+
+/* Top points section */
+
+.points-section {
+  height: 200px;
+  background: #D89C5C;
+  border-radius: 0 0 50% 50%;
+  text-align: center;
+  padding-top: 68px;
+}
+
+.points-section h2 {
+  font-size: 21px;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+#points-number {
+  font-size: 52px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+#points-label {
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+/* Feature buttons */
+
+.CCs {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 25px 50px 0 50px;
+}
+
+.CCs-button {
+  width: 107px;
+  height: 106px;
+  background: #d99a51;
+  border-radius: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+.CCs-icon {
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.CCs-icon img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.CCs span {
+  font-size: 12px;
+}
+
+/* Featured section */
+
+.featured {
+  margin-top: 54px;
+  padding: 0 16px;
+}
+
+#featured-title {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.offer-card {
+  height: 57px;
+  background: white;
+  border-radius: 13px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.offer-image {
+  width: 55px;
+  height: 100%;
+  background: #ecd1b5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 29px;
+  flex-shrink: 0;
+}
+
+.offer-image img {
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+}
+
+.offer-content {
+  flex: 1;
+  height: 100%;
+  padding: 5px 12px 4px 19px;
+  position: relative;
+}
+
+.offer-title {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.offer-subtitle {
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+.offer-bottom {
+  position: absolute;
+  bottom: 4px;
+  right: 12px;
+  font-size: 9px;
+  color: #555;
+}
+
+.arrow {
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+/* Bottom navigation */
+
+.bottom-nav {
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  right: 5px;
+  height: 44px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+}
+
+.nav-item {
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #dfa158;
+  font-size: 9px;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.nav-icon img {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+.nav-item span {
+  font-size: 9px;
+}
+
+/* Centre add button */
+
+.add-button {
+  width: 45px;
+  height: 45px;
+  background: #edd5bc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d3934c;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Mobile scaling */
+
+@media (max-height: 750px) {
+  .app {
+    height: 100vh;
+  }
+}
