@@ -361,6 +361,12 @@ body {
     font-size: 12px;
 }
 
+/* Selected activity time */
+.time-button.selected {
+    background: #2f5df5;
+    color: white;
+    border-color: #2f5df5;
+}
 
 /* Desktop testing */
 

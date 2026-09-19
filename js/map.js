@@ -80,6 +80,7 @@ const closeLocationDetails = document.getElementById("closeLocationDetails");
 const routesButton = document.getElementById("routesButton");
 const routePlanner = document.getElementById("routePlanner");
 const closeRoutePlanner = document.getElementById("closeRoutePlanner");
+const timeButtons = document.querySelectorAll(".time-button");
 
 
 // Open or close the filter panel when the Filter button is clicked
@@ -167,6 +168,23 @@ routesButton.addEventListener("click", () => {
 // Close the route planner
 closeRoutePlanner.addEventListener("click", () => {
     routePlanner.classList.add("hidden");
+});
+
+// Select an activity time
+timeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+
+        // Remove the selected style from all time buttons
+        timeButtons.forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        button.classList.add("selected");
+        
+        const selectedTime = button.dataset.time;
+
+        console.log("Selected activity time:", selectedTime);
+    });
 });
 
 // Load drinking fountain data from Brisbane City Council Open Data
