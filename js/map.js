@@ -87,9 +87,9 @@ const viewRouteButton = document.getElementById("viewRouteButton");
 const mapRouteDetails = document.getElementById("mapRouteDetails");
 const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
 const mapRouteTitle = document.getElementById("mapRouteTitle");
-
 const mapRouteDistance = document.getElementById("mapRouteDistance");
 const mapRouteWalkingTime = document.getElementById("mapRouteWalkingTime");
+const startWalkButton = document.getElementById("startWalkButton");
 
 // Store the selected location coordinates
 let selectedLocationCoordinates = null;
@@ -244,6 +244,17 @@ viewRouteButton.addEventListener("click", () => {
 // Close map route details
 closeMapRouteDetails.addEventListener("click", () => {
     mapRouteDetails.classList.add("hidden");
+});
+// Start the selected walk
+startWalkButton.addEventListener("click", () => {
+    mapRouteDetails.classList.add("hidden");
+    if (mapRouteLine) {
+        map.fitBounds(
+            mapRouteLine.getBounds(),
+            {padding: [30, 30]}
+        );
+    }
+    console.log("Walk started");
 });
 
 
