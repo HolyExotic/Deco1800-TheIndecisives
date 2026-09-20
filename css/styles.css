@@ -7,13 +7,16 @@
 /* Bottom navigation */
 
 #site-nav {
-  width: 100%;
-  flex-shrink: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  height: 44px;
+  z-index: 2000;
 }
 
 .bottom-nav {
-  position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 5px;
   right: 5px;
   height: 44px;

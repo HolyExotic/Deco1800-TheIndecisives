@@ -78,7 +78,7 @@ const closeLocationDetails = document.getElementById("closeLocationDetails");
 
 // Get route planner elements from html file
 //const routesButton = document.getElementById("routesButton");
-const routePlanner = document.getElementById("routePlanner");
+//const routePlanner = document.getElementById("routePlanner");
 const closeRoutePlanner = document.getElementById("closeRoutePlanner");
 const timeButtons = document.querySelectorAll(".time-button");
 
