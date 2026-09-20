@@ -10,12 +10,14 @@ if (navMount) {
       <nav class="bottom-nav">
 
         <!-- HOME -->
+        <a href="index.html" class="nav-link">
         <div class="nav-item">
           <div class="nav-icon">
             <img src="images/home.svg" alt="Home" />
           </div>
           <span>Home</span>
         </div>
+        </a>
 
         <!-- ROUTES -->
         <div class="nav-item" id="routesButton">
@@ -25,24 +27,36 @@ if (navMount) {
         <span>Routes</span>
         </div>
 
-        <!-- ADD -->
-        <button class="add-button">+</button>
+        <!-- WALKING -->
+        <a href="" class="nav-link">
+        <div class= "walking-button">
+        <div class="nav-item">
+          <div class="nav-icon">
+          <img src= "images/walking.svg" alt= "Walking" />
+          </div>
+        </div>
+        </div>
+        </a>
 
         <!-- SHOP -->
+        <a href="shop.html" class="nav-link">
         <div class="nav-item">
           <div class="nav-icon">
             <img src="images/shop.svg" alt="Shop" />
           </div>
           <span>Shop</span>
         </div>
+        </a>
 
         <!-- PROFILE -->
+        <a href="map.html" class="nav-link">
         <div class="nav-item">
           <div class="nav-icon">
             <img src="images/profile.svg" alt="Profile" />
           </div>
           <span>Profile</span>
         </div>
+        </a>
 
       </nav>
     `,
