@@ -369,6 +369,36 @@ body {
     border-color: #2f5df5;
 }
 
+/* Selected route result */
+.route-result {
+    margin-top: 16px;
+    padding: 12px;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.route-result h3 {
+    margin: 0 0 8px;
+}
+
+.route-result p {
+    margin: 4px 0;
+}
+
+#showRouteButton {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: #2f5df5;
+    color: white;
+}
+
 /* Desktop testing */
 
 @media (min-width: 600px) {

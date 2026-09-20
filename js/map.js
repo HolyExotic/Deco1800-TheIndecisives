@@ -83,6 +83,59 @@ const closeRoutePlanner = document.getElementById("closeRoutePlanner");
 const timeButtons = document.querySelectorAll(".time-button");
 
 
+
+// Preset routes for the WIP prototype
+const routes = {
+    15: {
+        name: "Short Park Walk",
+        distance: "1.25 km",
+        time: "15 min",
+        coordinates: [
+            [-27.4784, 153.0205],
+            [-27.4770, 153.0235],
+            [-27.4747, 153.0228],
+            [-27.4757, 153.0195],
+            [-27.4784, 153.0205]
+        ]
+    },
+
+    30: {
+        name: "Medium Park Walk",
+        distance: "2.5 km",
+        time: "30 min",
+        coordinates: [
+            [-27.4820, 153.0180],
+            [-27.4780, 153.0238],
+            [-27.4738, 153.0225],
+            [-27.4748, 153.0168],
+            [-27.4797, 153.0158],
+            [-27.4820, 153.0180]
+        ]
+    },
+
+    45: {
+        name: "Long Park Walk",
+        distance: "3.75 km",
+        time: "45 min",
+        coordinates: [
+            [-27.4860, 153.0155],
+            [-27.4810, 153.0238],
+            [-27.4742, 153.0228],
+            [-27.4725, 153.0160],
+            [-27.4780, 153.0115],
+            [-27.4845, 153.0115],
+            [-27.4860, 153.0155]
+        ]
+    }
+};
+
+// Store the selected route
+let selectedRoute = null;
+
+// Store the route line currently shown on the map
+let routeLine = null;
+
+
 // Open or close the filter panel when the Filter button is clicked
 filterButton.addEventListener("click", () => {
 
