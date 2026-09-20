@@ -79,8 +79,14 @@ const closeLocationDetails = document.getElementById("closeLocationDetails");
 // Get route planner elements from html file
 //const routesButton = document.getElementById("routesButton");
 //const routePlanner = document.getElementById("routePlanner");
-const closeRoutePlanner = document.getElementById("closeRoutePlanner");
-const timeButtons = document.querySelectorAll(".time-button");
+//const closeRoutePlanner = document.getElementById("closeRoutePlanner");
+//const timeButtons = document.querySelectorAll(".time-button");
+
+// Get map route elements from html
+const viewRouteButton = document.getElementById("viewRouteButton");
+const mapRouteDetails = document.getElementById("mapRouteDetails");
+const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
+const mapRouteTitle = document.getElementById("mapRouteTitle");
 
 
 
@@ -134,6 +140,8 @@ let selectedRoute = null;
 
 // Store the route line currently shown on the map
 let routeLine = null;
+
+
 
 
 // Open or close the filter panel when the Filter button is clicked
@@ -213,18 +221,33 @@ closeLocationDetails.addEventListener("click", () => {
 });
 
 
+// Open route details for the selected map location
+viewRouteButton.addEventListener("click", () => {
+
+    // Use the selected location name as the route destination
+    mapRouteTitle.textContent = locationTitle.textContent;
+    locationDetails.classList.add("hidden");
+    mapRouteDetails.classList.remove("hidden");
+});
+
+// Close map route details
+closeMapRouteDetails.addEventListener("click", () => {
+    mapRouteDetails.classList.add("hidden");
+});
+
+
 // Open the route planner
 //routesButton.addEventListener("click", () => {
 //    routePlanner.classList.remove("hidden");
 //});
 
 // Close the route planner
-closeRoutePlanner.addEventListener("click", () => {
-    routePlanner.classList.add("hidden");
-});
+//closeRoutePlanner.addEventListener("click", () => {
+//   routePlanner.classList.add("hidden");
+//});
 
 // Select an activity time
-timeButtons.forEach(button => {
+/*timeButtons.forEach(button => {
     button.addEventListener("click", () => {
 
         // Remove the selected style from all time buttons
@@ -239,6 +262,7 @@ timeButtons.forEach(button => {
         console.log("Selected activity time:", selectedTime);
     });
 });
+*/
 
 // Load drinking fountain data from Brisbane City Council Open Data
 async function loadFountains() {

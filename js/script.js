@@ -49,7 +49,7 @@ if (navMount) {
   );
 }
 
-// Open the route planner when Routes is clicked
+/* Open the route planner when Routes is clicked
 const routesButton = document.getElementById("routesButton");
 const routePlanner = document.getElementById("routePlanner");
 
@@ -58,3 +58,4 @@ if (routesButton) {
     routePlanner.classList.remove("hidden");
   });
 }
+*/
