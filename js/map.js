@@ -88,61 +88,26 @@ const mapRouteDetails = document.getElementById("mapRouteDetails");
 const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
 const mapRouteTitle = document.getElementById("mapRouteTitle");
 
+const mapRouteDistance = document.getElementById("mapRouteDistance");
+const mapRouteWalkingTime = document.getElementById("mapRouteWalkingTime");
 
+// Store the selected location coordinates
+let selectedLocationCoordinates = null;
 
-// Preset routes for the WIP prototype
-const routes = {
-    15: {
-        name: "Short Park Walk",
-        distance: "1.25 km",
-        time: "15 min",
-        coordinates: [
-            [-27.4784, 153.0205],
-            [-27.4770, 153.0235],
-            [-27.4747, 153.0228],
-            [-27.4757, 153.0195],
-            [-27.4784, 153.0205]
-        ]
-    },
+// Demo user starting location for the WIP
+const userLocation = [-27.4785, 153.0235];
+// Show the demo current location on the map
+const userMarker = L.circleMarker(
+    userLocation,
+    {radius: 10, weight: 2, fillOpacity: 1}
+).addTo(map);
 
-    30: {
-        name: "Medium Park Walk",
-        distance: "2.5 km",
-        time: "30 min",
-        coordinates: [
-            [-27.4820, 153.0180],
-            [-27.4780, 153.0238],
-            [-27.4738, 153.0225],
-            [-27.4748, 153.0168],
-            [-27.4797, 153.0158],
-            [-27.4820, 153.0180]
-        ]
-    },
+userMarker.bindTooltip(
+    "You",
+    {permanent: true, direction: "center"}
+);
 
-    45: {
-        name: "Long Park Walk",
-        distance: "3.75 km",
-        time: "45 min",
-        coordinates: [
-            [-27.4860, 153.0155],
-            [-27.4810, 153.0238],
-            [-27.4742, 153.0228],
-            [-27.4725, 153.0160],
-            [-27.4780, 153.0115],
-            [-27.4845, 153.0115],
-            [-27.4860, 153.0155]
-        ]
-    }
-};
-
-// Store the selected route
-let selectedRoute = null;
-
-// Store the route line currently shown on the map
-let routeLine = null;
-
-
-
+let mapRouteLine = null;
 
 // Open or close the filter panel when the Filter button is clicked
 filterButton.addEventListener("click", () => {
@@ -224,8 +189,51 @@ closeLocationDetails.addEventListener("click", () => {
 // Open route details for the selected map location
 viewRouteButton.addEventListener("click", () => {
 
+    // Make sure a location has been selected
+    if (!selectedLocationCoordinates) {
+        return;
+    }
+
     // Use the selected location name as the route destination
     mapRouteTitle.textContent = locationTitle.textContent;
+
+    // Calculate approximate distance
+    const distanceMetres = map.distance(
+        userLocation,
+        selectedLocationCoordinates
+    );
+
+    const distanceKm = distanceMetres / 1000;
+
+    // Estimate walking time at around 5 km/h
+    const walkingMinutes =
+        Math.round((distanceKm / 5) * 60);
+
+    // Display distance and walking time
+    mapRouteDistance.textContent =
+        `${distanceKm.toFixed(1)} km`;
+
+    mapRouteWalkingTime.textContent =
+        `${walkingMinutes} min`;
+
+    // Remove the previous route line
+    if (mapRouteLine) {
+        map.removeLayer(mapRouteLine);
+    }
+
+    // Draw the route from the demo user location
+    mapRouteLine = L.polyline(
+        [userLocation,selectedLocationCoordinates],
+        {weight: 5}
+    ).addTo(map);
+
+    // Move the map so the whole route is visible
+    map.fitBounds(
+        mapRouteLine.getBounds(),
+        {padding: [30, 30]}
+    );
+
+    // Switch from location details to route details
     locationDetails.classList.add("hidden");
     mapRouteDetails.classList.remove("hidden");
 });
@@ -279,9 +287,7 @@ async function loadFountains() {
             const lon = location.lon;
             const marker = L.marker(
                 [lat, lon],
-                {
-                    icon: fountainIcon
-                }
+                {icon: fountainIcon}
             );
 
             marker.bindPopup(`
@@ -290,7 +296,7 @@ async function loadFountains() {
                 ${fountain.item_description}
             `);
 
-            marker.addTo(fountainLayer);
+        marker.addTo(fountainLayer);
         });
 
     } catch (error) {
@@ -321,24 +327,20 @@ async function loadParks() {
 
             const marker = L.marker(
                 [lat, lon],
-                {
-                    icon: parkIcon
-                }
+                {icon: parkIcon}
             );
 
             marker.on("click", () => {
-                locationTitle.textContent =
-                    park.park_name;
 
-                locationSuburb.textContent =
-                    park.suburb || "";
-
-                locationInfo.textContent =
-                    park.park_size || "";
-
-                locationDetails.classList.remove("hidden");
-            });
-            marker.addTo(parkLayer);
+            // Store the selected park coordinates
+            selectedLocationCoordinates = [lat, lon];
+            locationTitle.textContent = park.park_name;
+            locationSuburb.textContent = park.suburb || "";
+            locationInfo.textContent = park.park_size || "";
+            locationDetails.classList.remove("hidden");
+        });
+    
+        marker.addTo(parkLayer);  
         });
 
     } catch (error) {
@@ -370,17 +372,13 @@ async function loadOffLeashAreas() {
 
             const marker = L.marker(
                 [lat, lon],
-                {
-                    icon: offLeashIcon
-                }
+                {icon: offLeashIcon}
             );
 
             marker.on("click", () => {
-                locationTitle.textContent =
-                    area.item_description;
-
-                locationSuburb.textContent =
-                    `${area.park_name} - ${area.suburb}`;
+                selectedLocationCoordinates = [lat, lon];
+                locationTitle.textContent = area.item_description;
+                locationSuburb.textContent = `${area.park_name} - ${area.suburb}`;
 
                 locationInfo.textContent =
                     `Fencing: ${area.fencing}
