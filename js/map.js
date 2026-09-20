@@ -1,6 +1,6 @@
 // Create the Leaflet map and set Brisbane as the initial location
 const map = L.map("map").setView(
-    [-27.4698, 153.0251],
+    [-27.48, 153.02],
     15
 );
 
@@ -95,7 +95,7 @@ const startWalkButton = document.getElementById("startWalkButton");
 let selectedLocationCoordinates = null;
 
 // Demo user starting location for the WIP
-const userLocation = [-27.4785, 153.0235];
+const userLocation = [-27.485, 153.02];
 // Create the current location icon
 const userIcon = L.divIcon({
     className: "user-location-marker",
