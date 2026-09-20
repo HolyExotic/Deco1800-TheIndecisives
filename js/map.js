@@ -96,16 +96,19 @@ let selectedLocationCoordinates = null;
 
 // Demo user starting location for the WIP
 const userLocation = [-27.4785, 153.0235];
-// Show the demo current location on the map
-const userMarker = L.circleMarker(
-    userLocation,
-    {radius: 10, weight: 2, fillOpacity: 1}
-).addTo(map);
+// Create the current location icon
+const userIcon = L.divIcon({
+    className: "user-location-marker",
+    html: "You",
+    iconSize: [36, 36],
+    iconAnchor: [18, 18]
+});
 
-userMarker.bindTooltip(
-    "You",
-    {permanent: true, direction: "center"}
-);
+// Show the demo current location on the map
+const userMarker = L.marker(
+    userLocation,
+    {icon: userIcon}
+).addTo(map);
 
 let mapRouteLine = null;
 
