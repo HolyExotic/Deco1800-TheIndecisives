@@ -6,6 +6,11 @@
 
 /* Bottom navigation */
 
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 #site-nav {
   position: absolute;
   bottom: 10px;
@@ -53,7 +58,7 @@
 
 /* Centre add button */
 
-.add-button {
+.walking-button {
   width: 45px;
   height: 45px;
   background: #edd5bc;
@@ -64,4 +69,10 @@
   font-size: 30px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.walking-button img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
 }
