@@ -399,6 +399,11 @@ body {
     color: white;
 }
 
+/* Set Leaflet bottom controls  */
+#map .leaflet-bottom {
+    bottom: 68px;
+}
+
 /* Desktop testing */
 
 @media (min-width: 600px) {
