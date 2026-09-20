@@ -284,6 +284,130 @@ body {
     white-space: pre-line;
 }
 
+/* Map route details panel */
+.map-route-details {
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    bottom: 78px;
+
+    padding: 16px;
+
+    background: #fff5df;
+    border: 1px solid #333;
+    border-radius: 18px;
+
+    z-index: 1000;
+}
+
+/* Route header */
+.map-route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.map-route-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.map-route-header button {
+    border: none;
+    background: none;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.route-label {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* Distance and walking time */
+.route-summary {
+    display: flex;
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.route-summary div {
+    flex: 1;
+
+    padding: 10px;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+.route-summary strong {
+    display: block;
+    font-size: 14px;
+}
+
+.route-summary span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+}
+
+/* Route options */
+.route-section-title {
+    margin: 16px 0 8px;
+    font-size: 16px;
+}
+
+.map-route-option {
+    width: 100%;
+
+    margin-bottom: 8px;
+    padding: 12px;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    text-align: left;
+}
+
+.map-route-option strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.map-route-option span {
+    font-size: 12px;
+}
+
+/* Highlight selected route option */
+.map-route-option.selected {
+    border: 2px solid #2f5df5;
+}
+
+/* Start walk button */
+.start-walk-button {
+    width: 100%;
+
+    margin-top: 8px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #dfa158;
+    color: white;
+
+    font-size: 16px;
+}
+
 /* Route planner */
 .route-planner {
     position: absolute;
@@ -367,6 +491,41 @@ body {
     background: #2f5df5;
     color: white;
     border-color: #2f5df5;
+}
+
+/* Selected route result */
+.route-result {
+    margin-top: 16px;
+    padding: 12px;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.route-result h3 {
+    margin: 0 0 8px;
+}
+
+.route-result p {
+    margin: 4px 0;
+}
+
+#showRouteButton {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: #2f5df5;
+    color: white;
+}
+
+/* Set Leaflet bottom controls  */
+#map .leaflet-bottom {
+    bottom: 68px;
 }
 
 /* Desktop testing */

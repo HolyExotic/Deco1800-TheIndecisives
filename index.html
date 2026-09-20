@@ -90,7 +90,49 @@
         <button id="viewRouteButton" class="route-button">View Route</button>
       </div>
 
-      <!-- Route planner for selecting activity time and recommended routes -->
+    <!-- Route information for a selected map location -->
+    <div id="mapRouteDetails" class="map-route-details hidden">
+      <div class="map-route-header">
+        <div>
+          <p class="route-label">Route to</p>
+          <h2 id="mapRouteTitle">Selected Location</h2>
+        </div>
+        <button id="closeMapRouteDetails">X</button>
+      </div>
+
+      <!-- Route summary -->
+      <div class="route-summary">
+        <div>
+          <strong id="mapRouteDistance">2.4 km</strong>
+          <span>Distance</span>
+        </div>
+
+        <div>
+          <strong id="mapRouteWalkingTime">30 min</strong>
+          <span>Walking</span>
+        </div>
+      </div>
+
+      <!-- Route choices -->
+      <p class="route-section-title">Route Options</p>
+
+      <button class="map-route-option selected">
+        <strong>Recommended Route</strong>
+        <span>2.4 km · 30 min</span>
+      </button>
+
+      <button class="map-route-option">
+        <strong>Shorter Route</strong>
+        <span>2.1 km · 26 min</span>
+      </button>
+
+      <button id="startWalkButton" class="start-walk-button">
+        Start Walk
+      </button>
+
+    </div>
+    
+    <!-- Route planner for selecting activity time and recommended routes
       <div id="routePlanner" class="route-planner hidden">
         <div class="route-planner-header">
           <h2>Plan Your Walk</h2>
@@ -105,6 +147,14 @@
           <button class="time-button" data-time="45">45 min</button>
         </div>
 
+        
+        <div id="routeResult" class="route-result hidden">
+            <h3 id="routeName">Route Name</h3>
+            <p id="routeDistance"></p>
+            <p id="routeTime"></p>
+            <button id="showRouteButton">Show Route</button>
+        </div>
+        
         <p class="planner-label">Recommended routes</p>
 
         <div class="route-options">
@@ -123,7 +173,7 @@
             <span>3.1 km · 45 min</span>
           </button>
         </div>
-      </div>
+      </div> -->
 
       <div id="site-nav"></div>
 
