@@ -63,30 +63,6 @@ body {
     width: 100%;
 }
 
-/* Bottom navigation */
-
-/*.bottom-nav {
-    height: 68px;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    background: white;
-}
-
-.bottom-nav button {
-    border: none;
-    background: none;
-    font-size: 11px;
-}
-
-.add-button {
-    font-size: 32px !important;
-    font-weight: bold;
-} 
-*/
-
 .fountain-marker {
     font-size: 24px;
     line-height: 30px;
