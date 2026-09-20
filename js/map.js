@@ -77,7 +77,7 @@ const closeLocationDetails = document.getElementById("closeLocationDetails");
 
 
 // Get route planner elements from html file
-const routesButton = document.getElementById("routesButton");
+//const routesButton = document.getElementById("routesButton");
 const routePlanner = document.getElementById("routePlanner");
 const closeRoutePlanner = document.getElementById("closeRoutePlanner");
 const timeButtons = document.querySelectorAll(".time-button");
@@ -161,9 +161,9 @@ closeLocationDetails.addEventListener("click", () => {
 
 
 // Open the route planner
-routesButton.addEventListener("click", () => {
-    routePlanner.classList.remove("hidden");
-});
+//routesButton.addEventListener("click", () => {
+//    routePlanner.classList.remove("hidden");
+//});
 
 // Close the route planner
 closeRoutePlanner.addEventListener("click", () => {

@@ -1,166 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Dog Walking Map</title>
 
     <!-- Link to Leaflet CSS for built-in map components -->
     <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    >
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
 
     <!-- link to map CSS -->
-    <link rel="stylesheet" href="css/map.css">
-</head>
+    <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="app">
+      <header class="map-header">
+        <button class="icon-button" id="filterButton">Filter</button>
 
-        <header class="map-header">
+        <div class="header-text">
+          <h1>MAP</h1>
+          <p>Find Parks or dog friendly places</p>
+        </div>
 
-            <button class="icon-button" id="filterButton">
-                Filter
-            </button>
+        <button class="icon-button">Search</button>
+      </header>
 
-            <div class="header-text">
-                <h1>MAP</h1>
-                <p>Find Parks or dog friendly places</p>
-            </div>
-
-            <button class="icon-button">
-                Search
-            </button>
-
-        </header>
-
-        <!-- using filter panel control which datasets are displayed on the map.
+      <!-- using filter panel control which datasets are displayed on the map.
             Hidden by default and is controlled through map.js -->
-        <div id="filterPanel" class="filter-panel hidden">
-
+      <div id="filterPanel" class="filter-panel hidden">
         <div class="filter-title">
-            <h2>Filter Map</h2>
-            <button id="resetFilters">Reset</button>
+          <h2>Filter Map</h2>
+          <button id="resetFilters">Reset</button>
         </div>
 
         <!-- Dog off-leash area filter -->
         <div class="filter-row">
-            <span>🐾 Off-leash areas</span>
-            <label class="switch">
-                <input type="checkbox" id="offLeashToggle" checked>
-                <span class="slider"></span>
-            </label>
+          <span>🐾 Off-leash areas</span>
+          <label class="switch">
+            <input type="checkbox" id="offLeashToggle" checked />
+            <span class="slider"></span>
+          </label>
         </div>
 
         <!-- Park filter -->
         <div class="filter-row">
-            <span>🌳 Parks</span>
-            <label class="switch">
-                <input type="checkbox" id="parkToggle" checked>
-                <span class="slider"></span>
-            </label>
+          <span>🌳 Parks</span>
+          <label class="switch">
+            <input type="checkbox" id="parkToggle" checked />
+            <span class="slider"></span>
+          </label>
         </div>
 
         <!-- Walking trail filter -->
         <div class="filter-row">
-            <span>〰 Walking trails</span>
-            <label class="switch">
-                <input type="checkbox" id="trailToggle" checked>
-                <span class="slider"></span>
-            </label>
+          <span>〰 Walking trails</span>
+          <label class="switch">
+            <input type="checkbox" id="trailToggle" checked />
+            <span class="slider"></span>
+          </label>
         </div>
 
         <!-- Drinking fountain filter -->
         <div class="filter-row">
-            <span>⛲ Drinking fountains</span>
-            <label class="switch">
-                <input type="checkbox" id="fountainToggle" checked>
-                <span class="slider"></span>
-            </label>
+          <span>⛲ Drinking fountains</span>
+          <label class="switch">
+            <input type="checkbox" id="fountainToggle" checked />
+            <span class="slider"></span>
+          </label>
         </div>
 
         <!-- Apply the selected dataset filters to the map -->
-        <button id="applyFilters" class="apply-button">
-            Apply
-        </button>
+        <button id="applyFilters" class="apply-button">Apply</button>
+      </div>
+      <main id="map"></main>
 
-    </div>
-        <main id="map"></main>
+      <!-- showing location details when a map location is selected -->
+      <div id="locationDetails" class="location-details hidden">
+        <div class="location-details-header">
+          <h2 id="locationTitle">Location Name</h2>
+          <button id="closeLocationDetails">X</button>
+        </div>
+        <p id="locationSuburb"></p>
+        <p id="locationInfo"></p>
+        <button id="viewRouteButton" class="route-button">View Route</button>
+      </div>
 
-        <!-- showing location details when a map location is selected -->
-        <div id="locationDetails" class="location-details hidden">
-            <div class="location-details-header">
-                <h2 id="locationTitle">Location Name</h2>
-                <button id="closeLocationDetails">X</button>
-            </div>
-            <p id="locationSuburb"></p>
-            <p id="locationInfo"></p>
-            <button id="viewRouteButton" class="route-button">
-                View Route
-            </button>
+      <!-- Route planner for selecting activity time and recommended routes -->
+      <div id="routePlanner" class="route-planner hidden">
+        <div class="route-planner-header">
+          <h2>Plan Your Walk</h2>
+          <button id="closeRoutePlanner">X</button>
         </div>
 
+        <p class="planner-label">Activity time</p>
 
-        <!-- Route planner for selecting activity time and recommended routes -->
-<div id="routePlanner" class="route-planner hidden">
+        <div class="time-options">
+          <button class="time-button" data-time="15">15 min</button>
+          <button class="time-button" data-time="30">30 min</button>
+          <button class="time-button" data-time="45">45 min</button>
+        </div>
 
-    <div class="route-planner-header">
-        <h2>Plan Your Walk</h2>
-        <button id="closeRoutePlanner">X</button>
-    </div>
+        <p class="planner-label">Recommended routes</p>
 
-    <p class="planner-label">Activity time</p>
-
-    <div class="time-options">
-        <button class="time-button" data-time="15">15 min</button>
-        <button class="time-button" data-time="30">30 min</button>
-        <button class="time-button" data-time="45">45 min</button>
-    </div>
-
-    <p class="planner-label">Recommended routes</p>
-
-    <div class="route-options">
-
-        <button class="route-card" data-route="1">
+        <div class="route-options">
+          <button class="route-card" data-route="1">
             <strong>Short Park Walk</strong>
             <span>1.2 km · 15 min</span>
-        </button>
+          </button>
 
-        <button class="route-card" data-route="2">
+          <button class="route-card" data-route="2">
             <strong>Off-leash Walk</strong>
             <span>2.0 km · 30 min</span>
-        </button>
+          </button>
 
-        <button class="route-card" data-route="3">
+          <button class="route-card" data-route="3">
             <strong>Riverside Walk</strong>
             <span>3.1 km · 45 min</span>
-        </button>
+          </button>
+        </div>
+      </div>
 
-    </div>
+      <div id="site-nav"></div>
 
-</div>
-        <nav class="bottom-nav">
+      <!-- <nav class="bottom-nav">
             <button>Home</button>
             <button id="routesButton">Routes</button>
             <button class="add-button">+</button>
             <button>Shop</button>
             <button>Profile</button>
-        </nav>
-
+        </nav> -->
     </div>
 
     <!-- Load the Leaflet JavaScript library, this provides map functions -->
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script src="js/api.js"></script>
     <script src="js/map.js"></script>
-
-</body>
-
+    <script src="js/script.js"></script>
+  </body>
 </html>

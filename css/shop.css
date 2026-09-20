@@ -155,59 +155,6 @@ body {
   margin-left: 4px;
 }
 
-/* Bottom navigation */
-
-.bottom-nav {
-  position: absolute;
-  bottom: 10px;
-  left: 5px;
-  right: 5px;
-  height: 44px;
-  background: white;
-  border-radius: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0 8px;
-}
-
-.nav-item {
-  width: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #dfa158;
-  font-size: 9px;
-  gap: 2px;
-  cursor: pointer;
-}
-
-.nav-icon img {
-  width: 23px;
-  height: 23px;
-  object-fit: contain;
-}
-
-.nav-item span {
-  font-size: 9px;
-}
-
-/* Centre add button */
-
-.add-button {
-  width: 45px;
-  height: 45px;
-  background: #edd5bc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #d3934c;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-}
 
 /* Mobile scaling */
 

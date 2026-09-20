@@ -65,7 +65,7 @@ body {
 
 /* Bottom navigation */
 
-.bottom-nav {
+/*.bottom-nav {
     height: 68px;
 
     display: flex;
@@ -84,7 +84,8 @@ body {
 .add-button {
     font-size: 32px !important;
     font-weight: bold;
-}
+} 
+*/
 
 .fountain-marker {
     font-size: 24px;
