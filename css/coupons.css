@@ -17,7 +17,7 @@ body {
   max-width: 390px;
   height: 100vh;
   background: #ede8d0;
-  position: relative;
+  position: absolute;
 }
 
 /* Main Content */
