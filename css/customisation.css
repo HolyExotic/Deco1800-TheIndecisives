@@ -10,14 +10,13 @@ body {
   align-items: center;
 }
 
-
 /* Main app */
 
 .app {
   width: 100%;
   max-width: 390px;
   height: 100vh;
-  background: #EDE8D0;
+  background: #ede8d0;
   position: relative;
 }
 
@@ -39,6 +38,11 @@ body {
   color: #fef9f4;
   font-size: 20px;
   font-weight: 700;
+  padding-top: 30px;
+}
+
+.customisation-header img {
+  height: 29px;
 }
 
 /* Back arrow */
@@ -176,14 +180,6 @@ body {
 
   font-size: 12px;
   line-height: 15px;
-}
-
-.points span:first-child {
-  font-size: 13px;
-}
-
-.points span:last-child {
-  font-size: 12px;
 }
 
 /* Mobile */
