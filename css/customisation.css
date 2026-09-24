@@ -16,8 +16,8 @@ body {
   width: 100%;
   max-width: 390px;
   height: 100vh;
-  background: #ede8d0;
-  position: absolute;
+  background: #EDE8D0;
+  position: relative;
 }
 
 /* Header */
@@ -30,7 +30,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  position: absolute;
+  position: relative;
 }
 
 .customisation-header h1 {
