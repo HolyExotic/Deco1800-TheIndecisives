@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main app */
+
+.app {
+  width: 100%;
+  max-width: 390px;
+  height: 100vh;
+  background: #ede8d0;
+  position: relative;
+}
+
+/* Main Content */
+.construction {
+  width: 85%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 25px;
+} 
+
+/* Coupon Icon */
+
+.coupon-icon {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 20px;
+} 
+
+/* Headings */
+
+h1 {
+  margin: 0 0 10px;
+  color: #d89c5c;
+  font-size: 32px;
+}
+
+h2 {
+  margin: 0 0 15px;
+  color: #ecd1b5;
+  font-size: 22px;
+} 
+
+/* Description */
+
+p {
+  margin: 0 0 30px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+} 
+
+/* Back to Shop Button */
+
+.shop-button {
+  padding: 13px 28px;
+  background: #d89c5c;
+  color: #fef9f4;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.shop-button:hover {
+  opacity: 0.85;
+}

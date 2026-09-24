@@ -10,10 +10,6 @@ body {
   align-items: center;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-}
 
 /* Main app */
 
