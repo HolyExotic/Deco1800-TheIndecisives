@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+/* Main app */
+
+.app {
+  width: 100%;
+  max-width: 390px;
+  height: 100vh;
+  background: #EDE8D0;
+  position: relative;
+}
+
+/* Header */
+
+.customisation-header {
+  height: 98px;
+  background-color: #d89c5c;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.customisation-header h1 {
+  margin: 0;
+  color: #fef9f4;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Back arrow */
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 63px;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.back-button span {
+  width: 16px;
+  height: 16px;
+
+  border-left: 2px solid #fef9f4;
+  border-bottom: 2px solid #fef9f4;
+
+  transform: rotate(45deg);
+}
+
+/* Content */
+
+.customisation-content {
+  padding: 31px 20px 30px;
+}
+
+/* Note */
+
+.profile-note {
+  margin: 0 0 5px 5px;
+
+  color: #222;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* Item cards */
+
+.item-card {
+  width: 100%;
+  height: 63px;
+
+  margin-bottom: 8px;
+
+  display: flex;
+  align-items: stretch;
+
+  background-color: #fef9f4;
+
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Item image */
+
+.item-image {
+  width: 57px;
+  min-width: 57px;
+
+  background-color: #ecd1b5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-image img {
+  width: 43px;
+  height: 43px;
+
+  object-fit: contain;
+}
+
+/* Item information */
+
+.item-info {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 7px 8px 5px 11px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-info h2 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 16px;
+}
+
+.item-info p {
+  margin: 0;
+
+  color: #333;
+
+  font-size: 10px;
+  line-height: 13px;
+}
+
+/* Points */
+
+.points {
+  width: 54px;
+  min-width: 54px;
+
+  margin: 0;
+
+  background-color: #d89c5c;
+
+  color: #fef9f4;
+
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.points span:first-child {
+  font-size: 13px;
+}
+
+.points span:last-child {
+  font-size: 12px;
+}
+
+/* Mobile */
+
+@media (max-width: 390px) {
+  .app {
+    min-height: 100vh;
+  }
+
+  .customisation-header {
+    height: 98px;
+  }
+
+  .customisation-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

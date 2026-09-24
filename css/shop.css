@@ -67,6 +67,7 @@ body {
   justify-content: center;
   color: white;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .CCs-icon {
