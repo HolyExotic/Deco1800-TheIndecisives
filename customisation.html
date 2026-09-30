@@ -11,7 +11,9 @@
     <div class="app">
       <!-- Header -->
       <header class="customisation-header">
-        <a href="shop.html" class="back-button" ><img src="images/back_button.svg" alt="back button"></a>
+        <a href="shop.html" class="back-button"
+          ><img src="images/back_button.svg" alt="back button"
+        /></a>
 
         <h1>Customisation</h1>
       </header>
@@ -31,13 +33,19 @@
             <p>Halloween Event Item</p>
           </div>
 
-          <div class="points">
+          <div
+            class="points"
+            data-item="cowboyHat"
+            data-name="Cowboy Hat"
+            data-cost="30"
+            data-image="images/cowboy_hat.svg"
+          >
             <span>30</span>
             <span>points</span>
           </div>
         </div>
 
-        <!-- Glowing Dog Collar -->
+        <!-- Sunglasses -->
         <div class="item-card">
           <div class="item-image">
             <img src="images/sunglasses.svg" alt="Sunglasses" />
@@ -49,7 +57,13 @@
             <p>25.10.2026</p>
           </div>
 
-          <div class="points">
+          <div
+            class="points"
+            data-item="sunglasses"
+            data-name="Sunglasses"
+            data-cost="150"
+            data-image="images/sunglasses.svg"
+          >
             <span>150</span>
             <span>points</span>
           </div>
@@ -66,15 +80,48 @@
             <p>Permanent</p>
           </div>
 
-          <div class="points">
+          <div
+            class="points"
+            data-item="redBow"
+            data-name="Red Bow"
+            data-cost="110"
+            data-image="images/red_bow.svg"
+          >
             <span>110</span>
             <span>points</span>
           </div>
         </div>
       </main>
+
+<!-- MARK:Confirmation -->
+
+      <!-- Purchase Confirmation Popup -->
+      <div id="purchaseModal" class="purchase-modal hidden">
+        <div class="purchase-card">
+          <!-- Close button -->
+          <button id="closePurchase" class="close-purchase">×</button>
+
+          <!-- Avatar preview -->
+          <div class="avatar-preview">
+            <!-- Your normal avatar -->
+            <img src="images/avatar.svg" alt="Avatar" class="avatar-base" />
+
+            <!-- Customisation item -->
+            <img id="previewItem" src="" alt="" class="avatar-item" />
+          </div>
+
+          <!-- Purchase button -->
+          <button id="confirmPurchase" class="confirm-purchase">
+            <span id="confirmCost">30</span>
+            <span>Points</span>
+          </button>
+        </div>
+      </div>
+
       <div id="site-nav"></div>
     </div>
 
     <script src="js/script.js"></script>
+    <script src="js/customisation.js"></script>
   </body>
 </html>

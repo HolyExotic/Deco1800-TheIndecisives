@@ -16,7 +16,7 @@ body {
   width: 100%;
   max-width: 390px;
   height: 100vh;
-  background: #EDE8D0;
+  background: #ede8d0;
   position: relative;
 }
 
@@ -180,6 +180,136 @@ body {
 
   font-size: 12px;
   line-height: 15px;
+}
+
+.purchase-modal {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.15);
+
+  z-index: 2000;
+}
+
+.purchase-modal.hidden {
+  display: none;
+}
+
+/* Popup card */
+
+.purchase-card {
+  position: relative;
+
+  width: 265px;
+  height: 240px;
+
+  background: #faf3e0;
+
+  border-radius: 35px;
+
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 10px;
+}
+
+/* X button */
+
+.close-purchase {
+  position: absolute;
+
+  top: 12px;
+  right: 25px;
+
+  border: none;
+  background: none;
+
+  color: #d89c5c;
+
+  font-size: 34px;
+  font-weight: bold;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 5;
+}
+
+/* Avatar */
+
+.avatar-preview {
+  position: relative;
+
+  width: 180px;
+  height: 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base avatar */
+
+.avatar-base {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  object-fit: contain;
+}
+
+/* Item worn by avatar */
+
+.avatar-item {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+}
+
+/* Purchase button */
+
+.confirm-purchase {
+  width: 103px;
+  height: 35px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #d89c5c;
+  color: #fef9f4;
+
+  font-family: Arial, sans-serif;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  font-size: 11px;
+}
+
+.confirm-purchase:hover {
+  opacity: 0.9;
+}
+
+.confirm-purchase span:first-child {
+  font-size: 12px;
 }
 
 /* Mobile */
