@@ -59,6 +59,20 @@ body {
     width: 100%;
 }
 
+/* Current location button */
+.use-location-button {
+    position: absolute;
+    top: 110px;
+    right: 12px;
+    padding: 10px 12px;
+    background: #fff5df;
+    border: 1px solid #333;
+    border-radius: 18px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 900;
+}
+
 .fountain-marker {
     font-size: 24px;
     line-height: 30px;
