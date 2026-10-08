@@ -76,12 +76,6 @@ const locationInfo = document.getElementById("locationInfo");
 const closeLocationDetails = document.getElementById("closeLocationDetails");
 
 
-// Get route planner elements from html file
-//const routesButton = document.getElementById("routesButton");
-//const routePlanner = document.getElementById("routePlanner");
-//const closeRoutePlanner = document.getElementById("closeRoutePlanner");
-//const timeButtons = document.querySelectorAll(".time-button");
-
 // Get map route elements from html
 const viewRouteButton = document.getElementById("viewRouteButton");
 const mapRouteDetails = document.getElementById("mapRouteDetails");
@@ -89,13 +83,18 @@ const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
 const mapRouteTitle = document.getElementById("mapRouteTitle");
 const mapRouteDistance = document.getElementById("mapRouteDistance");
 const mapRouteWalkingTime = document.getElementById("mapRouteWalkingTime");
-const startWalkButton = document.getElementById("startWalkButton");
+const getDirectionsButton = document.getElementById("getDirectionsButton");
+const useMyLocationButton = document.getElementById("useMyLocationButton");
 
 // Store the selected location coordinates
 let selectedLocationCoordinates = null;
 
 // Demo user starting location for the WIP
-const userLocation = [-27.485, 153.02];
+//const userLocation = [-27.485, 153.02];
+
+// Default location before geolocation is enabled
+let userLocation = [-27.485, 153.02];
+
 // Create the current location icon
 const userIcon = L.divIcon({
     className: "user-location-marker",
@@ -111,6 +110,37 @@ const userMarker = L.marker(
 ).addTo(map);
 
 let mapRouteLine = null;
+
+// Get the user's current location
+useMyLocationButton.addEventListener("click", () => {
+
+    if (!navigator.geolocation) {
+        alert("Geolocation is not supported by this browser.");
+        return;
+    }
+
+    useMyLocationButton.textContent = "Locating...";
+
+    navigator.geolocation.getCurrentPosition(
+
+        // Location successfully retrieved
+        (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            userLocation = [lat, lon];
+            userMarker.setLatLng(userLocation);
+            map.setView(userLocation, 15);
+            useMyLocationButton.textContent = "Location Updated";
+        },
+
+        // Failed to get location
+        (error) => {
+            console.error("Geolocation error:", error);
+            useMyLocationButton.textContent = "Use My Location";
+            alert("Unable to get your location. The demo location will be used.");
+        }
+    );
+});
 
 // Open or close the filter panel when the Filter button is clicked
 filterButton.addEventListener("click", () => {
@@ -220,21 +250,21 @@ viewRouteButton.addEventListener("click", () => {
         `${walkingMinutes} min`;
 
     // Remove the previous route line
-    if (mapRouteLine) {
-        map.removeLayer(mapRouteLine);
-    }
+    //if (mapRouteLine) {
+    //    map.removeLayer(mapRouteLine);
+    //}
 
     // Draw the route from the demo user location
-    mapRouteLine = L.polyline(
-        [userLocation,selectedLocationCoordinates],
-        {weight: 5}
-    ).addTo(map);
+    //mapRouteLine = L.polyline(
+    //    [userLocation,selectedLocationCoordinates],
+    //    {weight: 5}
+    //).addTo(map);
 
     // Move the map so the whole route is visible
-    map.fitBounds(
-        mapRouteLine.getBounds(),
-        {padding: [30, 30]}
-    );
+    //map.fitBounds(
+    //    mapRouteLine.getBounds(),
+    //   {padding: [30, 30]}
+    //);
 
     // Switch from location details to route details
     locationDetails.classList.add("hidden");
@@ -245,46 +275,28 @@ viewRouteButton.addEventListener("click", () => {
 closeMapRouteDetails.addEventListener("click", () => {
     mapRouteDetails.classList.add("hidden");
 });
-// Start the selected walk
-startWalkButton.addEventListener("click", () => {
-    mapRouteDetails.classList.add("hidden");
-    if (mapRouteLine) {
-        map.fitBounds(
-            mapRouteLine.getBounds(),
-            {padding: [30, 30]}
-        );
+
+// Open Google Maps walking directions
+getDirectionsButton.addEventListener("click", () => {
+
+    // Make sure a destination has been selected
+    if (!selectedLocationCoordinates) {
+        return;
     }
-    console.log("Walk started");
+
+    // Get the selected destination coordinates
+    const lat = selectedLocationCoordinates[0];
+    const lon = selectedLocationCoordinates[1];
+
+    // Create the Google Maps directions URL
+    const googleMapsUrl =
+        `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}&travelmode=walking`;
+
+    // Open Google Maps in a new tab
+    window.open(googleMapsUrl, "_blank", "noopener,noreferrer");
+
 });
 
-
-// Open the route planner
-//routesButton.addEventListener("click", () => {
-//    routePlanner.classList.remove("hidden");
-//});
-
-// Close the route planner
-//closeRoutePlanner.addEventListener("click", () => {
-//   routePlanner.classList.add("hidden");
-//});
-
-// Select an activity time
-/*timeButtons.forEach(button => {
-    button.addEventListener("click", () => {
-
-        // Remove the selected style from all time buttons
-        timeButtons.forEach(item => {
-            item.classList.remove("selected");
-        });
-
-        button.classList.add("selected");
-        
-        const selectedTime = button.dataset.time;
-
-        console.log("Selected activity time:", selectedTime);
-    });
-});
-*/
 
 // Load drinking fountain data from Brisbane City Council Open Data
 async function loadFountains() {
