@@ -103,10 +103,18 @@ const userIcon = L.divIcon({
     iconAnchor: [18, 18]
 });
 
+// Create the demo location icon
+const demoIcon = L.divIcon({
+    className: "user-location-marker",
+    html: "Demo",
+    iconSize: [36, 36],
+    iconAnchor: [18, 18]
+});
+
 // Show the demo current location on the map
 const userMarker = L.marker(
     userLocation,
-    {icon: userIcon}
+    {icon: demoIcon}
 ).addTo(map);
 
 let mapRouteLine = null;
@@ -129,6 +137,7 @@ useMyLocationButton.addEventListener("click", () => {
             const lon = position.coords.longitude;
             userLocation = [lat, lon];
             userMarker.setLatLng(userLocation);
+            userMarker.setIcon(userIcon);
             map.setView(userLocation, 15);
             useMyLocationButton.textContent = "Location Updated";
         },

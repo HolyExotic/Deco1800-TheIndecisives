@@ -345,8 +345,8 @@ body {
 
 /* Current user location marker */
 .user-location-marker {
-    width: 25px;
-    height: 25px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
