@@ -19,16 +19,18 @@ if (navMount) {
         </div>
         </a>
 
-        <!-- ROUTES -->
-        <div class="nav-item" id="routesButton">
-        <div class="nav-icon">
-            <img src="images/routes.svg" alt="Routes" />
-        </div>
-        <span>Routes</span>
-        </div>
+        <!-- MAPS -->
+        <a href="maps.html" class="nav-link">
+          <div class="nav-item" id="maps-button">
+              <div class="nav-icon">
+                <img src="images/map_icon.svg" alt="Maps"/>
+              </div>
+              <span>Map</span>
+          </div>
+        </a>
 
         <!-- WALKING -->
-        <a href="" class="nav-link">
+        <a href="route-planner.html" class="nav-link">
         <div class= "walking-button">
         <div class="nav-item">
           <div class="nav-icon">
@@ -49,7 +51,7 @@ if (navMount) {
         </a>
 
         <!-- PROFILE -->
-        <a href="map.html" class="nav-link">
+        <a href="profile.html" class="nav-link">
         <div class="nav-item">
           <div class="nav-icon">
             <img src="images/profile.svg" alt="Profile" />
@@ -62,6 +64,16 @@ if (navMount) {
     `,
   );
 }
+
+
+/* Highlight the current page in the navbar */
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+document.querySelectorAll(".bottom-nav .nav-link").forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
+  }
+});
 
 /* Open the route planner when Routes is clicked
 const routesButton = document.getElementById("routesButton");

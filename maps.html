@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dog Walking Map</title>
+
+    <!-- Link to Leaflet CSS for built-in map components -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- link to map CSS -->
+    <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div class="app">
+        <header class="map-header">
+            <button class="icon-button" id="filterButton">Filter</button>
+
+            <div class="header-text">
+                <h1>MAP</h1>
+                <p>Find Parks or dog friendly places</p>
+                <a href="https://uq.sharepoint.com/:p:/r/teams/DECO1800DesignComputingStudioI-InteractiveTechnologyStLucia.Semester22026-TheIndecisives/_layouts/15/Doc.aspx?action=edit&sourcedoc=%7Bd8d1602d-ab19-4841-b29b-e81ad3fdc593%7D&wdExp=TEAMS-TREATMENT&web=1"
+                    target="_blank">WIP Slides Link</a>
+                <a href="https://www.figma.com/site/YcTfiAKeXXDObzdrAxah3H/WIP-Dog-App?node-id=0-1&t=n23AcZoeTVXPC4CM-1"
+                    target="_blank">Figma Prototypes</a>
+            </div>
+
+            <button class="icon-button">Search</button>
+        </header>
+
+        <!-- using filter panel control which datasets are displayed on the map.
+            Hidden by default and is controlled through map.js -->
+        <div id="filterPanel" class="filter-panel hidden">
+            <div class="filter-title">
+                <h2>Filter Map</h2>
+                <button id="resetFilters">Reset</button>
+            </div>
+
+            <!-- Dog off-leash area filter -->
+            <div class="filter-row">
+                <span>🐾 Off-leash areas</span>
+                <label class="switch">
+                    <input type="checkbox" id="offLeashToggle" checked />
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Park filter -->
+            <div class="filter-row">
+                <span>🌳 Parks</span>
+                <label class="switch">
+                    <input type="checkbox" id="parkToggle" checked />
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Walking trail filter -->
+            <div class="filter-row">
+                <span>〰 Walking trails</span>
+                <label class="switch">
+                    <input type="checkbox" id="trailToggle" checked />
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Drinking fountain filter -->
+            <div class="filter-row">
+                <span>⛲ Drinking fountains</span>
+                <label class="switch">
+                    <input type="checkbox" id="fountainToggle" checked />
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Apply the selected dataset filters to the map -->
+            <button id="applyFilters" class="apply-button">Apply</button>
+        </div>
+        <main id="map"></main>
+
+        <!-- Button to get the user's current location -->
+        <button id="useMyLocationButton" class="use-location-button" type="button">
+            Use My Location
+        </button>
+
+        <!-- showing location details when a map location is selected -->
+        <div id="locationDetails" class="location-details hidden">
+            <div class="location-details-header">
+                <h2 id="locationTitle">Location Name</h2>
+                <button id="closeLocationDetails">X</button>
+            </div>
+            <p id="locationSuburb"></p>
+            <p id="locationInfo"></p>
+            <button id="viewRouteButton" class="route-button">View Route</button>
+        </div>
+
+        <!-- Route information for a selected map location -->
+        <div id="mapRouteDetails" class="map-route-details hidden">
+
+            <!-- Selected destination -->
+            <div class="map-route-header">
+                <div>
+                    <p class="route-label">Distance to</p>
+                    <h2 id="mapRouteTitle">Selected Location</h2>
+                </div>
+                <button id="closeMapRouteDetails">X</button>
+            </div>
+
+            <!-- Estimated distance and walking time -->
+            <div class="route-summary">
+                <div>
+                    <strong id="mapRouteDistance">-- km</strong>
+                    <span>Straight-line distance</span>
+                </div>
+
+                <div>
+                    <strong id="mapRouteWalkingTime">-- min</strong>
+                    <span>Approx. walking time</span>
+                </div>
+            </div>
+
+            <!-- Estimation notice -->
+            <p class="route-note">
+                These are rough estimates. Actual walking distance
+                and time may vary.
+            </p>
+
+            <!-- Open Google Maps walking directions -->
+            <button id="getDirectionsButton" class="start-walk-button" type="button">
+                Get Walking Directions
+            </button>
+
+            <!-- Inform users that directions open in Google Maps -->
+            <p class="external-map-note">
+                Opens Google Maps in a new tab for walking directions
+            </p>
+
+        </div>
+
+        
+        <div id="site-nav"></div>
+        <!-- <nav class="bottom-nav">
+            <button>Home</button>
+            <button id="routesButton">Routes</button>
+            <button class="add-button">+</button>
+            <button>Shop</button>
+            <button>Profile</button>
+        </nav> -->
+    </div>
+
+    <!-- Load the Leaflet JavaScript library, this provides map functions -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+
+    <script src="js/api.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/map.js"></script>
+</body>
+
+</html>
