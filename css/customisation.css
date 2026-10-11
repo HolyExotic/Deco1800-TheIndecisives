@@ -22,7 +22,7 @@ body {
 
 /* Header */
 
-.customisation-header {
+.top-banner {
   height: 98px;
   background-color: #d89c5c;
 
@@ -33,7 +33,7 @@ body {
   position: relative;
 }
 
-.customisation-header h1 {
+.top-banner h1 {
   margin: 0;
   color: #fef9f4;
   font-size: 20px;
@@ -41,7 +41,7 @@ body {
   padding-top: 30px;
 }
 
-.customisation-header img {
+.top-banner img {
   height: 29px;
 }
 

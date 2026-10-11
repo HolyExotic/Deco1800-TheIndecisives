@@ -1,173 +1,149 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Customisation</title>
-    <link rel="stylesheet" href="css/customisation.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="app">
-      <!-- Header -->
-      <header class="customisation-header">
-        <a href="shop.html" class="back-button"
-          ><img src="images/back_button.svg" alt="back button"
-        /></a>
 
-        <h1>Customisation</h1>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customisation</title>
+  <link rel="stylesheet" href="css/customisation.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
+</head>
 
-      <!-- Customisation Content -->
-      <main class="customisation-content">
-        <p class="profile-note">*Items can be viewed in your Profile</p>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="top-banner">
+        <a href=" shop.html" class="back-button"><img src="images/back_button.svg" alt="back button" /></a>
 
-        <!-- Cowboy Hat -->
-        <div class="item-card">
-          <div class="item-image">
-            <img src="images/cowboy_hat.svg" alt="Cowboy Hat" />
-          </div>
+      <h1>Customisation</h1>
+    </header>
 
-          <div class="item-info">
-            <h2>Cowboy Hat</h2>
-            <p>Halloween Event Item</p>
-          </div>
+    <!-- Customisation Content -->
+    <main class="customisation-content">
+      <p class="profile-note">*Items can be viewed in your Profile</p>
 
-          <div
-            class="points"
-            data-item="cowboyHat"
-            data-name="Cowboy Hat"
-            data-cost="30"
-            data-image="images/cowboy_hat.svg"
-          >
-            <span>30</span>
-            <span>points</span>
-          </div>
+      <!-- Cowboy Hat -->
+      <div class="item-card">
+        <div class="item-image">
+          <img src="images/cowboy_hat.svg" alt="Cowboy Hat" />
         </div>
 
-        <!-- Sunglasses -->
-        <div class="item-card">
-          <div class="item-image">
-            <img src="images/sunglasses.svg" alt="Sunglasses" />
-          </div>
-
-          <div class="item-info">
-            <h2>Sunglasses</h2>
-            <p>Limited time</p>
-            <p>25.10.2026</p>
-          </div>
-
-          <div
-            class="points"
-            data-item="sunglasses"
-            data-name="Sunglasses"
-            data-cost="150"
-            data-image="images/sunglasses.svg"
-          >
-            <span>150</span>
-            <span>points</span>
-          </div>
+        <div class="item-info">
+          <h2>Cowboy Hat</h2>
+          <p>Halloween Event Item</p>
         </div>
 
-        <!-- Red Bow -->
-        <div class="item-card">
-          <div class="item-image">
-            <img src="images/red_bow.svg" alt="Red Bow" />
-          </div>
-
-          <div class="item-info">
-            <h2>Red Bow</h2>
-          </div>
-
-          <div
-            class="points"
-            data-item="redBow"
-            data-name="Red Bow"
-            data-cost="110"
-            data-image="images/red_bow.svg"
-          >
-            <span>110</span>
-            <span>points</span>
-          </div>
-        </div>
-
-        <!-- Pink Bow -->
-        <div class="item-card">
-          <div class="item-image">
-            <img src="images/pink_bow.svg" alt="Pink Bow" />
-          </div>
-
-          <div class="item-info">
-            <h2>Pink Bow</h2>
-          </div>
-
-          <div
-            class="points"
-            data-item="pinkBow"
-            data-name="Pink Bow"
-            data-cost="110"
-            data-image="images/pink_bow.svg"
-          >
-            <span>110</span>
-            <span>points</span>
-          </div>
-        </div>
-
-        <!-- Green Bow -->
-        <div class="item-card">
-          <div class="item-image">
-            <img src="images/green_bow.svg" alt="Green Bow" />
-          </div>
-
-          <div class="item-info">
-            <h2>Green Bow</h2>
-          </div>
-
-          <div
-            class="points"
-            data-item="greenBow"
-            data-name="Green Bow"
-            data-cost="110"
-            data-image="images/green_bow.svg"
-          >
-            <span>110</span>
-            <span>points</span>
-          </div>
-        </div>
-      </main>
-
-      <!-- MARK:Confirmation -->
-
-      <!-- Purchase Confirmation Popup -->
-      <div id="purchaseModal" class="purchase-modal hidden">
-        <div class="purchase-card">
-          <!-- Close button -->
-          <button id="closePurchase" class="close-purchase">×</button>
-
-          <!-- Avatar preview -->
-          <div class="avatar-preview">
-            <!-- Your normal avatar -->
-            <img src="images/avatar.svg" alt="Avatar" class="avatar-base" />
-
-            <!-- Customisation item -->
-            <img id="previewItem" src="" alt="" class="avatar-item" />
-          </div>
-
-          <!-- Purchase button -->
-          <button id="confirmPurchase" class="confirm-purchase">
-            <span id="confirmCost">30</span>
-            <span>Points</span>
-          </button>
+        <div class="points" data-item="cowboyHat" data-name="Cowboy Hat" data-cost="30"
+          data-image="images/cowboy_hat.svg">
+          <span>30</span>
+          <span>points</span>
         </div>
       </div>
 
-      <div id="site-nav"></div>
+      <!-- Sunglasses -->
+      <div class="item-card">
+        <div class="item-image">
+          <img src="images/sunglasses.svg" alt="Sunglasses" />
+        </div>
+
+        <div class="item-info">
+          <h2>Sunglasses</h2>
+          <p>Limited time</p>
+          <p>25.10.2026</p>
+        </div>
+
+        <div class="points" data-item="sunglasses" data-name="Sunglasses" data-cost="150"
+          data-image="images/sunglasses.svg">
+          <span>150</span>
+          <span>points</span>
+        </div>
+      </div>
+
+      <!-- Red Bow -->
+      <div class="item-card">
+        <div class="item-image">
+          <img src="images/red_bow.svg" alt="Red Bow" />
+        </div>
+
+        <div class="item-info">
+          <h2>Red Bow</h2>
+        </div>
+
+        <div class="points" data-item="redBow" data-name="Red Bow" data-cost="110" data-image="images/red_bow.svg">
+          <span>110</span>
+          <span>points</span>
+        </div>
+      </div>
+
+      <!-- Pink Bow -->
+      <div class="item-card">
+        <div class="item-image">
+          <img src="images/pink_bow.svg" alt="Pink Bow" />
+        </div>
+
+        <div class="item-info">
+          <h2>Pink Bow</h2>
+        </div>
+
+        <div class="points" data-item="pinkBow" data-name="Pink Bow" data-cost="110" data-image="images/pink_bow.svg">
+          <span>110</span>
+          <span>points</span>
+        </div>
+      </div>
+
+      <!-- Green Bow -->
+      <div class="item-card">
+        <div class="item-image">
+          <img src="images/green_bow.svg" alt="Green Bow" />
+        </div>
+
+        <div class="item-info">
+          <h2>Green Bow</h2>
+        </div>
+
+        <div class="points" data-item="greenBow" data-name="Green Bow" data-cost="110"
+          data-image="images/green_bow.svg">
+          <span>110</span>
+          <span>points</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- MARK:Confirmation -->
+
+    <!-- Purchase Confirmation Popup -->
+    <div id="purchaseModal" class="purchase-modal hidden">
+      <div class="purchase-card">
+        <!-- Close button -->
+        <button id="closePurchase" class="close-purchase">×</button>
+
+        <!-- Avatar preview -->
+        <div class="avatar-preview">
+          <!-- Your normal avatar -->
+          <img src="images/avatar.svg" alt="Avatar" class="avatar-base" />
+
+          <!-- Customisation item -->
+          <img id="previewItem" src="" alt="" class="avatar-item" />
+        </div>
+
+        <!-- Purchase button -->
+        <button id="confirmPurchase" class="confirm-purchase">
+          <span id="confirmCost">30</span>
+          <span>Points</span>
+        </button>
+      </div>
     </div>
 
-    <script src="js/script.js"></script>
-    <script src="js/customisation.js"></script>
-  </body>
+    <div id="site-nav"></div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/customisation.js"></script>
+</body>
+
 </html>
