@@ -21,7 +21,7 @@ body {
   position: relative;
 }
 
-/* Bottom navigation */
+/* Navbar */
 
 .nav-link {
     text-decoration: none;
@@ -118,8 +118,6 @@ body {
   z-index: -1;
 }
 
-
-/* Keep the icon above the circle */
 .nav-icon img {
   position: relative;
   z-index: 1;
@@ -154,3 +152,15 @@ body {
   object-fit: contain;
 }
 
+/* Top banner */
+
+.customisation-header {
+  height: 98px;
+  background-color: #d89c5c;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
