@@ -176,6 +176,73 @@ searchButton.addEventListener("click", () => {
 });
 
 
+// Search for parks and off-leash areas
+async function searchLocations() {
+    const keyword = searchInput.value.trim();
+    if (!keyword) {
+        searchResults.textContent = "Please enter a location.";
+        return;
+    }
+    searchResults.textContent = "Searching...";
+
+    try {
+
+        // Search both datasets
+        const [parks, offLeashAreas] = await Promise.all([
+            searchDataset("park-locations", keyword),
+            searchDataset("park-dog-off-leash-areas", keyword)
+        ]);
+
+        // Combine results from both datasets
+        const results = [
+            ...parks.map(park => ({
+                name: park.park_name || "Unnamed park",
+                suburb: park.suburb || "",
+                type: "Park"
+            })),
+
+            ...offLeashAreas.map(area => ({
+                name: area.park_name || "Off-leash area",
+                suburb: area.suburb || "",
+                type: "Off-leash area"
+            }))
+        ];
+
+        searchResults.textContent = "";
+
+        // Show a message if no locations were found
+        if (results.length === 0) {
+            searchResults.textContent = "No locations found.";
+            return;
+        }
+
+        // Display each search result
+        results.forEach(result => {
+            const item = document.createElement("div");
+            item.className = "search-result";
+            const name = document.createElement("strong");
+            name.textContent = result.name;
+            const details = document.createElement("p");
+            details.textContent = `${result.suburb} · ${result.type}`;
+            item.appendChild(name);
+            item.appendChild(details);
+            searchResults.appendChild(item);
+        });
+
+    } catch (error) {
+        console.error("Search error:", error);
+        searchResults.textContent = "Unable to search locations.";
+    }
+}
+
+
+// Search when the user presses Enter
+searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        searchLocations();
+    }
+});
+
 // Show or hide dataset layers based on the selected filters
 applyFilters.addEventListener("click", () => {
 

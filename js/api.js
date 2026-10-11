@@ -15,3 +15,22 @@ async function getDataset(datasetId) {
 
     return data.results;
 }
+
+// Search records from Brisbane City Council Open Data
+async function searchDataset(datasetId, keyword) {
+
+    const where = `search(*, ${JSON.stringify(keyword)})`;
+
+    const url =
+        `${API_BASE_URL}/${datasetId}/records?where=${encodeURIComponent(where)}&limit=20`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error("Failed to search dataset");
+    }
+
+    const data = await response.json();
+
+    return data.results;
+}
