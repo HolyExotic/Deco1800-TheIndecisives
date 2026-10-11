@@ -151,19 +151,12 @@ useMyLocationButton.addEventListener("click", () => {
     );
 });
 
-// Open or close the filter panel when the Filter button is clicked
+// Open or close the filter panel
 filterButton.addEventListener("click", () => {
 
     filterPanel.classList.toggle("hidden");
 
-    if (filterPanel.classList.contains("hidden")) {
-        filterButton.textContent = "Filter";
-    } else {
-        filterButton.textContent = "X";
-    }
-
 });
-
 
 // Show or hide dataset layers based on the selected filters
 applyFilters.addEventListener("click", () => {
@@ -209,7 +202,6 @@ applyFilters.addEventListener("click", () => {
     }
 
     filterPanel.classList.add("hidden");
-    filterButton.textContent = "Filter";
 });
 
 
