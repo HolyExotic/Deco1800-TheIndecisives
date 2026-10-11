@@ -133,8 +133,40 @@ body {
     overflow-y: auto;
 }
 
-/* Actual map */
+/* Individual search result */
+.search-result {
+    display: block;
+    width: 100%;
+    padding: 10px;
 
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Highlight search result when hovered */
+.search-result:hover {
+    background: #f0e5cc;
+}
+
+/* Location name */
+.search-result strong {
+    display: block;
+    font-size: 14px;
+}
+
+/* Suburb and location type */
+.search-result span {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Actual map */
 #map {
     flex: 1;
     width: 100%;

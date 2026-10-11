@@ -95,6 +95,11 @@ const useMyLocationButton = document.getElementById("useMyLocationButton");
 // Store the selected location coordinates
 let selectedLocationCoordinates = null;
 
+
+// Store the marker for the selected search result
+let searchMarker = null;
+
+
 // Demo user starting location for the WIP
 //const userLocation = [-27.485, 153.02];
 
@@ -193,20 +198,32 @@ async function searchLocations() {
             searchDataset("park-dog-off-leash-areas", keyword)
         ]);
 
-        // Combine results from both datasets
+        // Combine search results from both datasets
         const results = [
             ...parks.map(park => ({
                 name: park.park_name || "Unnamed park",
                 suburb: park.suburb || "",
-                type: "Park"
+                type: "Park",
+                lat: park.geopoint?.lat,
+                lon: park.geopoint?.lon,
+                info: park.park_size || ""
             })),
 
             ...offLeashAreas.map(area => ({
-                name: area.park_name || "Off-leash area",
-                suburb: area.suburb || "",
-                type: "Off-leash area"
+                name: area.item_description || area.park_name || "Off-leash area",
+                suburb: `${area.park_name || ""} - ${area.suburb || ""}`,
+                type: "Off-leash area",
+                lat: area.geo_point_2d?.lat,
+                lon: area.geo_point_2d?.lon,
+                info: `Fencing: ${area.fencing || "Not specified"}
+        Small dog enclosure: ${area.small_dog_enclosure || "Not specified"}
+        Agility equipment: ${area.dog_agility_equipment || "Not specified"}
+        Lighting: ${area.lighting || "Not specified"}`
             }))
-        ];
+        ].filter(result =>
+            Number.isFinite(result.lat) &&
+            Number.isFinite(result.lon)
+        );
 
         searchResults.textContent = "";
 
@@ -218,14 +235,50 @@ async function searchLocations() {
 
         // Display each search result
         results.forEach(result => {
-            const item = document.createElement("div");
+            const item = document.createElement("button");
+            item.type = "button";
             item.className = "search-result";
             const name = document.createElement("strong");
             name.textContent = result.name;
-            const details = document.createElement("p");
+            const details = document.createElement("span");
             details.textContent = `${result.suburb} · ${result.type}`;
             item.appendChild(name);
             item.appendChild(details);
+            // Move the map when a search result is selected
+            item.addEventListener("click", () => {
+                const coordinates = [result.lat, result.lon];
+
+                // Save the selected location
+                selectedLocationCoordinates = coordinates;
+
+                // Remove the previous search marker
+                if (searchMarker) {
+                    map.removeLayer(searchMarker);
+                }
+
+                // Create a marker for the selected location
+                searchMarker = L.marker(
+                    coordinates,
+                    {
+                        icon: result.type === "Park"
+                            ? parkIcon
+                            : offLeashIcon
+                    }
+                ).addTo(map);
+
+                // Move the map to the selected location
+                map.setView(coordinates, 16);
+
+                // Update location details
+                locationTitle.textContent = result.name;
+                locationSuburb.textContent = result.suburb;
+                locationInfo.textContent = result.info;
+
+                // Close search and display location details
+                searchPanel.classList.add("hidden");
+                mapRouteDetails.classList.add("hidden");
+                locationDetails.classList.remove("hidden");
+            });
             searchResults.appendChild(item);
         });
 
