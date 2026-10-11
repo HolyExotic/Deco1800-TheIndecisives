@@ -49,12 +49,124 @@ body {
     height: 48px;
     border: 1px solid #333;
     background: transparent;
-    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
+/* Filter icon */
+#filterButton::before {
+    content: "";
+    width: 24px;
+    height: 22px;
+    background: #333;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        60% 50%,
+        60% 100%,
+        40% 100%,
+        40% 50%
+    );
+}
+
+/* Search icon */
+#searchButton {
+    position: relative;
+}
+
+#searchButton::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border: 2px solid #333;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+#searchButton::after {
+    content: "";
+    width: 11px;
+    height: 2px;
+    background: #333;
+
+    position: absolute;
+    top: 29px;
+    left: 28px;
+
+    transform: rotate(45deg);
+}
+
+/* Search panel */
+.search-panel {
+    position: absolute;
+    top: 105px;
+    left: 12px;
+    right: 12px;
+
+    padding: 12px;
+    background: #fff5df;
+    border: 1px solid #333;
+    border-radius: 16px;
+
+    z-index: 1100;
+}
+
+/* Search input */
+#searchInput {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* Search results container */
+#searchResults {
+    margin-top: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* Individual search result */
+.search-result {
+    display: block;
+    width: 100%;
+    padding: 10px;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Highlight search result when hovered */
+.search-result:hover {
+    background: #f0e5cc;
+}
+
+/* Location name */
+.search-result strong {
+    display: block;
+    font-size: 14px;
+}
+
+/* Suburb and location type */
+.search-result span {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666;
+}
 
 /* Actual map */
-
 #map {
     flex: 1;
     width: 100%;
