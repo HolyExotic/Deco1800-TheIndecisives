@@ -71,6 +71,68 @@ body {
     );
 }
 
+/* Search icon */
+#searchButton {
+    position: relative;
+}
+
+#searchButton::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border: 2px solid #333;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+#searchButton::after {
+    content: "";
+    width: 11px;
+    height: 2px;
+    background: #333;
+
+    position: absolute;
+    top: 29px;
+    left: 28px;
+
+    transform: rotate(45deg);
+}
+
+/* Search panel */
+.search-panel {
+    position: absolute;
+    top: 105px;
+    left: 12px;
+    right: 12px;
+
+    padding: 12px;
+    background: #fff5df;
+    border: 1px solid #333;
+    border-radius: 16px;
+
+    z-index: 1100;
+}
+
+/* Search input */
+#searchInput {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* Search results container */
+#searchResults {
+    margin-top: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
 /* Actual map */
 
 #map {

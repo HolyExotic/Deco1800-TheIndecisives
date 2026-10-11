@@ -68,6 +68,12 @@ const applyFilters = document.getElementById("applyFilters");
 const resetFilters = document.getElementById("resetFilters");
 
 
+// Get search interface elements from HTML
+const searchButton = document.getElementById("searchButton");
+const searchPanel = document.getElementById("searchPanel");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+
 // Get location details elements from html file
 const locationDetails = document.getElementById("locationDetails");
 const locationTitle = document.getElementById("locationTitle");
@@ -153,10 +159,22 @@ useMyLocationButton.addEventListener("click", () => {
 
 // Open or close the filter panel
 filterButton.addEventListener("click", () => {
-
     filterPanel.classList.toggle("hidden");
-
+    if (!filterPanel.classList.contains("hidden")) {
+        searchPanel.classList.add("hidden");
+    }
 });
+
+
+// Open or close the search panel
+searchButton.addEventListener("click", () => {
+    searchPanel.classList.toggle("hidden");
+    if (!searchPanel.classList.contains("hidden")) {
+        filterPanel.classList.add("hidden");
+        searchInput.focus();
+    }
+});
+
 
 // Show or hide dataset layers based on the selected filters
 applyFilters.addEventListener("click", () => {
