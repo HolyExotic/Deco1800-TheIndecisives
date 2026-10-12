@@ -68,6 +68,12 @@ const applyFilters = document.getElementById("applyFilters");
 const resetFilters = document.getElementById("resetFilters");
 
 
+// Get search interface elements from HTML
+const searchButton = document.getElementById("searchButton");
+const searchPanel = document.getElementById("searchPanel");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+
 // Get location details elements from html file
 const locationDetails = document.getElementById("locationDetails");
 const locationTitle = document.getElementById("locationTitle");
@@ -83,17 +89,24 @@ const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
 const mapRouteTitle = document.getElementById("mapRouteTitle");
 const mapRouteDistance = document.getElementById("mapRouteDistance");
 const mapRouteWalkingTime = document.getElementById("mapRouteWalkingTime");
+const routeNote = document.getElementById("routeNote");
 const getDirectionsButton = document.getElementById("getDirectionsButton");
 const useMyLocationButton = document.getElementById("useMyLocationButton");
 
 // Store the selected location coordinates
 let selectedLocationCoordinates = null;
 
+
+// Store the marker for the selected search result
+let searchMarker = null;
+
+
 // Demo user starting location for the WIP
 //const userLocation = [-27.485, 153.02];
 
 // Default location before geolocation is enabled
 let userLocation = [-27.485, 153.02];
+let hasGeolocation = false;
 
 // Create the current location icon
 const userIcon = L.divIcon({
@@ -136,6 +149,7 @@ useMyLocationButton.addEventListener("click", () => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
             userLocation = [lat, lon];
+            hasGeolocation = true;
             userMarker.setLatLng(userLocation);
             userMarker.setIcon(userIcon);
             map.setView(userLocation, 15);
@@ -151,19 +165,139 @@ useMyLocationButton.addEventListener("click", () => {
     );
 });
 
-// Open or close the filter panel when the Filter button is clicked
+// Open or close the filter panel
 filterButton.addEventListener("click", () => {
-
     filterPanel.classList.toggle("hidden");
-
-    if (filterPanel.classList.contains("hidden")) {
-        filterButton.textContent = "Filter";
-    } else {
-        filterButton.textContent = "X";
+    if (!filterPanel.classList.contains("hidden")) {
+        searchPanel.classList.add("hidden");
     }
-
 });
 
+
+// Open or close the search panel
+searchButton.addEventListener("click", () => {
+    searchPanel.classList.toggle("hidden");
+    if (!searchPanel.classList.contains("hidden")) {
+        filterPanel.classList.add("hidden");
+        searchInput.focus();
+    }
+});
+
+
+// Search for parks and off-leash areas
+async function searchLocations() {
+    const keyword = searchInput.value.trim();
+    if (!keyword) {
+        searchResults.textContent = "Please enter a location.";
+        return;
+    }
+    searchResults.textContent = "Searching...";
+
+    try {
+
+        // Search both datasets
+        const [parks, offLeashAreas] = await Promise.all([
+            searchDataset("park-locations", keyword),
+            searchDataset("park-dog-off-leash-areas", keyword)
+        ]);
+
+        // Combine search results from both datasets
+        const results = [
+            ...parks.map(park => ({
+                name: park.park_name || "Unnamed park",
+                suburb: park.suburb || "",
+                type: "Park",
+                lat: park.geopoint?.lat,
+                lon: park.geopoint?.lon,
+                info: park.park_size || ""
+            })),
+
+            ...offLeashAreas.map(area => ({
+                name: area.item_description || area.park_name || "Off-leash area",
+                suburb: `${area.park_name || ""} - ${area.suburb || ""}`,
+                type: "Off-leash area",
+                lat: area.geo_point_2d?.lat,
+                lon: area.geo_point_2d?.lon,
+                info: `Fencing: ${area.fencing || "Not specified"}
+        Small dog enclosure: ${area.small_dog_enclosure || "Not specified"}
+        Agility equipment: ${area.dog_agility_equipment || "Not specified"}
+        Lighting: ${area.lighting || "Not specified"}`
+            }))
+        ].filter(result =>
+            Number.isFinite(result.lat) &&
+            Number.isFinite(result.lon)
+        );
+
+        searchResults.textContent = "";
+
+        // Show a message if no locations were found
+        if (results.length === 0) {
+            searchResults.textContent = "No locations found.";
+            return;
+        }
+
+        // Display each search result
+        results.forEach(result => {
+            const item = document.createElement("button");
+            item.type = "button";
+            item.className = "search-result";
+            const name = document.createElement("strong");
+            name.textContent = result.name;
+            const details = document.createElement("span");
+            details.textContent = `${result.suburb} · ${result.type}`;
+            item.appendChild(name);
+            item.appendChild(details);
+            // Move the map when a search result is selected
+            item.addEventListener("click", () => {
+                const coordinates = [result.lat, result.lon];
+
+                // Save the selected location
+                selectedLocationCoordinates = coordinates;
+
+                // Remove the previous search marker
+                if (searchMarker) {
+                    map.removeLayer(searchMarker);
+                }
+
+                // Create a marker for the selected location
+                searchMarker = L.marker(
+                    coordinates,
+                    {
+                        icon: result.type === "Park"
+                            ? parkIcon
+                            : offLeashIcon
+                    }
+                ).addTo(map);
+
+                // Move the map to the selected location
+                map.setView(coordinates, 16);
+
+                // Update location details
+                locationTitle.textContent = result.name;
+                locationSuburb.textContent = result.suburb;
+                locationInfo.textContent = result.info;
+
+                // Close search and display location details
+                searchPanel.classList.add("hidden");
+                mapRouteDetails.classList.add("hidden");
+                locationDetails.classList.remove("hidden");
+            });
+            searchResults.appendChild(item);
+        });
+
+    } catch (error) {
+        console.error("Search error:", error);
+        searchResults.textContent = "Unable to search locations.";
+    }
+}
+
+
+// Search when the user presses Enter
+searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        searchLocations();
+    }
+});
 
 // Show or hide dataset layers based on the selected filters
 applyFilters.addEventListener("click", () => {
@@ -209,7 +343,6 @@ applyFilters.addEventListener("click", () => {
     }
 
     filterPanel.classList.add("hidden");
-    filterButton.textContent = "Filter";
 });
 
 
@@ -257,6 +390,15 @@ viewRouteButton.addEventListener("click", () => {
 
     mapRouteWalkingTime.textContent =
         `${walkingMinutes} min`;
+
+    // Update the note based on the location source
+    if (hasGeolocation) {
+        routeNote.textContent =
+            "Estimated from your location using straight-line distance. Actual walking time may vary.";
+    } else {
+        routeNote.textContent =
+            "Distance is estimated from a demo location. Use My Location for a personalised estimate.";
+    }
 
     // Remove the previous route line
     //if (mapRouteLine) {

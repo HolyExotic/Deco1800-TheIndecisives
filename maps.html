@@ -24,8 +24,7 @@
 <body>
     <div class="app">
         <header class="top-banner">
-            <button class="icon-button" id="filterButton">Filter</button>
-
+            <button class="icon-button" id="filterButton" aria-label="Filter"></button>
             <div class="header-text">
                 <h1>MAP</h1>
                 <p>Find Parks or dog friendly places</p>
@@ -35,8 +34,19 @@
                     target="_blank">Figma Prototypes</a>
             </div>
 
-            <button class="icon-button">Search</button>
+            <button class="icon-button" id="searchButton" aria-label="Search"></button>
         </header>
+
+        <!-- Search panel -->
+        <div id="searchPanel" class="search-panel hidden">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search parks or suburbs"
+            >
+            <div id="searchResults"></div>
+        </div>
 
         <!-- using filter panel control which datasets are displayed on the map.
             Hidden by default and is controlled through map.js -->
@@ -129,7 +139,7 @@
             </div>
 
             <!-- Estimation notice -->
-            <p class="route-note">
+            <p class="route-note" id="routeNote">
                 These are rough estimates. Actual walking distance
                 and time may vary.
             </p>
