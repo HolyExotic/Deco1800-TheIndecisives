@@ -89,6 +89,7 @@ const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
 const mapRouteTitle = document.getElementById("mapRouteTitle");
 const mapRouteDistance = document.getElementById("mapRouteDistance");
 const mapRouteWalkingTime = document.getElementById("mapRouteWalkingTime");
+const routeNote = document.getElementById("routeNote");
 const getDirectionsButton = document.getElementById("getDirectionsButton");
 const useMyLocationButton = document.getElementById("useMyLocationButton");
 
@@ -105,6 +106,7 @@ let searchMarker = null;
 
 // Default location before geolocation is enabled
 let userLocation = [-27.485, 153.02];
+let hasGeolocation = false;
 
 // Create the current location icon
 const userIcon = L.divIcon({
@@ -147,6 +149,7 @@ useMyLocationButton.addEventListener("click", () => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
             userLocation = [lat, lon];
+            hasGeolocation = true;
             userMarker.setLatLng(userLocation);
             userMarker.setIcon(userIcon);
             map.setView(userLocation, 15);
@@ -387,6 +390,15 @@ viewRouteButton.addEventListener("click", () => {
 
     mapRouteWalkingTime.textContent =
         `${walkingMinutes} min`;
+
+    // Update the note based on the location source
+    if (hasGeolocation) {
+        routeNote.textContent =
+            "Estimated from your location using straight-line distance. Actual walking time may vary.";
+    } else {
+        routeNote.textContent =
+            "Distance is estimated from a demo location. Use My Location for a personalised estimate.";
+    }
 
     // Remove the previous route line
     //if (mapRouteLine) {
