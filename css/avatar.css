@@ -1,0 +1,106 @@
+.title {
+	font-size: 50px;
+    color: white;
+    position: absolute;
+    top: 5px;
+}
+h2 {
+    font-size: 33px;
+    color: #664022;
+    text-align: center;
+    top: 20px;
+}
+
+.dog-avatar-selection, .dog-accessories, .daily-quests{
+    border: none;
+    background: none;
+    height: 100px;
+    width:100px
+}
+.avatar-menu1, .avatar-menu2, .avatar-menu3 {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+}
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+.avatar-image{
+    margin-top: 200px;
+    height:auto;
+    z-index: 1;
+    width: 100%;
+    margin-left: 80px;
+    }
+
+
+.shadow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: 10px;
+    height: auto;
+    transform: translateY(-80px);
+}
+
+avatar-menu1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.dog-avatar-selection {
+    position: absolute;
+    top: 160px;
+    left: 10px;
+}
+
+avatar-menu2 {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+}
+
+.dog-accessories {
+    position: absolute;
+    top: 250px;
+    right: -250px;
+}
+
+avatar-menu3 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.daily-quests {
+    position: absolute;
+    bottom: -120px;
+    left: 250px;
+    transform: translateX(-50%);
+}
+
+.DogGo-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.lower-btn {
+    color: #FFE8E8;
+    font-size: 20px;
+    background-color: #D89C5C;
+    border: 2px solid black;
+    margin-top: 30px;
+    padding: 5px 100px;
+    border-radius: 30px;
+    position: absolute;
+    left: 60px;
+}
