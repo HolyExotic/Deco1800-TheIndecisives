@@ -10,7 +10,7 @@ if (navMount) {
       <nav class="bottom-nav">
 
         <!-- HOME -->
-        <a href="index.html" class="nav-link">
+        <a href="avatar.html" class="nav-link">
         <div class="nav-item">
           <div class="nav-icon">
             <img src="images/home.svg" alt="Home" />
