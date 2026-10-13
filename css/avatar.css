@@ -1,14 +1,15 @@
 .title {
-	font-size: 50px;
     color: white;
     position: absolute;
-    top: 5px;
 }
+
 h2 {
-    font-size: 33px;
+    font-size: 30px;
+    font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
     color: #664022;
     text-align: center;
-    top: 20px;
+    top: 10px;
+    padding:10px;
 }
 
 .dog-avatar-selection, .dog-accessories, .daily-quests{
@@ -55,8 +56,16 @@ avatar-menu1 {
 
 .dog-avatar-selection {
     position: absolute;
-    top: 160px;
+    top: 150px;
     left: 10px;
+    z-index: 1;
+}
+
+.buble-shadow1 {
+    position: absolute;
+    bottom: 305px;
+    transform: scaleX(-1);
+    left: 7px;
 }
 
 avatar-menu2 {
@@ -67,8 +76,15 @@ avatar-menu2 {
 
 .dog-accessories {
     position: absolute;
-    top: 250px;
+    top: 240px;
     right: -250px;
+    z-index: 1;
+}
+
+.buble-shadow3 {
+    position: absolute;
+    bottom: 217px;
+    left: 250px;
 }
 
 avatar-menu3 {
@@ -80,9 +96,16 @@ avatar-menu3 {
 
 .daily-quests {
     position: absolute;
-    bottom: -120px;
+    bottom: -110px;
     left: 250px;
     transform: translateX(-50%);
+    z-index: 1;
+}
+
+.buble-shadow2 {
+    position: absolute;
+    bottom: 350px;
+    left: 200px;
 }
 
 .DogGo-btn {
@@ -98,9 +121,40 @@ avatar-menu3 {
     font-size: 20px;
     background-color: #D89C5C;
     border: 2px solid black;
-    margin-top: 30px;
     padding: 5px 100px;
     border-radius: 30px;
     position: absolute;
     left: 60px;
+    bottom: 60px;
+}
+
+.avatar-menu1 {
+    animation: float-bubble 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+.avatar-menu2 {
+    animation: float-bubble 3.5s ease-in-out infinite;
+    z-index: 1;
+}
+
+.avatar-menu3 {
+    animation: float-bubble 3.2s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes float-bubble {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.dog-avatar-selection,
+.dog-accessories,
+.daily-quests {
+    cursor: pointer;
 }
