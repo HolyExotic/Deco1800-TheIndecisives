@@ -75,7 +75,8 @@
                     <div class="activity-header">
                         <button class="period-btn" id="period-btn" aria-expanded="false">
                             <span id="period-label">This Week</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" stroke="#000" stroke-width="2" stroke-linecap="round">
+                            <svg width="16" height="16" viewBox="0 0 16 16" stroke="#000" stroke-width="2"
+                                stroke-linecap="round">
                                 <line x1="1" y1="3" x2="15" y2="3" />
                                 <line x1="3" y1="8" x2="13" y2="8" />
                                 <line x1="6" y1="13" x2="10" y2="13" />
@@ -88,16 +89,39 @@
                     </div>
 
                     <div class="chart" id="chart-week" style="--max:60">
-                        <div class="bar-col"><div class="bar" style="--min:60" title="60 min"></div><span>S</span></div>
-                        <div class="bar-col"><div class="bar" style="--min:0" title="0 min"></div><span>M</span></div>
-                        <div class="bar-col"><div class="bar" style="--min:13" title="13 min"></div><span>T</span></div>
-                        <div class="bar-col"><div class="bar" style="--min:24" title="24 min"></div><span>W</span></div>
-                        <div class="bar-col"><div class="bar" style="--min:7" title="7 min"></div><span>T</span></div>
-                        <div class="bar-col"><div class="bar" style="--min:33" title="33 min"></div><span>F</span></div>
-                        <div class="bar-col"><div class="bar" style="--min:55" title="55 min"></div><span>S</span></div>
+                        <div class="bar-col">
+                            <div class="bar" style="--min:60" title="60 min"></div><span>S</span>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="--min:0" title="0 min"></div><span>M</span>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="--min:13" title="13 min"></div><span>T</span>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="--min:24" title="24 min"></div><span>W</span>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="--min:7" title="7 min"></div><span>T</span>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="--min:33" title="33 min"></div><span>F</span>
+                        </div>
+                        <div class="bar-col">
+                            <div class="bar" style="--min:55" title="55 min"></div><span>S</span>
+                        </div>
                     </div>
 
                     <div class="calendar" id="chart-month" hidden></div>
+                </div>
+            </section>
+
+            <section class="preferences">
+                <h2 class="activity-title">Preferences</h2>
+                <div class="pref-list">
+                    <span class="pref-chip">Quiet</span>
+                    <span class="pref-chip">Greenery</span>
+                    <span class="pref-chip">Drinking Stations</span>
                 </div>
             </section>
         </main>

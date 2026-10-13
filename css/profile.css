@@ -11,7 +11,7 @@
 
 /* Main card */
 .profile-card {
-    background: #fffaf6;
+    background: #6c390f;
     border-radius: 24px;
     padding: 28px 24px 20px;
     margin: 10px 15px;
@@ -160,7 +160,7 @@
 
 /* Activity */
 .activity {
-    margin: 0 15px 90px;
+    margin: 0 15px 24px;
 }
 
 .activity-title {
@@ -311,4 +311,33 @@
     justify-self: center;
     font-size: 14px;
     font-weight: 600;
+}
+
+/*Preferences */
+
+.preferences {
+    margin: 0 15px 90px;
+}
+
+.pref-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pref-chip {
+    background: #ae7f49;
+    color: #fdfdfc; 
+    border: 1px solid #8b5a2b;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.pref-chip img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
