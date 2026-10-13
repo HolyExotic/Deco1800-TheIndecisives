@@ -63,7 +63,7 @@ avatar-menu1 {
 
 .buble-shadow1 {
     position: absolute;
-    bottom: 370px;
+    bottom: 470px;
     transform: scaleX(-1);
     left: 7px;
 }
@@ -83,7 +83,7 @@ avatar-menu2 {
 
 .buble-shadow3 {
     position: absolute;
-    bottom: 280px;
+    bottom: 380px;
     left: 250px;
 }
 
@@ -95,7 +95,7 @@ avatar-menu3 {
 }
 
 .daily-quests {
-    position: absolute;
+    position: relative;
     bottom: -110px;
     left: 250px;
     transform: translateX(-50%);
@@ -104,7 +104,7 @@ avatar-menu3 {
 
 .buble-shadow2 {
     position: absolute;
-    bottom: 415px;
+    bottom: 515px;
     left: 200px;
 }
 
