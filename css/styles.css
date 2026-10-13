@@ -19,6 +19,9 @@ body {
   height: 100vh;
   background: #FAF3E0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* Navbar */
