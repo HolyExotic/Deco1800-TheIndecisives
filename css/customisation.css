@@ -203,6 +203,13 @@ body {
   line-height: 15px;
 }
 
+.points.owned {
+    background-color: #b7a58b;
+    color: #fef9f4;
+    cursor: default;
+    pointer-events: none;
+}
+
 .purchase-modal {
   position: fixed;
   inset: 0;

@@ -29,14 +29,13 @@ if (navMount) {
           </div>
         </a>
 
-        <!-- WALKING -->
+        <!-- ROUTES -->
         <a href="route-planner.html" class="nav-link">
-        <div class= "walking-button">
         <div class="nav-item">
           <div class="nav-icon">
-          <img src= "images/walking.svg" alt= "Walking" />
+            <img src="images/routes.svg" alt="Routes" />
           </div>
-        </div>
+          <span>Routes</span>
         </div>
         </a>
 
