@@ -85,7 +85,9 @@ if (routesButton) {
 }
 */
 
-/* Toggle weekly and monthly activity */
+
+
+/* PROFILE PAGE - Toggle weekly and monthly activity */
 
 const periodBtn = document.getElementById('period-btn');
 const periodMenu = document.getElementById('period-menu');
@@ -140,3 +142,4 @@ if (cal) {
     );
     }
 }
+
