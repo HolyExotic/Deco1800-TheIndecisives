@@ -4,24 +4,29 @@
   padding: 0;
 }
 
+
 body {
   font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
   background: #222;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .app {
   width: 100%;
   max-width: 390px;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background: #FAF3E0;
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
+  flex-shrink: 0;
 }
 
 /* Navbar */
@@ -32,17 +37,19 @@ body {
 }
 
 #site-nav {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
-  left: 0;
-  right: 0;
+  width: 100%;
+  max-width: 390px;
   height: 44px;
   z-index: 2000;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .bottom-nav {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 5px;
   right: 5px;
   height: 44px;
@@ -173,4 +180,28 @@ body {
 .banner-heading {
   font-size: 35px;
   color: white
+}
+
+
+
+/* MARK: FOOTER */
+#site-footer {
+  width: 100%;
+  margin-top: 10px;
+  padding-bottom: 80px;
+  flex-shrink: 0;
+}
+
+.site-footer {
+  padding: 8px 16px;
+  text-align: center;
+  background-color: #FAF3E0;
+  color: #8C7863;
+  font-size: 10px;
+  line-height: 1.3;
+  border-top: 1px solid #ECD1B5;
+}
+
+.site-footer p {
+  margin: 0;
 }

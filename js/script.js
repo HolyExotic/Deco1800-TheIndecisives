@@ -74,19 +74,29 @@ document.querySelectorAll(".bottom-nav .nav-link").forEach(link => {
   }
 });
 
-/* Open the route planner when Routes is clicked
-const routesButton = document.getElementById("routesButton");
-const routePlanner = document.getElementById("routePlanner");
+//MARK: Footer
 
-if (routesButton) {
-  routesButton.addEventListener("click", () => {
-    routePlanner.classList.remove("hidden");
-  });
+const footerMount = document.getElementById("site-footer");
+
+if (footerMount) {
+  footerMount.insertAdjacentHTML(
+    "beforeend",
+    `
+      <footer class="site-footer">
+        <p>
+          AI Disclosure: AI tools were used to assist in the
+          development and creation of this page.
+        </p>
+      </footer>
+    `,
+  );
 }
-*/
 
 
 
+
+
+//MARK: Profile
 /* PROFILE PAGE - Toggle weekly and monthly activity */
 
 const periodBtn = document.getElementById('period-btn');
