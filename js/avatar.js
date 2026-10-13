@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     questsButton.addEventListener("click", function () {
-        window.location.href = "/routes-planner.html";
+        window.location.href = "/route-planner.html";
     });
 
     dogGoButton.addEventListener("click", function () {
