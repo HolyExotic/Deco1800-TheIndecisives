@@ -105,6 +105,11 @@ body {
   height: 21px;
 }
 
+.nav-icon img[src*="routes.svg"] {
+  width: 22px;
+  height: 22px;
+}
+
 .nav-link.active .nav-icon::before {
   content: "";
   position: absolute;
@@ -113,7 +118,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #F3DCC3;
+  background-color:  #F3DCC3;
   border-radius: 50%;
   z-index: -1;
 }
