@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
+  font-family: "Ubuntu Sans", Arial, Helvetica, sans-serif;
   background: #222;
   display: flex;
   justify-content: center;
@@ -21,9 +21,9 @@ body {
 }
 
 /* Header */
-
 .top-banner {
   height: 98px;
+  width: 100%;
   background-color: #d89c5c;
 
   display: flex;
@@ -35,18 +35,14 @@ body {
 
 .top-banner h1 {
   margin: 0;
+  padding-top: 30px;
+
   color: #fef9f4;
   font-size: 20px;
   font-weight: 700;
-  padding-top: 30px;
-}
-
-.top-banner img {
-  height: 29px;
 }
 
 /* Back arrow */
-
 .back-button {
   position: absolute;
   left: 20px;
@@ -62,13 +58,61 @@ body {
   text-decoration: none;
 }
 
+.back-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Points balance */
+.top-banner .points-counter {
+  position: absolute;
+  right: 12px;
+  top: 63px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  color: #fef9f4;
+  white-space: nowrap;
+}
+
+.top-banner .points-counter img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.top-banner .points-counter p {
+  margin: 0;
+  padding: 0;
+
+  color: #fef9f4;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Back arrow */
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 63px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .back-button span {
   width: 16px;
   height: 16px;
-
   border-left: 2px solid #fef9f4;
   border-bottom: 2px solid #fef9f4;
-
   transform: rotate(45deg);
 }
 
@@ -82,7 +126,6 @@ body {
 
 .profile-note {
   margin: 0 0 5px 5px;
-
   color: #222;
   font-size: 13px;
   line-height: 18px;
@@ -93,14 +136,10 @@ body {
 .item-card {
   width: 100%;
   height: 63px;
-
   margin-bottom: 8px;
-
   display: flex;
   align-items: stretch;
-
   background-color: #fef9f4;
-
   border-radius: 12px;
   overflow: hidden;
 }
@@ -110,9 +149,7 @@ body {
 .item-image {
   width: 57px;
   min-width: 57px;
-
   background-color: #ecd1b5;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,19 +158,14 @@ body {
 .item-image img {
   width: 43px;
   height: 43px;
-
   object-fit: contain;
 }
 
 /* Item information */
-
 .item-info {
   flex: 1;
-
   min-width: 0;
-
   padding: 7px 8px 5px 11px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -141,20 +173,15 @@ body {
 
 .item-info h2 {
   margin: 0;
-
   color: #222;
-
   font-size: 13px;
   font-weight: 400;
-
   line-height: 16px;
 }
 
 .item-info p {
   margin: 0;
-
   color: #333;
-
   font-size: 10px;
   line-height: 13px;
 }
@@ -164,20 +191,14 @@ body {
 .points {
   width: 54px;
   min-width: 54px;
-
   margin: 0;
-
   background-color: #d89c5c;
-
   color: #fef9f4;
-
   border-radius: 12px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   font-size: 12px;
   line-height: 15px;
 }
@@ -185,13 +206,10 @@ body {
 .purchase-modal {
   position: fixed;
   inset: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(0, 0, 0, 0.15);
-
   z-index: 2000;
 }
 
@@ -203,20 +221,14 @@ body {
 
 .purchase-card {
   position: relative;
-
   width: 265px;
   height: 240px;
-
   background: #faf3e0;
-
   border-radius: 35px;
-
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding-top: 10px;
 }
 
@@ -224,22 +236,15 @@ body {
 
 .close-purchase {
   position: absolute;
-
   top: 12px;
   right: 25px;
-
   border: none;
   background: none;
-
   color: #d89c5c;
-
   font-size: 34px;
   font-weight: bold;
-
   line-height: 1;
-
   cursor: pointer;
-
   z-index: 5;
 }
 
@@ -247,10 +252,8 @@ body {
 
 .avatar-preview {
   position: relative;
-
   width: 180px;
   height: 170px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,10 +263,8 @@ body {
 
 .avatar-base {
   position: absolute;
-
   width: 150px;
   height: 150px;
-
   object-fit: contain;
 }
 
@@ -271,12 +272,9 @@ body {
 
 .avatar-item {
   position: absolute;
-
   width: 150px;
   height: 150px;
-
   object-fit: contain;
-
   pointer-events: none;
 }
 
@@ -285,22 +283,16 @@ body {
 .confirm-purchase {
   width: 103px;
   height: 35px;
-
   border: none;
   border-radius: 8px;
-
   background: #d89c5c;
   color: #fef9f4;
-
   font-family: Arial, sans-serif;
-
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-
   font-size: 11px;
 }
 

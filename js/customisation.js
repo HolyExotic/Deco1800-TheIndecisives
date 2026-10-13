@@ -7,13 +7,6 @@ const confirmPurchase = document.getElementById("confirmPurchase");
 const previewItem = document.getElementById("previewItem");
 const confirmCost = document.getElementById("confirmCost");
 
-// User's points
-let points = Number(localStorage.getItem("points"));
-
-if (isNaN(points)) {
-  points = 800;
-  localStorage.setItem("points", points);
-}
 
 // Purchased items
 let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems")) || [];
@@ -61,45 +54,39 @@ closePurchase.addEventListener("click", () => {
   selectedItem = null;
 });
 
-//MARK: Purchase item
+// MARK: Purchase item
 confirmPurchase.addEventListener("click", () => {
-  if (!selectedItem) {
-    return;
-  }
-
-  const cost = selectedItem.cost;
-
-  // Check points
-  if (points < cost) {
-    alert("You don't have enough points!");
-
-    return;
-  }
-
-  // Deduct points
-  points -= cost;
-
-  localStorage.setItem("points", points);
-
-  // Add item to inventory
-  purchasedItems.push(selectedItem.id);
-
-  localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems));
-
-  // Close popup
-  purchaseModal.classList.add("hidden");
-
-  // Change purchase button to Owned
-  purchaseButtons.forEach((button) => {
-    if (button.dataset.item === selectedItem.id) {
-      button.innerHTML = `
-                <span>Owned</span>
-            `;
-
-      button.classList.add("owned");
+    if (!selectedItem) {
+        return;
     }
-  });
 
-  // Clear selected item
-  selectedItem = null;
+    const cost = selectedItem.cost;
+
+    // Check and deduct points using the shared points system
+    if (!spendPoints(cost)) {
+        alert("You don't have enough points!");
+        return;
+    }
+
+    // Add item to inventory
+    purchasedItems.push(selectedItem.id);
+
+    localStorage.setItem(
+        "purchasedItems",
+        JSON.stringify(purchasedItems)
+    );
+
+    // Close popup
+    purchaseModal.classList.add("hidden");
+
+    // Change purchase button to Owned
+    purchaseButtons.forEach((button) => {
+        if (button.dataset.item === selectedItem.id) {
+            button.innerHTML = "<span>Owned</span>";
+            button.classList.add("owned");
+        }
+    });
+
+    // Clear selected item
+    selectedItem = null;
 });

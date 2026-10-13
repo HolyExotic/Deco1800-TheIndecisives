@@ -85,3 +85,59 @@ if (routesButton) {
   });
 }
 */
+
+/* Toggle weekly and monthly activity */
+
+const periodBtn = document.getElementById('period-btn');
+const periodMenu = document.getElementById('period-menu');
+const periodLabel = document.getElementById('period-label');
+
+if (periodBtn) {
+    periodBtn.addEventListener('click', () => {
+        const open = periodMenu.hidden;
+        periodMenu.hidden = !open;
+        periodBtn.setAttribute('aria-expanded', open);
+    });
+
+    periodMenu.addEventListener('click', (e) => {
+        const period = e.target.dataset.period;
+        if (!period) return;
+        periodLabel.textContent = e.target.textContent;
+        document.getElementById('chart-week').hidden = period !== 'week';
+        document.getElementById('chart-month').hidden = period !== 'month';
+        periodMenu.hidden = true;
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.activity-header')) periodMenu.hidden = true;
+    });
+}
+const cal = document.getElementById('chart-month');
+
+if (cal) {
+    const activeDays = [1, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13];
+    const now = new Date();
+    const offset = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
+    const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+
+    const monthName = now.toLocaleString('default', { month: 'long', year: 'numeric' });
+    cal.insertAdjacentHTML('beforeend', `<span class="cal-title">${monthName}</span>`);
+
+    'SMTWTFS'.split('').forEach(d => {
+        cal.insertAdjacentHTML('beforeend', `<span class="cal-head">${d}</span>`);
+    });
+
+    for (let i = 0; i < offset; i++) {
+        cal.insertAdjacentHTML('beforeend', '<span></span>');
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+    const active = activeDays.includes(day) ? ' active' : '';
+    const today = day === now.getDate() ? ' today' : '';
+    const future = day > now.getDate() ? ' future' : '';
+    cal.insertAdjacentHTML(
+        'beforeend',
+        `<div class="cal-day${active}${today}${future}">${day}</div>`
+    );
+    }
+}
