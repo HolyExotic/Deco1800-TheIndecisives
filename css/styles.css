@@ -161,3 +161,7 @@ body {
   position: relative;
 }
 
+.banner-heading {
+  font-size: 35px;
+  color: white
+}
