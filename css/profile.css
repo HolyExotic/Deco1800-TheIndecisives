@@ -5,7 +5,7 @@
 .banner-heading {
     margin: 0;
     color: #fff;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 500;
 }
 
@@ -22,13 +22,12 @@
 }
 /* Main card */
 .profile-card {
-    border-radius: 24px;
-    background:  #fbe4c3;
+    background:  #fbeabe;
     padding: 28px 24px 20px;
-    margin: 10px 15px;
+    margin: 10px px;
     box-shadow:
-        -5px 5px 8px -4px rgba(0, 0, 0, 0.15),
-        5px 5px 8px -4px rgba(0, 0, 0, 0.15);
+        -5px 5px 8px -4px rgba(0, 0, 0, 0.1),
+        4px 4px 7px -5px rgba(0, 0, 0, 0.1);
 }
 
 .profile-info {
