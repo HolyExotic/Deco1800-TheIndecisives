@@ -156,6 +156,10 @@
     margin-left: 4px;
   }
 
-
+.shop-art {
+  position: relative;
+  left: 20px;
+  bottom: -20px;
+}
   /* Mobile scaling */
 
