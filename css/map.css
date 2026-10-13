@@ -19,18 +19,22 @@ body {
 }
 
 /* Header */
-
 .map-header {
+    width: 100%;
     height: 95px;
     padding: 12px;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background: #dfa158;
 }
 
 .header-text {
+    width: 100%;
+    padding: 0 52px;
     text-align: center;
+    min-width: 0;
 }
 
 .header-text h1 {
@@ -42,6 +46,8 @@ body {
 .header-text p {
     margin: 4px 0 0;
     font-size: 12px;
+    line-height: 1.3;
+    white-space: normal;
 }
 
 .icon-button {
@@ -53,6 +59,23 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+/* Position header buttons */
+.map-header .icon-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Filter button on the left */
+#filterButton {
+    left: 30px;
+}
+
+/* Search button on the right */
+#searchButton {
+    right: 30px;
 }
 
 /* Filter icon */
