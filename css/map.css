@@ -30,85 +30,43 @@ body {
 /* Header */
 .map-header {
     width: 100%;
-    height: 95px;
+    height: 88px;
     padding: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #dfa158;
-}
-
-.header-text {
-    flex: 1;
-    min-width: 0;
-    padding: 0 8px;
-    text-align: center;
-}
-
-.header-text h1 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 400;
-}
-
-.header-text p {
-    margin: 4px 0 0;
-    font-size: 12px;
-    line-height: 1.3;
-    white-space: normal;
+    background: #d89c5c;
 }
 
 /* Header icon buttons */
 .icon-button {
     width: 48px;
     height: 48px;
-    position: relative;
-    flex-shrink: 0;
-    border: 1px solid #333;
-    background: transparent;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: #e0b072;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+    margin-top: 20px;
 }
 
-/* Filter icon */
-#filterButton::before {
-    content: "";
-    width: 24px;
-    height: 22px;
-    background: #333;
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        60% 50%,
-        60% 100%,
-        40% 100%,
-        40% 50%
-    );
+/* SVG icons */
+.icon-button img {
+    width: 33px;
+    height: 33px;
+    display: block;
+    object-fit: contain;
 }
 
-/* Search icon */
-#searchButton::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    border: 2px solid #333;
-    border-radius: 50%;
-    position: absolute;
-    top: 12px;
-    left: 12px;
-}
-
-#searchButton::after {
-    content: "";
-    width: 11px;
-    height: 2px;
-    background: #333;
-    position: absolute;
-    top: 29px;
-    left: 28px;
-    transform: rotate(45deg);
+/* Hover effect */
+.icon-button:hover {
+    background: #edc99e;
 }
 
 
@@ -485,7 +443,7 @@ body {
 
 /* Set Leaflet bottom controls  */
 #map .leaflet-bottom {
-    bottom: 68px;
+    bottom: 20px;
 }
 
 /* Desktop testing */

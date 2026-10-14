@@ -189,11 +189,16 @@ body {
 }
 
 .banner-heading {
-  font-size: 35px;
-  color: white
+  font-size: 30px;
+  color: white;
+  margin-top: 30px;
 }
 
-
+.top-banner .banner-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
 
 
 /* MARK: FOOTER */

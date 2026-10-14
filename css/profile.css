@@ -2,12 +2,6 @@
     color: #644426;
 }
 
-.banner-heading {
-    margin: 0;
-    color: #fff;
-    font-size: 30px;
-    font-weight: 500;
-}
 
 .profile {
     flex: 1;
@@ -214,6 +208,8 @@
 /* Achievements */
 .badges {
     margin: 0 15px 24px;
+    margin-top: 22px;
+    margin-bottom: 12px;
 }
 
 .badges-head {
@@ -409,16 +405,14 @@
 .activity-title {
     font-size: 22px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .activity-card {
     background: white;
     border-radius: 24px;
     padding: 14px 14px 10px;
-    box-shadow:
-        -5px 5px 8px -4px rgba(0, 0, 0, 0.2),
-        5px 5px 8px -4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 14px rgba(139, 90, 43, 0.22);
 }
 
 .activity-header {
