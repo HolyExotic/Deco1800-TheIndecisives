@@ -36,7 +36,7 @@ const parkIcon = L.divIcon({
     className: "park-marker",
     html: "🌳",
     iconSize: [30, 30],
-    iconAnchor: [15, 15],
+    iconAnchor: [15, 35],
     popupAnchor: [0, -15]
 });
 
@@ -574,13 +574,16 @@ async function loadTrails() {
                 return;
             }
             
-            // Display the trail shape by using GeoJSON
+            // Display walking trails on the map
             const trailLine = L.geoJSON(
                 trail.geo_shape,
                 {
                     style: {
-                        weight: 4,
-                        dashArray: "6, 6"
+                        color: "#7131c6",
+                        weight: 6,
+                        opacity: 1,
+                        lineCap: "round",
+                        lineJoin: "round"
                     }
                 }
             );
