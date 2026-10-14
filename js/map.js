@@ -573,7 +573,24 @@ async function loadTrails() {
             if (!trail.geo_shape) {
                 return;
             }
-            
+            // Create a white outline for walking trails
+            const trailOutline = L.geoJSON(
+                trail.geo_shape,
+                {
+                    style: {
+                        color: "#ffffff",
+                        weight: 12,
+                        opacity: 1,
+                        lineCap: "round",
+                        lineJoin: "round",
+                        interactive: false
+                    }
+                }
+            );
+
+            // Add the white outline first
+            trailOutline.addTo(trailLayer);
+
             // Display walking trails on the map
             const trailLine = L.geoJSON(
                 trail.geo_shape,
@@ -588,13 +605,30 @@ async function loadTrails() {
                 }
             );
             
-            trailLine.bindPopup(`
-                <strong>${trail.park_name}</strong>
-                <br>
-                ${trail.item_description}
-                <br>
-                Type: ${trail.item_type}
-            `);
+            // Show trail details when the trail is selected
+            trailLine.on("click", (event) => {
+
+                // Store the selected point on the trail
+                selectedLocationCoordinates = [
+                    event.latlng.lat,
+                    event.latlng.lng
+                ];
+
+                // Display trail information
+                locationTitle.textContent =
+                    trail.item_description || "Walking Trail";
+
+                locationSuburb.textContent =
+                    `${trail.park_name || "Unknown park"} · Walking Trail`;
+
+                locationInfo.textContent =
+                    `Trail type: ${trail.item_type || "Not specified"}
+            Directions will use the selected point on the trail.`;
+
+                // Open the location details card
+                locationDetails.classList.remove("hidden");
+
+            });
 
             trailLine.addTo(trailLayer);
         });
