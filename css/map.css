@@ -495,7 +495,7 @@ body {
 
 /* Move zoom controls above the bottom navigation bar */
 #map .leaflet-bottom .leaflet-control-zoom {
-    margin-bottom: 100px;
+    margin-bottom: 180px;
 }
 
 /* Desktop testing */
