@@ -194,14 +194,30 @@ async function searchLocations() {
 
         // Combine search results from both datasets
         const results = [
-            ...parks.map(park => ({
-                name: park.park_name || "Unnamed park",
-                suburb: park.suburb || "",
-                type: "Park",
-                lat: park.geopoint?.lat,
-                lon: park.geopoint?.lon,
-                info: park.park_size || ""
-            })),
+            ...parks.map(park => {
+
+        // Get the park address
+        const street =
+            `${park.house_number || ""} ${park.street_address || ""}`.trim();
+
+        const address = [
+            street,
+            park.suburb,
+            park.post_code
+        ].filter(Boolean).join(", ");
+
+        return {
+            name: park.park_name || "Unnamed park",
+            suburb: park.suburb || "",
+            type: "Park",
+            lat: park.geopoint?.lat,
+            lon: park.geopoint?.lon,
+
+            info: `Address: ${address || "Not available"}
+    Park size: ${park.park_size || "Not available"}`
+        };
+
+    }),
 
             ...offLeashAreas.map(area => ({
                 name: area.item_description || area.park_name || "Off-leash area",
