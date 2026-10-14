@@ -127,8 +127,8 @@ body {
 }
 
 .nav-icon img[src*="routes.svg"] {
-  width: 30px;
-  height: 30px;
+  width: 28.5px;
+  height: 28.5px;
 }
 
 .nav-link.active .nav-icon::before {

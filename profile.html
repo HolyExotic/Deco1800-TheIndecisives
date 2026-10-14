@@ -1,166 +1,231 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/profile.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/profile.css" />
 
-  <body>
-    <div class="app">
-      <header class="top-banner">
-        <h1 class="banner-heading">Profile</h1>
-      </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet" />
+</head>
 
-      <main class="profile">
-        <div class="profile-card">
-          <div class="profile-info">
-            <img class="avatar" src="images/dog_profile_pic.png" alt="Max" />
-            <div class="details">
-              <h2 class="dog-name">Max</h2>
-              <p class="rank">Novice Explorer</p>
-              <p>Age: 7</p>
-              <p>Size: Medium</p>
-              <p>Weight: 36kg</p>
-            </div>
+<body>
+  <div class="app">
+    <header class="top-banner">
+      <h1 class="banner-heading">Profile</h1>
+    </header>
+
+    <main class="profile">
+      <div class="profile-card">
+        <img class="avatar" src="images/dog_profile_pic.png" alt="Max" />
+
+        <h2 class="dog-name">Max</h2>
+        <p class="rank">Novice Explorer</p>
+
+        <div class="details">
+          <span class="detail-chip">Age 7</span>
+          <span class="detail-chip">Medium</span>
+          <span class="detail-chip">36kg</span>
+        </div>
+
+        <div class="level">
+          <span class="level-label">Level 4</span>
+          <div class="xp-bar">
+            <div class="xp-fill" style="width: 68%"></div>
           </div>
+          <p class="xp-text">34 / 50xp</p>
+        </div>
+      </div>
 
-          <div class="level">
-            <span class="level-label">Level 4</span>
-            <div class="xp-bar">
-              <div class="xp-fill" style="width: 68%"></div>
-            </div>
-            <p class="xp-text">34 / 50xp</p>
+      <div class="stats">
+        <div class="stat">
+          <h3>Streak</h3>
+          <div class="stat-row fire_streak_icon">
+            <img src="images/fire_streak2.svg" alt="fire streak2 icon" />
+            <span class="stat-number">11</span>
           </div>
         </div>
 
-        <div class="stats">
-          <div class="stat">
-            <h3>Streak</h3>
-            <div class="stat-row fire_streak_icon">
-              <img src="images/fire_streak2.svg" alt="fire streak2 icon" />
-              <span class="stat-number">11</span>
-            </div>
-          </div>
-
-          <div class="stat">
-            <h3>Status</h3>
-            <img src="images/pulse.svg" alt="pulse icon" />
-            <span class="stat-sub">Active</span>
-          </div>
-
-          <div class="stat">
-            <h3>Activities Completed</h3>
-            <span class="stat-number">14</span>
-          </div>
-
-          <div class="stat">
-            <h3>Total Active Time</h3>
-            <span class="stat-number small">19 hrs</span>
-          </div>
+        <div class="stat">
+          <h3>Status</h3>
+          <img src="images/pulse.svg" alt="pulse icon" />
+          <span class="stat-sub">Active</span>
         </div>
 
-        <section class="activity">
-          <h2 class="activity-title">Activity</h2>
-          <div class="activity-card">
-            <div class="activity-header">
-              <button class="period-btn" id="period-btn" aria-expanded="false">
-                <span id="period-label">This Week</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                >
-                  <line x1="1" y1="3" x2="15" y2="3" />
-                  <line x1="3" y1="8" x2="13" y2="8" />
-                  <line x1="6" y1="13" x2="10" y2="13" />
-                </svg>
-              </button>
-              <ul class="period-menu" id="period-menu" hidden>
-                <li data-period="week">This Week</li>
-                <li data-period="month">This Month</li>
-              </ul>
+        <div class="stat">
+          <h3>Activities Completed</h3>
+          <span class="stat-number">14</span>
+        </div>
+
+        <div class="stat">
+          <h3>Total Active Time</h3>
+          <span class="stat-number small">19 hrs</span>
+        </div>
+      </div>
+
+      <section class="badges">
+        <div class="badges-head">
+          <h2 class="activity-title">Achievements</h2>
+          <span class="badges-count">3 / 5</span>
+        </div>
+
+        <div class="badge-row">
+          <div class="badge earned" data-name="First Walk" data-desc="Complete your first walk.">
+            <div class="badge-icon">
+              <img src="images/shoes.svg" alt="shoes">
+            </div>
+            <span>First Walk</span>
+          </div>
+
+          <div class="badge earned" data-name="7 Day Streak" data-desc="Walk 7 days in a row.">
+            <div class="badge-icon">
+              <img src="images/fire_streak2.svg" alt="fire">
+            </div>
+            <span>7-Day Streak</span>
+          </div>
+
+          <div class="badge earned" data-name="Park Explorer" data-desc="Visit 5 different parks.">
+            <div class="badge-icon">
+              <img src="images/park-achievement.svg" alt="park icon">
+            </div>
+            <span>Park Explorer</span>
+          </div>
+
+          <div class="badge locked" data-name="Adventurer" data-desc="Explore 20 new routes. 11 done so far.">
+            <div class="badge-icon">
+              <img src="images/compass.svg" alt="compass">
+            </div>
+            <span>Adventurer</span>
+          </div>
+
+          <div class="badge locked" data-name="Early Bird" data-desc="Finish a walk before 6am.">
+            <div class="badge-icon">
+              <img src="images/sunrise.svg" alt="sunrise">
+            </div>
+            <span>Early Bird</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="activity">
+        <h2 class="activity-title">Activity</h2>
+        <div class="activity-card">
+
+          <div class="activity-header">
+            <button class="period-btn" id="period-btn" aria-expanded="false">
+              <span id="period-label">This Week</span>
+
+              <svg width="16" height="16" viewBox="0 0 16 16" stroke="#000" stroke-width="2" stroke-linecap="round">
+                <line x1="1" y1="3" x2="15" y2="3" />
+                <line x1="3" y1="8" x2="13" y2="8" />
+                <line x1="6" y1="13" x2="10" y2="13" />
+              </svg>
+            </button>
+
+            <ul class="period-menu" id="period-menu" hidden>
+              <li data-period="week">This Week</li>
+              <li data-period="month">This Month</li>
+            </ul>
+          </div>
+
+          <div class="chart-wrap" id="chart-week">
+            <div class="y-axis">
+              <span>60</span>
+              <span>40</span>
+              <span>20</span>
+              <span>0</span>
             </div>
 
-            <div class="chart-wrap" id="chart-week">
-              <div class="y-axis">
-                <span>60</span>
-                <span>40</span>
-                <span>20</span>
-                <span>0</span>
+            <div class="chart" style="--max: 60">
+              <div class="bar-col">
+                <div class="bar" style="--min: 60" title="60 min"></div>
+                <span>Sun</span>
               </div>
 
-              <div class="chart" style="--max: 60">
-                <div class="bar-col">
-                  <div class="bar" style="--min: 60" title="60 min"></div>
-                  <span>Sun</span>
-                </div>
-                <div class="bar-col">
-                  <div class="bar" style="--min: 0" title="0 min"></div>
-                  <span>Mon</span>
-                </div>
-                <div class="bar-col">
-                  <div class="bar" style="--min: 13" title="13 min"></div>
-                  <span>Tue</span>
-                </div>
-                <div class="bar-col">
-                  <div class="bar" style="--min: 24" title="24 min"></div>
-                  <span>Wed</span>
-                </div>
-                <div class="bar-col">
-                  <div class="bar" style="--min: 7" title="7 min"></div>
-                  <span>Thu</span>
-                </div>
-                <div class="bar-col">
-                  <div class="bar" style="--min: 33" title="33 min"></div>
-                  <span>Fri</span>
-                </div>
-                <div class="bar-col">
-                  <div class="bar" style="--min: 55" title="55 min"></div>
-                  <span>Sat</span>
-                </div>
+              <div class="bar-col">
+                <div class="bar" style="--min: 0" title="0 min"></div>
+                <span>Mon</span>
+              </div>
+
+              <div class="bar-col">
+                <div class="bar" style="--min: 13" title="13 min"></div>
+                <span>Tue</span>
+              </div>
+
+              <div class="bar-col">
+                <div class="bar" style="--min: 24" title="24 min"></div>
+                <span>Wed</span>
+              </div>
+
+              <div class="bar-col">
+                <div class="bar" style="--min: 7" title="7 min"></div>
+                <span>Thu</span>
+              </div>
+
+              <div class="bar-col">
+                <div class="bar" style="--min: 33" title="33 min"></div>
+                <span>Fri</span>
+              </div>
+
+              <div class="bar-col">
+                <div class="bar" style="--min: 55" title="55 min"></div>
+                <span>Sat</span>
               </div>
             </div>
-
-            <div class="calendar" id="chart-month" hidden></div>
           </div>
-        </section>
 
-        <section class="preferences">
-          <h2 class="activity-title">Preferences</h2>
-          <div class="pref-list">
-            <span class="pref-chip">Quiet</span>
-            <span class="pref-chip">Greenery</span>
-            <span class="pref-chip">Drinking Stations</span>
-          </div>
-        </section>
+          <div class="calendar" id="chart-month" hidden></div>
+        </div>
+      </section>
 
-        <section class="placeholder">
-          <h2 class="activity-title">Placeholder</h2>
-          <div class="placeholder-box">Item 1</div>
-          <div class="placeholder-box">Item 2</div>
-          <div class="placeholder-box">Item 3</div>
-          <div class="placeholder-box">Item 4</div>
-        </section>
-      </main>
-      <!-- AI Disclosure Footer -->
-      <div id="site-footer"></div>
+      <section class="preferences">
+        <h2 class="activity-title">Preferences</h2>
 
-      <div id="site-nav"></div>
+        <div class="pref-list">
+          <span class="pref-chip">Quiet</span>
+          <span class="pref-chip">Greenery</span>
+          <span class="pref-chip">Drinking Stations</span>
+        </div>
+      </section>
+
+      <section class="placeholder">
+        <h2 class="activity-title">Placeholder</h2>
+
+        <div class="placeholder-box">Item 1</div>
+        <div class="placeholder-box">Item 2</div>
+        <div class="placeholder-box">Item 3</div>
+        <div class="placeholder-box">Item 4</div>
+      </section>
+    </main>
+
+    <!-- AI Disclosure Footer -->
+    <div id="site-footer"></div>
+
+    <!-- Achievement popup -->
+    <div class="badge-modal" id="badge-modal" hidden>
+      <div class="badge-card">
+        <button class="badge-close" id="badge-close" aria-label="Close">×</button>
+
+        <div class="badge-icon big" id="badge-modal-icon"></div>
+
+        <h3 id="badge-modal-name"></h3>
+
+        <p id="badge-modal-desc"></p>
+
+        <span class="badge-status" id="badge-modal-status"></span>
+      </div>
     </div>
 
-    <script src="js/script.js"></script>
-  </body>
+    <div id="site-nav"></div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
 </html>
