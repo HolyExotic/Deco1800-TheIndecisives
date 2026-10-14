@@ -27,15 +27,32 @@ body {
 }
 
 /* Header */
-/* Header */
 .map-header {
     width: 100%;
-    height: 88px;
-    padding: 12px;
+    height: 128px;
+    padding: 12px 12px 52px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #d89c5c;
+    flex-shrink: 0;
+}
+
+/* Active filters displayed in the header */
+.active-filters {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    background: #f4dfbd;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #5c4429;
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 /* Header icon buttons */
@@ -73,7 +90,7 @@ body {
 /* Search panel */
 .search-panel {
     position: absolute;
-    top: 105px;
+    top: 138px;
     left: 12px;
     right: 12px;
     padding: 12px;
@@ -146,7 +163,7 @@ body {
 /* Current location button */
 .use-location-button {
     position: absolute;
-    top: 110px;
+    top: 143px;
     right: 12px;
     padding: 10px 12px;
     background: #fff5df;
@@ -177,7 +194,7 @@ body {
 
 .filter-panel {
     position: absolute;
-    top: 95px;
+    top: 128px;
     left: 0;
     width: 80%;
     padding: 16px;

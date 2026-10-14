@@ -60,6 +60,7 @@ const trailLayer = L.featureGroup().addTo(map);
 // Get filter interface elements from html file
 const filterButton = document.getElementById("filterButton");
 const filterPanel = document.getElementById("filterPanel");
+const activeFilters = document.getElementById("activeFilters");
 const offLeashToggle = document.getElementById("offLeashToggle");
 const parkToggle = document.getElementById("parkToggle");
 const trailToggle = document.getElementById("trailToggle");
@@ -305,6 +306,34 @@ searchInput.addEventListener("keydown", (event) => {
     }
 });
 
+// Update the active filters displayed in the header
+function updateActiveFilters() {
+
+    const selectedFilters = [];
+
+    if (offLeashToggle.checked) {
+        selectedFilters.push("🐾 Off-leash");
+    }
+
+    if (parkToggle.checked) {
+        selectedFilters.push("🌳 Parks");
+    }
+
+    if (trailToggle.checked) {
+        selectedFilters.push("〰 Trails");
+    }
+
+    if (fountainToggle.checked) {
+        selectedFilters.push("⛲ Fountains");
+    }
+
+    if (selectedFilters.length === 0) {
+        activeFilters.textContent = "No filters selected";
+    } else {
+        activeFilters.textContent = selectedFilters.join(" · ");
+    }
+
+}
 // Show or hide dataset layers based on the selected filters
 applyFilters.addEventListener("click", () => {
 
@@ -347,7 +376,7 @@ applyFilters.addEventListener("click", () => {
             map.removeLayer(trailLayer);
         }
     }
-
+    updateActiveFilters();
     filterPanel.classList.add("hidden");
 });
 
