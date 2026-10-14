@@ -83,13 +83,6 @@ const closeLocationDetails = document.getElementById("closeLocationDetails");
 
 
 // Get map route elements from html
-const viewRouteButton = document.getElementById("viewRouteButton");
-const mapRouteDetails = document.getElementById("mapRouteDetails");
-const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
-const mapRouteTitle = document.getElementById("mapRouteTitle");
-const mapRouteDistance = document.getElementById("mapRouteDistance");
-const mapRouteWalkingTime = document.getElementById("mapRouteWalkingTime");
-const routeNote = document.getElementById("routeNote");
 const getDirectionsButton = document.getElementById("getDirectionsButton");
 const useMyLocationButton = document.getElementById("useMyLocationButton");
 
@@ -359,46 +352,6 @@ resetFilters.addEventListener("click", () => {
 closeLocationDetails.addEventListener("click", () => {
     locationDetails.classList.add("hidden");
 });
-
-
-// Open route details for the selected map location
-viewRouteButton.addEventListener("click", () => {
-
-    // Make sure a location has been selected
-    if (!selectedLocationCoordinates) {
-        return;
-    }
-
-    // Use the selected location name as the route destination
-    mapRouteTitle.textContent = locationTitle.textContent;
-
-    // Calculate approximate distance
-    const distanceMetres = map.distance(
-        userLocation,
-        selectedLocationCoordinates
-    );
-
-    const distanceKm = distanceMetres / 1000;
-
-    // Estimate walking time at around 5 km/h
-    const walkingMinutes =
-        Math.round((distanceKm / 5) * 60);
-
-    // Display distance and walking time
-    mapRouteDistance.textContent =
-        `${distanceKm.toFixed(1)} km`;
-
-    mapRouteWalkingTime.textContent =
-        `${walkingMinutes} min`;
-
-    // Update the note based on the location source
-    if (hasGeolocation) {
-        routeNote.textContent =
-            "Estimated from your location using straight-line distance. Actual walking time may vary.";
-    } else {
-        routeNote.textContent =
-            "Distance is estimated from a demo location. Use My Location for a personalised estimate.";
-    }
 
     // Remove the previous route line
     //if (mapRouteLine) {
