@@ -69,6 +69,10 @@ body {
   padding: 0 8px;
 }
 
+.nav-link span {
+  color: #644426
+}
+
 .nav-item {
   width: 45px;
   display: flex;
@@ -123,8 +127,8 @@ body {
 }
 
 .nav-icon img[src*="routes.svg"] {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
 }
 
 .nav-link.active .nav-icon::before {
@@ -188,6 +192,7 @@ body {
   font-size: 35px;
   color: white
 }
+
 
 
 
