@@ -511,11 +511,12 @@ async function loadOffLeashAreas() {
                 locationTitle.textContent = area.item_description;
                 locationSuburb.textContent = `${area.park_name} - ${area.suburb}`;
 
+                // Display off-leash area facilities
                 locationInfo.textContent =
-                    `Fencing: ${area.fencing}
-                Small dog enclosure: ${area.small_dog_enclosure}
-                Agility equipment: ${area.dog_agility_equipment}
-                Lighting: ${area.lighting}`;
+                    `Fencing: ${area.fencing || "Not specified"}
+                Small dog enclosure: ${area.small_dog_enclosure || "Not specified"}
+                Agility equipment: ${area.dog_agility_equipment || "Not specified"}
+                Lighting: ${area.lighting || "Not specified"}`;
 
                 locationDetails.classList.remove("hidden");
             });
