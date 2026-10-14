@@ -10,7 +10,7 @@ if (navMount) {
       <nav class="bottom-nav">
 
         <!-- HOME -->
-        <a href="avatar.html" class="nav-link">
+        <a href="index.html" class="nav-link">
         <div class="nav-item">
           <div class="nav-icon">
             <img src="images/home.svg" alt="Home" />
@@ -30,7 +30,7 @@ if (navMount) {
         </a>
 
         <!-- ROUTES -->
-        <a href="route-planner.html" class="nav-link">
+        <a href="routes.html" class="nav-link">
         <div class="nav-item">
           <div class="nav-icon">
             <img src="images/routes.svg" alt="Routes" />
