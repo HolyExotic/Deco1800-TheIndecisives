@@ -434,9 +434,24 @@ async function loadParks() {
 
             // Store the selected park coordinates
             selectedLocationCoordinates = [lat, lon];
+
+            // Get the park address
+            const street = `${park.house_number || ""} ${park.street_address || ""}`.trim();
+
+            const address = [
+                street,
+                park.suburb,
+                park.post_code
+            ].filter(Boolean).join(", ");
+
+            // Display park information
             locationTitle.textContent = park.park_name;
-            locationSuburb.textContent = park.suburb || "";
-            locationInfo.textContent = park.park_size || "";
+            locationSuburb.textContent = `${park.suburb || ""} · Park`;
+
+            locationInfo.textContent =
+                `Address: ${address || "Not available"}
+        Park size: ${park.park_size || "Not available"}`;
+
             locationDetails.classList.remove("hidden");
         });
     
