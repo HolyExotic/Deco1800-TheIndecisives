@@ -123,8 +123,6 @@ const userMarker = L.marker(
     {icon: demoIcon}
 ).addTo(map);
 
-let mapRouteLine = null;
-
 // Get the user's current location
 useMyLocationButton.addEventListener("click", () => {
 
@@ -272,7 +270,6 @@ async function searchLocations() {
 
                 // Close search and display location details
                 searchPanel.classList.add("hidden");
-                mapRouteDetails.classList.add("hidden");
                 locationDetails.classList.remove("hidden");
             });
             searchResults.appendChild(item);
@@ -351,33 +348,6 @@ resetFilters.addEventListener("click", () => {
 // Close the location details card
 closeLocationDetails.addEventListener("click", () => {
     locationDetails.classList.add("hidden");
-});
-
-    // Remove the previous route line
-    //if (mapRouteLine) {
-    //    map.removeLayer(mapRouteLine);
-    //}
-
-    // Draw the route from the demo user location
-    //mapRouteLine = L.polyline(
-    //    [userLocation,selectedLocationCoordinates],
-    //    {weight: 5}
-    //).addTo(map);
-
-    // Move the map so the whole route is visible
-    //map.fitBounds(
-    //    mapRouteLine.getBounds(),
-    //   {padding: [30, 30]}
-    //);
-
-    // Switch from location details to route details
-    locationDetails.classList.add("hidden");
-    mapRouteDetails.classList.remove("hidden");
-});
-
-// Close map route details
-closeMapRouteDetails.addEventListener("click", () => {
-    mapRouteDetails.classList.add("hidden");
 });
 
 // Open Google Maps walking directions
