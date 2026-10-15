@@ -507,10 +507,20 @@ body {
 
 /* Mobile map layout */
 @media (max-width: 480px) {
+
     #map {
         width: calc(100% - 48px);
-        height: 42dvh;
-        min-height: 320px;
+        height: 400px;
+        min-height: 0;
         margin: 12px auto 16px;
     }
+
+    .app {
+        padding-bottom: 80px;
+    }
+
+    .app #site-footer {
+        margin-top: auto;
+    }
+
 }
