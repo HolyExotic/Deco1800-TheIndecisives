@@ -506,11 +506,11 @@ body {
 
 
 /* Mobile map layout */
-@media (max-width: 480px) {
+@media (max-width: 450px) {
 
     #map {
         width: calc(100% - 48px);
-        height: 200px;
+        height: 180px;
         min-height: 0;
         margin: 12px auto 16px;
     }
