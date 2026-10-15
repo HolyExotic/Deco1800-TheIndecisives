@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dogGoButton = document.querySelector(".lower-btn");
 
     avatarButton.addEventListener("click", function () {
-        window.location.href = "/select.avatar.html";
+        window.location.href = "/select.index.html";
     });
 
     accessoriesButton.addEventListener("click", function () {
