@@ -132,7 +132,7 @@
 }
 
 .save-button {
-    position: relative;
+    position: absolute;
     font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
     cursor: pointer;
     color: #FFE8E8;
@@ -141,7 +141,9 @@
     border: 2px solid black;
     padding: 5px 100px;
     border-radius: 30px;
-    left: 60px;
-    bottom: 60px;
+    left: 30px;
+    bottom: 0;
 }
+
+
 

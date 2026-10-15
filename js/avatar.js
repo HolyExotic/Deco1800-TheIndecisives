@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dogGoButton = document.querySelector(".lower-btn");
 
     avatarButton.addEventListener("click", function () {
-        window.location.href = "/select.index.html";
+        window.location.href = "/choose.avatar.html";
     });
 
     accessoriesButton.addEventListener("click", function () {
@@ -14,11 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     questsButton.addEventListener("click", function () {
-        window.location.href = "/route-planner.html";
+        window.location.href = "/routes.html";
     });
 
     dogGoButton.addEventListener("click", function () {
         window.location.href = "/maps.html";
     });
 
+});
+
+
+// Animation on avatar options page
+document.addEventListener("DOMContentLoaded", () => {
+    const dogOptions = document.querySelector(".dog-size-options");
+
+    if (dogOptions) {
+        requestAnimationFrame(() => {
+            dogOptions.classList.add("animate-dogs");
+        });
+    }
 });
