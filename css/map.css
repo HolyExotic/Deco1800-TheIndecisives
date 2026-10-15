@@ -557,13 +557,14 @@ body {
         font-size: 9px;
         white-space: nowrap;
     }
-    
+
     .map-header {
     height: 112px;
     padding: 10px 12px 40px;
     }
 
     .use-location-button {
+    top: 138px;
     right: 28px;
     }
 }
