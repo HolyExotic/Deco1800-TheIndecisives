@@ -510,7 +510,7 @@ body {
 
     #map {
         width: calc(100% - 48px);
-        height: 400px;
+        height: 200px;
         min-height: 0;
         margin: 12px auto 16px;
     }
