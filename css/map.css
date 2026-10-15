@@ -504,3 +504,13 @@ body {
 
 /* Desktop testing */
 
+
+/* Mobile layout */
+@media (max-width: 480px) {
+    #map {
+        width: calc(100% - 24px);
+        height: calc(100dvh - 290px);
+        min-height: 320px;
+        margin: 12px;
+    }
+}
