@@ -48,7 +48,7 @@ h2 {
     transform: translateY(-80px);
 }
 
-avatar-menu1 {
+.avatar-menu1 {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -56,8 +56,8 @@ avatar-menu1 {
 
 .dog-avatar-selection {
     position: absolute;
-    top: 150px;
-    left: 10px;
+    top: 285px;
+    right: 10px;
     z-index: 1;
 }
 
@@ -68,16 +68,16 @@ avatar-menu1 {
     left: 7px;
 }
 
-avatar-menu2 {
+.avatar-menu2 {
     position: absolute;
     top: 20px;
     right: 80px;
 }
 
 .dog-accessories {
-    position: absolute;
-    top: 240px;
-    right: -250px;
+    position: relative;
+    top: 245px;
+    left: 0px;
     z-index: 1;
 }
 
@@ -87,7 +87,7 @@ avatar-menu2 {
     left: 250px;
 }
 
-avatar-menu3 {
+.avatar-menu3 {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -95,9 +95,9 @@ avatar-menu3 {
 }
 
 .daily-quests {
-    position: relative;
-    bottom: -110px;
-    left: 250px;
+    position: absolute;
+    bottom: 275px;
+    left: 110px;
     transform: translateX(-50%);
     z-index: 1;
 }

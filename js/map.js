@@ -36,7 +36,7 @@ const parkIcon = L.divIcon({
     className: "park-marker",
     html: "🌳",
     iconSize: [30, 30],
-    iconAnchor: [15, 15],
+    iconAnchor: [15, 35],
     popupAnchor: [0, -15]
 });
 
@@ -60,6 +60,7 @@ const trailLayer = L.featureGroup().addTo(map);
 // Get filter interface elements from html file
 const filterButton = document.getElementById("filterButton");
 const filterPanel = document.getElementById("filterPanel");
+const activeFilters = document.getElementById("activeFilters");
 const offLeashToggle = document.getElementById("offLeashToggle");
 const parkToggle = document.getElementById("parkToggle");
 const trailToggle = document.getElementById("trailToggle");
@@ -83,13 +84,6 @@ const closeLocationDetails = document.getElementById("closeLocationDetails");
 
 
 // Get map route elements from html
-const viewRouteButton = document.getElementById("viewRouteButton");
-const mapRouteDetails = document.getElementById("mapRouteDetails");
-const closeMapRouteDetails = document.getElementById("closeMapRouteDetails");
-const mapRouteTitle = document.getElementById("mapRouteTitle");
-const mapRouteDistance = document.getElementById("mapRouteDistance");
-const mapRouteWalkingTime = document.getElementById("mapRouteWalkingTime");
-const routeNote = document.getElementById("routeNote");
 const getDirectionsButton = document.getElementById("getDirectionsButton");
 const useMyLocationButton = document.getElementById("useMyLocationButton");
 
@@ -129,8 +123,6 @@ const userMarker = L.marker(
     userLocation,
     {icon: demoIcon}
 ).addTo(map);
-
-let mapRouteLine = null;
 
 // Get the user's current location
 useMyLocationButton.addEventListener("click", () => {
@@ -203,14 +195,30 @@ async function searchLocations() {
 
         // Combine search results from both datasets
         const results = [
-            ...parks.map(park => ({
-                name: park.park_name || "Unnamed park",
-                suburb: park.suburb || "",
-                type: "Park",
-                lat: park.geopoint?.lat,
-                lon: park.geopoint?.lon,
-                info: park.park_size || ""
-            })),
+            ...parks.map(park => {
+
+        // Get the park address
+        const street =
+            `${park.house_number || ""} ${park.street_address || ""}`.trim();
+
+        const address = [
+            street,
+            park.suburb,
+            park.post_code
+        ].filter(Boolean).join(", ");
+
+        return {
+            name: park.park_name || "Unnamed park",
+            suburb: park.suburb || "",
+            type: "Park",
+            lat: park.geopoint?.lat,
+            lon: park.geopoint?.lon,
+
+            info: `Address: ${address || "Not available"}
+    Park size: ${park.park_size || "Not available"}`
+        };
+
+    }),
 
             ...offLeashAreas.map(area => ({
                 name: area.item_description || area.park_name || "Off-leash area",
@@ -279,7 +287,6 @@ async function searchLocations() {
 
                 // Close search and display location details
                 searchPanel.classList.add("hidden");
-                mapRouteDetails.classList.add("hidden");
                 locationDetails.classList.remove("hidden");
             });
             searchResults.appendChild(item);
@@ -299,6 +306,34 @@ searchInput.addEventListener("keydown", (event) => {
     }
 });
 
+// Update the active filters displayed in the header
+function updateActiveFilters() {
+
+    const selectedFilters = [];
+
+    if (offLeashToggle.checked) {
+        selectedFilters.push("🐾 Off-leash");
+    }
+
+    if (parkToggle.checked) {
+        selectedFilters.push("🌳 Parks");
+    }
+
+    if (trailToggle.checked) {
+        selectedFilters.push("〰 Trails");
+    }
+
+    if (fountainToggle.checked) {
+        selectedFilters.push("⛲ Fountains");
+    }
+
+    if (selectedFilters.length === 0) {
+        activeFilters.textContent = "No filters selected";
+    } else {
+        activeFilters.textContent = selectedFilters.join(" · ");
+    }
+
+}
 // Show or hide dataset layers based on the selected filters
 applyFilters.addEventListener("click", () => {
 
@@ -341,7 +376,7 @@ applyFilters.addEventListener("click", () => {
             map.removeLayer(trailLayer);
         }
     }
-
+    updateActiveFilters();
     filterPanel.classList.add("hidden");
 });
 
@@ -358,73 +393,6 @@ resetFilters.addEventListener("click", () => {
 // Close the location details card
 closeLocationDetails.addEventListener("click", () => {
     locationDetails.classList.add("hidden");
-});
-
-
-// Open route details for the selected map location
-viewRouteButton.addEventListener("click", () => {
-
-    // Make sure a location has been selected
-    if (!selectedLocationCoordinates) {
-        return;
-    }
-
-    // Use the selected location name as the route destination
-    mapRouteTitle.textContent = locationTitle.textContent;
-
-    // Calculate approximate distance
-    const distanceMetres = map.distance(
-        userLocation,
-        selectedLocationCoordinates
-    );
-
-    const distanceKm = distanceMetres / 1000;
-
-    // Estimate walking time at around 5 km/h
-    const walkingMinutes =
-        Math.round((distanceKm / 5) * 60);
-
-    // Display distance and walking time
-    mapRouteDistance.textContent =
-        `${distanceKm.toFixed(1)} km`;
-
-    mapRouteWalkingTime.textContent =
-        `${walkingMinutes} min`;
-
-    // Update the note based on the location source
-    if (hasGeolocation) {
-        routeNote.textContent =
-            "Estimated from your location using straight-line distance. Actual walking time may vary.";
-    } else {
-        routeNote.textContent =
-            "Distance is estimated from a demo location. Use My Location for a personalised estimate.";
-    }
-
-    // Remove the previous route line
-    //if (mapRouteLine) {
-    //    map.removeLayer(mapRouteLine);
-    //}
-
-    // Draw the route from the demo user location
-    //mapRouteLine = L.polyline(
-    //    [userLocation,selectedLocationCoordinates],
-    //    {weight: 5}
-    //).addTo(map);
-
-    // Move the map so the whole route is visible
-    //map.fitBounds(
-    //    mapRouteLine.getBounds(),
-    //   {padding: [30, 30]}
-    //);
-
-    // Switch from location details to route details
-    locationDetails.classList.add("hidden");
-    mapRouteDetails.classList.remove("hidden");
-});
-
-// Close map route details
-closeMapRouteDetails.addEventListener("click", () => {
-    mapRouteDetails.classList.add("hidden");
 });
 
 // Open Google Maps walking directions
@@ -511,9 +479,24 @@ async function loadParks() {
 
             // Store the selected park coordinates
             selectedLocationCoordinates = [lat, lon];
+
+            // Get the park address
+            const street = `${park.house_number || ""} ${park.street_address || ""}`.trim();
+
+            const address = [
+                street,
+                park.suburb,
+                park.post_code
+            ].filter(Boolean).join(", ");
+
+            // Display park information
             locationTitle.textContent = park.park_name;
-            locationSuburb.textContent = park.suburb || "";
-            locationInfo.textContent = park.park_size || "";
+            locationSuburb.textContent = `${park.suburb || ""} · Park`;
+
+            locationInfo.textContent =
+                `Address: ${address || "Not available"}
+        Park size: ${park.park_size || "Not available"}`;
+
             locationDetails.classList.remove("hidden");
         });
     
@@ -557,11 +540,12 @@ async function loadOffLeashAreas() {
                 locationTitle.textContent = area.item_description;
                 locationSuburb.textContent = `${area.park_name} - ${area.suburb}`;
 
+                // Display off-leash area facilities
                 locationInfo.textContent =
-                    `Fencing: ${area.fencing}
-                Small dog enclosure: ${area.small_dog_enclosure}
-                Agility equipment: ${area.dog_agility_equipment}
-                Lighting: ${area.lighting}`;
+                    `Fencing: ${area.fencing || "Not specified"}
+                Small dog enclosure: ${area.small_dog_enclosure || "Not specified"}
+                Agility equipment: ${area.dog_agility_equipment || "Not specified"}
+                Lighting: ${area.lighting || "Not specified"}`;
 
                 locationDetails.classList.remove("hidden");
             });
@@ -589,25 +573,62 @@ async function loadTrails() {
             if (!trail.geo_shape) {
                 return;
             }
-            
-            // Display the trail shape by using GeoJSON
+            // Create a white outline for walking trails
+            const trailOutline = L.geoJSON(
+                trail.geo_shape,
+                {
+                    style: {
+                        color: "#ffffff",
+                        weight: 12,
+                        opacity: 1,
+                        lineCap: "round",
+                        lineJoin: "round",
+                        interactive: false
+                    }
+                }
+            );
+
+            // Add the white outline first
+            trailOutline.addTo(trailLayer);
+
+            // Display walking trails on the map
             const trailLine = L.geoJSON(
                 trail.geo_shape,
                 {
                     style: {
-                        weight: 4,
-                        dashArray: "6, 6"
+                        color: "#7131c6",
+                        weight: 6,
+                        opacity: 1,
+                        lineCap: "round",
+                        lineJoin: "round"
                     }
                 }
             );
             
-            trailLine.bindPopup(`
-                <strong>${trail.park_name}</strong>
-                <br>
-                ${trail.item_description}
-                <br>
-                Type: ${trail.item_type}
-            `);
+            // Show trail details when the trail is selected
+            trailLine.on("click", (event) => {
+
+                // Store the selected point on the trail
+                selectedLocationCoordinates = [
+                    event.latlng.lat,
+                    event.latlng.lng
+                ];
+
+                // Display trail information
+                locationTitle.textContent =
+                    trail.item_description || "Walking Trail";
+
+                locationSuburb.textContent =
+                    `${trail.park_name || "Unknown park"} · Walking Trail`;
+
+                locationInfo.textContent =
+                    `Trail type: ${trail.item_type || "Not specified"}
+            Directions will use the selected point on the trail.`;
+
+                // Open the location details card
+                locationDetails.classList.remove("hidden");
+
+            });
 
             trailLine.addTo(trailLayer);
         });

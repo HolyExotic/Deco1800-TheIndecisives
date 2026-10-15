@@ -22,7 +22,7 @@
     <div class="app">
         <header class="top-banner">
 
-            <a href=" avatar.html" class="back-button" , style="padding: 10px; margin-top: -24px;">
+            <a href=" index.html" class="back-button" , style="padding: 10px; margin-top: -24px;">
                 <img src="images/back_button.svg" alt="back button" /></a>
 
             <h1 class="title" , style="font-size: 20px; padding: 10px;"> Accessories Customisation </h1>
@@ -31,7 +31,7 @@
         <main id="mainScreen" class="Accessories-customisation">
 
             <div class="Dog-name-input">
-                <input type="text" class="input-name" placeholder="Dog Name">
+                <input type="text" class="input-name" placeholder="Avatar Name">
             </div>
 
             <div class="avatar-container">
@@ -48,6 +48,95 @@
                 <img src="images/dog.shadow.png" alt="The dog's shadow" , style="max-width: 250px; height: auto;" />
             </div>
 
+            <div class = "back-shadow">
+                    <img src="images/bubble.shadow.png", style = "max-width: 110px; height: auto"/>
+            </div>
+
+            <div class = "view-accessories">
+                <button class = "hanger">
+                    <img src = "images/accessories.customise.btn.png", style = "max-width: 110px; height: auto" />
+                </button>
+
+            </div>
+
+        </main>
+        
+    <section class="inventory" id="inventory"
+         aria-label="My Outfits">
+
+        <div class="inventory-title">
+            <h2>My Outfits</h2>
+
+            <button class="close-inventory"> × </button>
+        </div>
+
+        <a href="shop.html" class="shop-more">
+            Shop For More <img src = "images/shop.icon.grey.png" class="shop-icon"/>
+        </a>
+        
+        <div class="outfit-options">
+
+            <button class="Remove-accessory">
+                <span class="no-accessory-icon">
+                    <img src = "images/accessories.none.png" class="item", style="max-height:auto; max-width:48px;" />
+                </span>
+            </button>
+
+            <button
+                class="outfit-item"
+                data-accessory="hat"
+                aria-label="Brown hat"
+                aria-pressed="false"
+            >
+                <img src="images/cowboy_hat.svg" class="item">
+            </button>
+
+            <button
+                class="outfit-item"
+                data-accessory="hat"
+                aria-label="Party hat"
+                aria-pressed="false"
+            >
+                <img src="images/party_hat.svg" class="item"/>
+            </button>
+
+            <button
+                class="outfit-item"
+                data-accessory="hat"
+                aria-label="Red bow"
+                aria-pressed="false"
+            >
+                <img src="images/red_bow.svg" class="item">
+            </button>
+
+            <button
+                class = "outfit-item"
+                data-accessory="glasses"
+                aria-label="Glasses"
+                aria-pressed="false"
+            >
+                <img src="images/glasses.svg" class="item"/>
+            </button>
+
+            <button
+                class="outfit-item"
+                data-label="glasses"
+                aria-label="Sun-glasses"
+                aria-pressed="false"
+            >
+
+                <img src="images/sunglasses.svg" class="item"/>
+            </button>
+
+        </div>
+
+        <button class="save-button">
+            Save Changes
+        </button>
+
+    </section>
+
+
       <!-- AI Disclosure Footer -->
       <div id="site-footer"></div>
 
@@ -58,6 +147,7 @@
 
     <script src="js/script.js"></script>
     <script src="js/avatar.js"></script>
+    <script src="js/accessories.customise.js"></script>
 
 </body>
 

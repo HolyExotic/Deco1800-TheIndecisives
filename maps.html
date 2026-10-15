@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- link to map CSS -->
-  <link rel="stylesheet" href="css/map.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/map.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,6 +35,11 @@
       <button class="icon-button" id="searchButton" aria-label="Search">
         <img src="images/search.svg" alt="" />
       </button>
+      
+      <!-- Display active filters -->
+      <div id="activeFilters" class="active-filters">
+        🐾 Off-leash · 🌳 Parks · 〰 Trails · ⛲ Fountains
+      </div>
     </header>
 
     <!-- Search panel -->
@@ -105,46 +110,13 @@
       </div>
       <p id="locationSuburb"></p>
       <p id="locationInfo"></p>
-      <button id="viewRouteButton" class="route-button">View Route</button>
-    </div>
-
-    <!-- Route information for a selected map location -->
-    <div id="mapRouteDetails" class="map-route-details hidden">
-      <!-- Selected destination -->
-      <div class="map-route-header">
-        <div>
-          <p class="route-label">Distance to</p>
-          <h2 id="mapRouteTitle">Selected Location</h2>
-        </div>
-        <button id="closeMapRouteDetails">X</button>
-      </div>
-
-      <!-- Estimated distance and walking time -->
-      <div class="route-summary">
-        <div>
-          <strong id="mapRouteDistance">-- km</strong>
-          <span>Straight-line distance</span>
-        </div>
-
-        <div>
-          <strong id="mapRouteWalkingTime">-- min</strong>
-          <span>Approx. walking time</span>
-        </div>
-      </div>
-
-      <!-- Estimation notice -->
-      <p class="route-note" id="routeNote">
-        These are rough estimates. Actual walking distance and time may vary.
-      </p>
-
+      
       <!-- Open Google Maps walking directions -->
-      <button id="getDirectionsButton" class="start-walk-button" type="button">
-        Get Walking Directions
+      <button id="getDirectionsButton" class="route-button" type="button">
+          Get Walking Directions
       </button>
-
-      <!-- Inform users that directions open in Google Maps -->
       <p class="external-map-note">
-        Opens Google Maps in a new tab for walking directions
+          Opens Google Maps in a new tab.
       </p>
     </div>
 
