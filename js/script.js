@@ -238,3 +238,132 @@ if (badgeRow) {
         badgeRow.scrollLeft += e.deltaY;
     }, { passive: false });
 }
+
+//MARK: ROUTES
+
+// Quest reward popup
+
+const rewardModal = document.getElementById('reward-modal');
+
+if (rewardModal) {
+    const nameEl = document.getElementById('reward-name');
+    const coinsEl = document.getElementById('reward-coins');
+    const xpEl = document.getElementById('reward-xp');
+    const itemEl = document.getElementById('reward-item-item');
+    const rewardRow = rewardModal.querySelector('.reward-row');
+    const closeBtn = document.getElementById('reward-ok');
+
+    document.querySelectorAll('.quests-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const questName = card.dataset.name.trim();
+            const hasItemReward = questName === 'Walk 25 km';
+
+            nameEl.textContent = questName;
+            coinsEl.textContent = card.dataset.reward;
+            xpEl.textContent = card.dataset.xp;
+
+            // Reset the item reward every time a quest is opened.
+            itemEl.hidden = true;
+
+            // Only the Walk 25 km quest receives an item.
+            if (hasItemReward) {
+                itemEl.hidden = false;
+            }
+
+            // Show two tiles normally, or three for the 25 km quest.
+            rewardRow.style.gridTemplateColumns = hasItemReward
+                ? 'repeat(3, minmax(0, 1fr))'
+                : 'repeat(2, minmax(0, 1fr))';
+
+            rewardModal.hidden = false;
+        });
+    });
+
+    function closeReward() {
+        rewardModal.hidden = true;
+    }
+
+    closeBtn.addEventListener('click', closeReward);
+
+    rewardModal.addEventListener('click', event => {
+        if (event.target === rewardModal) {
+            closeReward();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !rewardModal.hidden) {
+            closeReward();
+        }
+    });
+}
+
+
+// Bookmarks: save and unsave routes
+const savedList = document.getElementById('saved-list');
+const savedCount = document.getElementById('saved-count');
+
+// Date shown on newly saved routes (change to new Date() for the real date)
+const SAVE_DATE = new Date(2026, 9, 14);
+
+const ROUTE_ICONS = {
+    park: '🌳',
+    hill: '⛰️',
+    loop: `<svg viewBox="0 0 24 24" fill="none" stroke="#644426" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+             <path d="M3 3v5h5" />
+             <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+             <path d="M16 16h5v5" />
+           </svg>`
+};
+
+function updateSavedCount() {
+    if (savedList && savedCount) {
+        savedCount.textContent = savedList.querySelectorAll('.saved-card').length;
+    }
+}
+
+function addSavedCard(row) {
+    const id = row.dataset.id;
+    if (savedList.querySelector(`[data-id="${id}"]`)) return; // already saved
+
+    const name = row.querySelector('h3').textContent;
+    const meta = row.querySelector('.meta').textContent;
+    const icon = ROUTE_ICONS[row.dataset.icon] || '📍';
+    const date = SAVE_DATE.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+
+    savedList.insertAdjacentHTML('afterbegin', `
+        <div class="saved-card" data-id="${id}">
+            <div class="route-thumb">${icon}</div>
+            <div class="route-info">
+                <h3>${name}</h3>
+                <p class="meta">${meta}</p>
+                <p class="sub">Saved ${date}</p>
+            </div>
+            <button class="start-btn">Start</button>
+        </div>
+    `);
+}
+
+function removeSavedCard(id) {
+    const card = savedList.querySelector(`[data-id="${id}"]`);
+    if (card) card.remove();
+}
+
+document.querySelectorAll('.bookmark').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const row = btn.closest('.recent-row');
+        const nowSaved = btn.getAttribute('aria-pressed') !== 'true';
+
+        btn.setAttribute('aria-pressed', nowSaved);
+        btn.setAttribute('aria-label', nowSaved ? 'Unsave route' : 'Save route');
+
+        if (savedList && row) {
+            if (nowSaved) addSavedCard(row);
+            else removeSavedCard(row.dataset.id);
+            updateSavedCount();
+        }
+    });
+});
+
+
