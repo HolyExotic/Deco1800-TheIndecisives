@@ -1,0 +1,302 @@
+
+
+.section-head h2 {
+    margin: 0;
+    font-size: 22px;
+    color:#644426;
+    font-weight: 700;
+
+}
+
+.headings-color h3 {
+    color:#644426;  
+}
+
+.routes {
+    padding: 16px 15px 90px;
+}
+
+/* Plan button */
+.plan-btn {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-radius: 18px;
+    background: #d69b5c;
+    color: #fff;
+    font: inherit;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(139, 90, 43, 0.25);
+    margin-bottom: 20px;
+
+}
+
+.plan-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    line-height: 1;
+}
+
+
+
+/* Quests section */
+.quests-section {
+    margin-bottom: 26px;
+}
+
+.quests-section .section-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+}
+
+.quests-section .section-head h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #644426;
+    font-weight: 700;
+}
+
+/* One connected container for all quests */
+.quests-list {
+    display: flex;
+    flex-direction: column;
+    background: #fffdf8;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(139, 90, 43, 0.12);
+    overflow: hidden;
+}
+
+/* Individual quest rows */
+.quests-list .quests-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 14px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Divider between rows */
+.quests-list .quests-card + .quests-card {
+    border-top: 1px solid #eee3d6;
+}
+
+.quest-thumb {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    border-radius: 14px;
+    background: #f3dcc3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quest-thumb img {
+    display: block;
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.quest-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.quest-title {
+    margin: 0 0 8px;
+    padding: 0;
+    color: #644426;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.progress-bar-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+}
+
+.progress-container1 {
+    width: 100%;
+    height: 8px;
+    margin: 0;
+    background: #e5dccf;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar1 {
+    height: 100%;
+    background: #dfa158;
+    border-radius: 20px;
+}
+
+.quest-progress {
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    color: #84715f;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+
+/* Saved and recent routes */
+.route-section {
+    margin-top: 26px;
+}
+
+.section-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.section-head h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.count {
+    padding: 1px 9px;
+    border-radius: 999px;
+    background: #f3dcc3;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Shared text */
+.route-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.meta {
+    margin-top: 2px;
+    font-size: 13px;
+    color: #7a6650;
+}
+
+.sub {
+    margin-top: 2px;
+    font-size: 11px;
+    color: #a39280;
+}
+
+/* Saved cards */
+.saved-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px;
+    background: #fffdf8;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(139, 90, 43, 0.12);
+}
+
+.route-thumb {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: #f3dcc3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.saved-card .route-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.start-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 999px;
+    background: #d69b5c;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Recent list */
+.recent-list {
+    list-style: none;
+    background: #fffdf8;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(139, 90, 43, 0.12);
+}
+
+.recent-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+}
+
+.recent-row+.recent-row {
+    border-top: 1px solid #f0e6d2;
+}
+
+.recent-row .route-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.recent-row h3 {
+    font-size: 15px;
+}
+
+.date {
+    font-size: 12px;
+    color: #a39280;
+}
+
+.bookmark {
+    padding: 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.bookmark svg {
+    fill: none;
+    stroke: #644426;
+}
+
+.bookmark[aria-pressed="true"] svg {
+    fill: #d69b5c;
+    stroke: #d69b5c;
+}
+

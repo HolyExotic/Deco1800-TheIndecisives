@@ -27,95 +27,70 @@ body {
 }
 
 /* Header */
-/* Header */
 .map-header {
     width: 100%;
-    height: 95px;
-    padding: 12px;
+    height: 128px;
+    padding: 12px 12px 52px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #dfa158;
+    background: #d89c5c;
+    flex-shrink: 0;
 }
 
-.header-text {
-    flex: 1;
-    min-width: 0;
-    padding: 0 8px;
+/* Active filters displayed in the header */
+.active-filters {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    background: #f4dfbd;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #5c4429;
     text-align: center;
-}
-
-.header-text h1 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 400;
-}
-
-.header-text p {
-    margin: 4px 0 0;
-    font-size: 12px;
-    line-height: 1.3;
-    white-space: normal;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 /* Header icon buttons */
 .icon-button {
     width: 48px;
     height: 48px;
-    position: relative;
-    flex-shrink: 0;
-    border: 1px solid #333;
-    background: transparent;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: #e0b072;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+    margin-top: 20px;
 }
 
-/* Filter icon */
-#filterButton::before {
-    content: "";
-    width: 24px;
-    height: 22px;
-    background: #333;
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        60% 50%,
-        60% 100%,
-        40% 100%,
-        40% 50%
-    );
+/* SVG icons */
+.icon-button img {
+    width: 33px;
+    height: 33px;
+    display: block;
+    object-fit: contain;
 }
 
-/* Search icon */
-#searchButton::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    border: 2px solid #333;
-    border-radius: 50%;
-    position: absolute;
-    top: 12px;
-    left: 12px;
-}
-
-#searchButton::after {
-    content: "";
-    width: 11px;
-    height: 2px;
-    background: #333;
-    position: absolute;
-    top: 29px;
-    left: 28px;
-    transform: rotate(45deg);
+/* Hover effect */
+.icon-button:hover {
+    background: #edc99e;
 }
 
 
 /* Search panel */
 .search-panel {
     position: absolute;
-    top: 105px;
+    top: 138px;
     left: 12px;
     right: 12px;
     padding: 12px;
@@ -178,18 +153,22 @@ body {
 /* Actual map */
 
 #map {
-  width: 100%;
-  height: 85vh;
-  min-height: 400px;
-  flex: none;
+    width: calc(100% - 24px);
+    height: calc(100dvh - 250px);
+    min-height: 320px;
+    margin: 12px;
+    border: 2px solid #b8a68b;
+    border-radius: 18px;
+    overflow: hidden;
+    flex: none;
 }
 
 
 /* Current location button */
 .use-location-button {
     position: absolute;
-    top: 110px;
-    right: 12px;
+    top: 150px;
+    right: 20px;
     padding: 10px 12px;
     background: #fff5df;
     border: 1px solid #333;
@@ -199,27 +178,57 @@ body {
     z-index: 900;
 }
 
-.fountain-marker {
-    font-size: 24px;
-    line-height: 30px;
+/* Map pin style markers */
+.fountain-marker,
+.park-marker,
+.off-leash-marker {
+    position: relative;
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
+    line-height: 1;
+    z-index: 1;
+}
+
+/* Pin background shape */
+.fountain-marker::before,
+.park-marker::before,
+.off-leash-marker::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: #fff5df;
+    border: 1px solid #6b5845;
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+
+    z-index: -1;
+}
+
+/* Individual emoji sizes */
+.fountain-marker {
+    font-size: 20px;
 }
 
 .park-marker {
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
+    font-size: 20px;
 }
 
 .off-leash-marker {
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
+    font-size: 18px;
 }
 
 .filter-panel {
     position: absolute;
-    top: 95px;
+    top: 128px;
     left: 0;
     width: 80%;
     padding: 16px;
@@ -485,8 +494,77 @@ body {
 
 /* Set Leaflet bottom controls  */
 #map .leaflet-bottom {
-    bottom: 68px;
+    bottom: 20px;
+}
+
+/* Move zoom controls above the bottom navigation bar */
+#map .leaflet-bottom .leaflet-control-zoom {
+    margin-bottom: 12px;
 }
 
 /* Desktop testing */
 
+
+
+/* Fixed mobile map layout */
+@media (max-width: 480px) {
+
+    /* Prevent the whole page from scrolling */
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+    /* Fix header alignment on mobile */
+    .map-header .icon-button {
+        margin-top: 0;
+    }
+
+    .map-header .banner-heading {
+        margin-top: 0;
+    }
+
+    /* Keep the entire page within the screen */
+    .app {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+
+    /* Let the map fill the available space */
+    #map {
+        width: calc(100% - 24px);
+        height: auto;
+        min-height: 0;
+        flex: 1 1 auto;
+        margin: 4px auto 2px;
+    }
+
+    /* Keep the footer below the map */
+    .app #site-footer {
+        margin-top: 0;
+    }
+
+    /* Keep AI disclosure on one line */
+    .app .site-footer {
+        padding: 2px 4px;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .map-header {
+    height: 112px;
+    padding: 10px 12px 40px;
+    }
+
+    .use-location-button {
+    top: 125px;
+    right: 20px;
+    }
+}

@@ -1,190 +1,144 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Dog Walking Map</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Link to Leaflet CSS for built-in map components -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
+  <title>Dog Walking Map</title>
 
-    <!-- link to map CSS -->
-    <link rel="stylesheet" href="css/map.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+  <!-- Link to Leaflet CSS for built-in map components -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <!-- link to map CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/map.css" />
 
-  <body>
-    <div class="app">
-      <header class="map-header">
-        <button
-          class="icon-button"
-          id="filterButton"
-          aria-label="Filter"
-        ></button>
-        <div class="header-text">
-          <h1>MAP</h1>
-          <p>Find Parks or dog friendly places</p>
-        </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet" />
+</head>
 
-        <button
-          class="icon-button"
-          id="searchButton"
-          aria-label="Search"
-        ></button>
-      </header>
-
-      <!-- Search panel -->
-      <div id="searchPanel" class="search-panel hidden">
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="Search parks or suburbs"
-        />
-        <div id="searchResults"></div>
-      </div>
-
-      <!-- using filter panel control which datasets are displayed on the map.
-            Hidden by default and is controlled through map.js -->
-      <div id="filterPanel" class="filter-panel hidden">
-        <div class="filter-title">
-          <h2>Filter Map</h2>
-          <button id="resetFilters">Reset</button>
-        </div>
-
-        <!-- Dog off-leash area filter -->
-        <div class="filter-row">
-          <span>🐾 Off-leash areas</span>
-          <label class="switch">
-            <input type="checkbox" id="offLeashToggle" checked />
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <!-- Park filter -->
-        <div class="filter-row">
-          <span>🌳 Parks</span>
-          <label class="switch">
-            <input type="checkbox" id="parkToggle" checked />
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <!-- Walking trail filter -->
-        <div class="filter-row">
-          <span>〰 Walking trails</span>
-          <label class="switch">
-            <input type="checkbox" id="trailToggle" checked />
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <!-- Drinking fountain filter -->
-        <div class="filter-row">
-          <span>⛲ Drinking fountains</span>
-          <label class="switch">
-            <input type="checkbox" id="fountainToggle" checked />
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <!-- Apply the selected dataset filters to the map -->
-        <button id="applyFilters" class="apply-button">Apply</button>
-      </div>
-      <main id="map"></main>
-
-      <!-- Button to get the user's current location -->
-      <button
-        id="useMyLocationButton"
-        class="use-location-button"
-        type="button"
-      >
-        Use My Location
+<body>
+  <div class="app">
+    <header class="map-header">
+      <button class="icon-button" id="filterButton" aria-label="Filter">
+        <img src="images/filter.svg" alt="" />
       </button>
 
-      <!-- showing location details when a map location is selected -->
-      <div id="locationDetails" class="location-details hidden">
-        <div class="location-details-header">
-          <h2 id="locationTitle">Location Name</h2>
-          <button id="closeLocationDetails">X</button>
-        </div>
-        <p id="locationSuburb"></p>
-        <p id="locationInfo"></p>
-        <button id="viewRouteButton" class="route-button">View Route</button>
+      <div class="header-text">
+        <h2 class="banner-heading">Map</h2>
       </div>
 
-      <!-- Route information for a selected map location -->
-      <div id="mapRouteDetails" class="map-route-details hidden">
-        <!-- Selected destination -->
-        <div class="map-route-header">
-          <div>
-            <p class="route-label">Distance to</p>
-            <h2 id="mapRouteTitle">Selected Location</h2>
-          </div>
-          <button id="closeMapRouteDetails">X</button>
-        </div>
+      <button class="icon-button" id="searchButton" aria-label="Search">
+        <img src="images/search.svg" alt="" />
+      </button>
+      
+      <!-- Display active filters -->
+      <div id="activeFilters" class="active-filters">
+        🐾 Off-leash · 🌳 Parks · 〰 Trails · ⛲ Fountains
+      </div>
+    </header>
 
-        <!-- Estimated distance and walking time -->
-        <div class="route-summary">
-          <div>
-            <strong id="mapRouteDistance">-- km</strong>
-            <span>Straight-line distance</span>
-          </div>
+    <!-- Search panel -->
+    <div id="searchPanel" class="search-panel hidden">
+      <input type="search" id="searchInput" placeholder="Search parks or suburbs" />
+      <div id="searchResults"></div>
+    </div>
 
-          <div>
-            <strong id="mapRouteWalkingTime">-- min</strong>
-            <span>Approx. walking time</span>
-          </div>
-        </div>
+    <!-- using filter panel control which datasets are displayed on the map.
+            Hidden by default and is controlled through map.js -->
+    <div id="filterPanel" class="filter-panel hidden">
+      <div class="filter-title">
+        <h2>Filter Map</h2>
+        <button id="resetFilters">Reset</button>
+      </div>
 
-        <!-- Estimation notice -->
-        <p class="route-note" id="routeNote">
-          These are rough estimates. Actual walking distance and time may vary.
-        </p>
+      <!-- Dog off-leash area filter -->
+      <div class="filter-row">
+        <span>🐾 Off-leash areas</span>
+        <label class="switch">
+          <input type="checkbox" id="offLeashToggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
 
-        <!-- Open Google Maps walking directions -->
-        <button
-          id="getDirectionsButton"
-          class="start-walk-button"
-          type="button"
-        >
+      <!-- Park filter -->
+      <div class="filter-row">
+        <span>🌳 Parks</span>
+        <label class="switch">
+          <input type="checkbox" id="parkToggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Walking trail filter -->
+      <div class="filter-row">
+        <span>〰 Walking trails</span>
+        <label class="switch">
+          <input type="checkbox" id="trailToggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Drinking fountain filter -->
+      <div class="filter-row">
+        <span>⛲ Drinking fountains</span>
+        <label class="switch">
+          <input type="checkbox" id="fountainToggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Apply the selected dataset filters to the map -->
+      <button id="applyFilters" class="apply-button">Apply</button>
+    </div>
+    <main id="map"></main>
+
+    <!-- Button to get the user's current location -->
+    <button id="useMyLocationButton" class="use-location-button" type="button">
+      Use My Location
+    </button>
+
+    <!-- showing location details when a map location is selected -->
+    <div id="locationDetails" class="location-details hidden">
+      <div class="location-details-header">
+        <h2 id="locationTitle">Location Name</h2>
+        <button id="closeLocationDetails">X</button>
+      </div>
+      <p id="locationSuburb"></p>
+      <p id="locationInfo"></p>
+      
+      <!-- Open Google Maps walking directions -->
+      <button id="getDirectionsButton" class="route-button" type="button">
           Get Walking Directions
-        </button>
+      </button>
+      <p class="external-map-note">
+          Opens Google Maps in a new tab.
+      </p>
+    </div>
 
-        <!-- Inform users that directions open in Google Maps -->
-        <p class="external-map-note">
-          Opens Google Maps in a new tab for walking directions
-        </p>
-      </div>
+    <!-- AI Disclosure Footer -->
+    <div id="site-footer"></div>
 
-      <!-- AI Disclosure Footer -->
-      <div id="site-footer"></div>
-
-      <div id="site-nav"></div>
-      <!-- <nav class="bottom-nav">
+    <div id="site-nav"></div>
+    <!-- <nav class="bottom-nav">
             <button>Home</button>
             <button id="routesButton">Routes</button>
             <button class="add-button">+</button>
             <button>Shop</button>
             <button>Profile</button>
         </nav> -->
-    </div>
+  </div>
 
-    <!-- Load the Leaflet JavaScript library, this provides map functions -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Load the Leaflet JavaScript library, this provides map functions -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <script src="js/api.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/map.js"></script>
-  </body>
+  <script src="js/api.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/map.js"></script>
+</body>
+
 </html>

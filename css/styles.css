@@ -127,8 +127,8 @@ body {
 }
 
 .nav-icon img[src*="routes.svg"] {
-  width: 30px;
-  height: 30px;
+  width: 28.5px;
+  height: 28.5px;
 }
 
 .nav-link.active .nav-icon::before {
@@ -189,23 +189,28 @@ body {
 }
 
 .banner-heading {
-  font-size: 35px;
-  color: white
+  font-size: 30px;
+  color: white;
+  margin-top: 30px;
 }
 
-
+.top-banner .banner-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
 
 
 /* MARK: FOOTER */
 #site-footer {
   width: 100%;
   margin-top: 10px;
-  padding-bottom: 80px;
+  padding-bottom: 5px;
   flex-shrink: 0;
 }
 
 .site-footer {
-  padding: 8px 16px;
+  padding: 8px 10px;
   text-align: center;
   background-color: #FAF3E0;
   color: #8C7863;
