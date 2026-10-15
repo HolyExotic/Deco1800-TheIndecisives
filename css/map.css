@@ -516,6 +516,14 @@ body {
         overflow: hidden;
         overscroll-behavior: none;
     }
+    /* Fix header alignment on mobile */
+    .map-header .icon-button {
+        margin-top: 0;
+    }
+
+    .map-header .banner-heading {
+        margin-top: 0;
+    }
 
     /* Keep the entire page within the screen */
     .app {
@@ -526,7 +534,7 @@ body {
         height: 100dvh;
         min-height: 0;
         overflow: hidden;
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
 
     /* Let the map fill the available space */
