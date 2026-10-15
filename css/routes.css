@@ -184,11 +184,12 @@
 }
 
 .count {
-    padding: 1px 9px;
+    padding: 4px 9px;
     border-radius: 999px;
     background: #f3dcc3;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 600;
+    color:#644426
 }
 
 /* Shared text */
@@ -216,7 +217,7 @@
     gap: 12px;
     margin-bottom: 10px;
     padding: 12px;
-    background: #fffdf8;
+    background: #ffffff;
     border-radius: 18px;
     box-shadow: 0 4px 14px rgba(139, 90, 43, 0.12);
 }
@@ -253,7 +254,7 @@
 /* Recent list */
 .recent-list {
     list-style: none;
-    background: #fffdf8;
+    background: #ffffff;
     border-radius: 18px;
     box-shadow: 0 4px 14px rgba(139, 90, 43, 0.12);
 }

@@ -130,10 +130,10 @@ if (periodBtn) {
 const cal = document.getElementById('chart-month');
 
 if (cal) {
-    // Fixed demo date (year, month 0-11, day). October 13, 2026.
-    const now = new Date(2026, 9, 13);
+  
+    const now = new Date(2026, 9, 14);
 
-    const activeDays = [1, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13];
+    const activeDays = [1, 3, 4, 6, 7, 8, 9, 10, 11, 13, 14];
     const offset = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
     const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
 
