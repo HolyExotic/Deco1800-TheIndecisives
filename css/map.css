@@ -508,6 +508,9 @@ body {
 /* Mobile map layout */
 @media (max-width: 480px) {
     #map {
-        height: min(55dvh, 520px);
+        width: calc(100% - 48px);
+        height: 42dvh;
+        min-height: 320px;
+        margin: 12px auto 16px;
     }
 }
