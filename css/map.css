@@ -523,22 +523,20 @@ body {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-
         height: 100dvh;
         min-height: 0;
         overflow: hidden;
-
-        padding-bottom: 70px;
+        padding-bottom: 60px;
     }
 
     /* Let the map fill the available space */
     #map {
-        width: calc(100% - 48px);
+        width: calc(100% - 24px);
         height: auto;
         min-height: 0;
         flex: 1 1 auto;
 
-        margin: 12px auto 10px;
+        margin: 8px auto 6px;
     }
 
     /* Keep the footer below the map */
@@ -546,4 +544,12 @@ body {
         margin-top: 0;
     }
 
+    .map-header {
+    height: 112px;
+    padding: 10px 12px 40px;
+    }
+
+    .use-location-button {
+    right: 28px;
+    }
 }
