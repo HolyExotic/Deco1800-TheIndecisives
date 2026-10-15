@@ -543,8 +543,7 @@ body {
         height: auto;
         min-height: 0;
         flex: 1 1 auto;
-
-        margin: 8px auto 6px;
+        margin: 4px auto 2px;
     }
 
     /* Keep the footer below the map */
@@ -552,6 +551,13 @@ body {
         margin-top: 0;
     }
 
+    /* Keep AI disclosure on one line */
+    .app .site-footer {
+        padding: 2px 4px;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+    
     .map-header {
     height: 112px;
     padding: 10px 12px 40px;
