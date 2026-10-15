@@ -505,22 +505,45 @@ body {
 /* Desktop testing */
 
 
-/* Mobile map layout */
+
+/* Fixed mobile map layout */
 @media (max-width: 480px) {
 
+    /* Prevent the whole page from scrolling */
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+
+    /* Keep the entire page within the screen */
+    .app {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+
+        padding-bottom: 70px;
+    }
+
+    /* Let the map fill the available space */
     #map {
         width: calc(100% - 48px);
-        height: 500px;
+        height: auto;
         min-height: 0;
-        margin: 12px auto 16px;
+        flex: 1 1 auto;
+
+        margin: 12px auto 10px;
     }
 
-    .app {
-        padding-bottom: 80px;
-    }
-
+    /* Keep the footer below the map */
     .app #site-footer {
-        margin-top: auto;
+        margin-top: 0;
     }
 
 }
