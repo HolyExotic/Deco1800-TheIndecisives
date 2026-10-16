@@ -1,3 +1,5 @@
+// localStorage.removeItem("purchasedItems");
+// localStorage.removeItem("dogAvatar");
 
 document.addEventListener("DOMContentLoaded", () => {
     // Inventory elements
