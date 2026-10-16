@@ -131,17 +131,12 @@ body {
   height: 28.5px;
 }
 
-.nav-link.active .nav-icon::before {
-  content: "";
-  position: absolute;
-  width: 29px;
-  height: 29px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color:  #F3DCC3;
-  border-radius: 50%;
-  z-index: -1;
+
+.nav-link.active .nav-item {
+    background-color: #F3DCC3;
+    border-radius: 10px;
+    height: 40px;
+    width: 42px;
 }
 
 .nav-icon img {
