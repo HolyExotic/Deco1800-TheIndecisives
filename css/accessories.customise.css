@@ -1,7 +1,5 @@
 .shadow {
     position: relative;
-    padding: 50px;
-    bottom: 40px;
 }
 .avatar-image {
     position: abolute;
@@ -55,27 +53,17 @@
 }
 
 .inventory {
-    position: absolute;
-    bottom: 58px;
-    height: 205px;
-    z-index: 100;
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #F8EEDC;
-    border-top: 1px solid #D7C7B2;
     box-shadow: 0 -2px 5px #edd8bd;
-    transition: transform 0.25s ease;
-}
-
-.inventory.closed {
-    transform: translateY(calc(100% + 60px));
-    pointer-events: none;
 }
 
 .close-inventory {
-    position: absolute;
-    top: 0;
+    z-index: 10;
     right: 5px;
     width: 25px;
     height: 25px;
@@ -110,12 +98,6 @@
     align-self: center;
 }
 
-/* needs testing  */
-.inventory.closed {
-    transform: translateY(calc(100% + 60px));
-    pointer-events: none;
-}
-/* needs testing */
 .close-inventory {
     position: absolute;
     top: 0;
@@ -132,7 +114,9 @@
 }
 
 .save-button {
-    position: absolute;
+    position: static;
+    align-self: center;
+    margin: 8px auto 0;
     font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
     cursor: pointer;
     color: #FFE8E8;
@@ -141,9 +125,5 @@
     border: 2px solid black;
     padding: 5px 100px;
     border-radius: 30px;
-    left: 30px;
-    bottom: 0;
 }
-
-
 
