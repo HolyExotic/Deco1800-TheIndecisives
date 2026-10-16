@@ -44,6 +44,17 @@ h2 {
     background-color: #F0DDA3;
 }
 
+.dog-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
+
+.dog-overlay.active {
+    background-color: #c5b37b;
+}
+
+
 .img-small-dog, .img-med-dog, .img-large-dog {
     position: absolute;
     bottom: 0;
@@ -54,20 +65,20 @@ h2 {
 }
 
 .img-small-dog {
-    z-index: 1;
+    z-index: 10;
     width: 150%;
     left: 45%;
 }
 
 .img-med-dog {
-    z-index: 2;
+    z-index: 10;
     width: 280%;
     left: 70%;
     bottom: -30px;
 }
 
 .img-large-dog {
-    z-index: 3;
+    z-index: 10;
     width: 360%;
     left: 80%;
 }
@@ -100,6 +111,4 @@ h2 {
         transform: translate(-30%, 0);
     }
 }
-
-
 

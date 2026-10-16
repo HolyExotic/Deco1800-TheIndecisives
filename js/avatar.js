@@ -34,3 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+document.querySelectorAll('.dog-panel').forEach(panel => {
+    panel.addEventListener('click', () => {
+        document.querySelectorAll('.dog-overlay.active').forEach(overlay => {
+            overlay.classList.remove('active');
+        });
+
+        panel.querySelector('.dog-overlay').classList.add('active');
+    });
+});
