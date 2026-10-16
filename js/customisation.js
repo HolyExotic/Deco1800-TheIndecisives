@@ -10,9 +10,20 @@ const previewAvatar = document.getElementById("previewAvatar");
 const confirmCost = document.getElementById("confirmCost");
 
 // Purchased items saved in localStorage
+
+// Items the player already owns
 let purchasedItems = JSON.parse(
     localStorage.getItem("purchasedItems")
 ) || [];
+
+if (!purchasedItems.includes("cowboyHat")) {
+    purchasedItems.push("cowboyHat");
+
+    localStorage.setItem(
+        "purchasedItems",
+        JSON.stringify(purchasedItems)
+    );
+}
 
 // Currently selected item
 let selectedItem = null;

@@ -128,3 +128,8 @@
     border-radius: 12px;
     outline: 2px solid #d89c5c;
 }
+
+.outfit-item[hidden],
+.Remove-accessory[hidden] {
+    display: none !important;
+}
