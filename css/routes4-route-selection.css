@@ -1,0 +1,131 @@
+a.back-link {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.route-results {
+    min-height: calc(100vh - 61px);
+    padding: 0 20px 100px;
+    color: #17130f;
+    background: #fbf4e2;
+}
+.route-results .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    height: 40px;
+    margin: 0 -2px 22px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.route-results .breadcrumbs a {
+    color: #644426;
+    text-decoration: none;
+}
+
+.route-results .breadcrumbs span:last-child {
+    color: #c47f35;
+}
+
+.route-results .breadcrumbs span[aria-hidden="true"] {
+    font-size: 25px;
+    line-height: 1;
+}
+
+.route-results h2 {
+    margin: 8px 0 18px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.route-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.route-card {
+    display: flex;
+    min-height: 120px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid #e4a05e;
+    border-radius: 22px;
+    background: #fffaf6;
+    box-shadow: 0 4px 10px rgba(100, 68, 38, 0.12);
+}
+
+.route-map-wrap {
+    display: grid;
+    width: 68px;
+    height: 76px;
+    flex: 0 0 68px;
+    place-items: center;
+}
+
+.route-map {
+    width: 68px;
+    height: 76px;
+    overflow: visible;
+}
+
+.route-map polyline {
+    fill: none;
+    stroke: #9b642e;
+    stroke-width: 1.2;
+    stroke-linejoin: round;
+}
+
+.route-map circle {
+    fill: #d99e5c;
+}
+
+.route-details {
+    min-width: 0;
+}
+
+.route-details h3 {
+    margin: 0 0 3px;
+    font-size: 19px;
+    line-height: 1.2;
+}
+
+.route-meta {
+    margin: 0 0 9px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.route-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.route-tags span {
+    padding: 3px 10px;
+    border: 1px solid #987755;
+    border-radius: 999px;
+    background: #d7b58d;
+    color: #24190f;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.route-map polygon,
+.route-map polyline {
+    fill: none;
+    stroke: #9b642e;
+    stroke-width: 1.2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}

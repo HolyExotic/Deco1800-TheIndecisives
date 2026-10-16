@@ -44,6 +44,7 @@ h2 {
     background-color: #F0DDA3;
     border:none;
     transition: background-color 0.2s ease;
+    cursor: pointer;
 }
 .dog-panel.selected {
     background-color: #c5b37b;

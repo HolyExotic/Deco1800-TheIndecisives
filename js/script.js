@@ -65,14 +65,38 @@ if (navMount) {
 }
 
 
+// /* Highlight the current page in the navbar */
+// const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+// document.querySelectorAll(".bottom-nav .nav-link").forEach(link => {
+//   if (link.getAttribute("href") === currentPage) {
+//     link.classList.add("active");
+//   }
+// });
+
+
 /* Highlight the current page in the navbar */
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
+const isRoutesPage = [
+  "routes.html",
+  "routes2-activity-selection.html",
+  "routes3-customise-routes.html",
+  "routes4-route-selection.html"
+].includes(currentPage);
+
 document.querySelectorAll(".bottom-nav .nav-link").forEach(link => {
-  if (link.getAttribute("href") === currentPage) {
+  const href = link.getAttribute("href");
+
+  if (href === currentPage || (href === "routes.html" && isRoutesPage)) {
     link.classList.add("active");
   }
 });
+
+
+
+
+
 
 //MARK: Footer
 
@@ -367,3 +391,50 @@ document.querySelectorAll('.bookmark').forEach(btn => {
 });
 
 
+
+// CUSTOMISE ROUTES
+document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
+  const trigger = dropdown.querySelector(".custom-dropdown-button");
+  const menu = dropdown.querySelector(".custom-dropdown-menu");
+  const value = dropdown.querySelector(".dropdown-value");
+  const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+
+  if (!trigger || !menu || !value) return;
+
+  trigger.addEventListener("click", () => {
+    const isOpen = trigger.getAttribute("aria-expanded") === "true";
+    trigger.setAttribute("aria-expanded", String(!isOpen));
+    menu.hidden = isOpen;
+  });
+
+  menu.querySelectorAll('[role="option"]').forEach(option => {
+    option.addEventListener("click", () => {
+      value.textContent = option.textContent.trim();
+
+      if (hiddenInput) {
+        hiddenInput.value = option.dataset.value || option.textContent.trim();
+      }
+
+      menu.querySelectorAll('[role="option"]').forEach(item => {
+        item.setAttribute("aria-selected", String(item === option));
+      });
+
+      menu.hidden = true;
+      trigger.setAttribute("aria-expanded", "false");
+    });
+  });
+});
+
+document.addEventListener("click", event => {
+  document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
+    if (!dropdown.contains(event.target)) {
+      const trigger = dropdown.querySelector(".custom-dropdown-button");
+      const menu = dropdown.querySelector(".custom-dropdown-menu");
+
+      if (trigger && menu) {
+        menu.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+});

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customise Your Route</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/routes3-customise-routes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Ubuntu+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app">
+        <header class="top-banner">
+            <a class="back-link" href="routes2-activity-selection.html" aria-label="Back to activity selection">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 5l-7 7 7 7" />
+                </svg>
+            </a>
+            <h1 class="banner-heading">Customise Route</h1>
+        </header>
+
+        <main class="customise-page">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="routes2-activity-selection.html">Walking</a>
+                <span aria-hidden="true">‹</span>
+                <span aria-current="page">Customise</span>
+            </nav>
+
+            <form class="route-form" action="routes4-route-selection.html" method="get">
+                <label class="field-label">Starting Location</label>
+
+                <div class="custom-dropdown">
+                    <input type="hidden" name="startLocation" value="Current location">
+                    <button class="custom-dropdown-button" type="button" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="dropdown-value">Current location</span>
+                        <span class="dropdown-chevron" aria-hidden="true"></span>
+                    </button>
+                    <div class="custom-dropdown-menu" role="listbox" hidden>
+                        <button type="button" role="option" data-value="Current location" aria-selected="true">
+                            Current location
+                        </button>
+                    </div>
+                </div>
+
+                <label class="field-label">Route Type</label>
+
+                <div class="custom-dropdown">
+                    <input type="hidden" name="routeType" value="Loop">
+                    <button class="custom-dropdown-button" type="button" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="dropdown-value">Loop</span>
+                        <span class="dropdown-chevron" aria-hidden="true"></span>
+                    </button>
+                    <div class="custom-dropdown-menu" role="listbox" hidden>
+                        <button type="button" role="option" data-value="Loop" aria-selected="true">Loop</button>
+                        <button type="button" role="option" data-value="Out and back" aria-selected="false">Out and
+                            back</button>
+                    </div>
+                </div>
+
+                <fieldset class="duration-field">
+                    <legend class="field-label">Duration</legend>
+                    <div class="duration-options">
+                        <label class="duration-option">
+                            <input type="radio" name="duration" value="short">
+                            <span class="duration-card"><span>Short</span><small>15 - 25min</small></span>
+                        </label>
+                        <label class="duration-option">
+                            <input type="radio" name="duration" value="normal" checked>
+                            <span class="duration-card"><span>Normal</span><small>30 - 60min</small></span>
+                        </label>
+                        <label class="duration-option">
+                            <input type="radio" name="duration" value="long">
+                            <span class="duration-card"><span>Long</span><small>1h+</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="preferences-field">
+                    <legend class="field-label">Preferences</legend>
+                    <div class="preference-options">
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Quiet">
+                            <span>Quiet</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Shade">
+                            <span>Shade</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Greenery">
+                            <span>Greenery</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Suburb">
+                            <span>Suburb</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Off-leash">
+                            <span>Off-leash</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Park">
+                            <span>Park</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Drinking stations">
+                            <span>Drinking stations</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Variety of scents">
+                            <span>Variety of scents</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="Uncrowded">
+                            <span>Uncrowded</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button class="find-routes-button" type="submit">Find Routes</button>
+            </form>
+        </main>
+
+        <div id="site-footer"></div>
+        <div id="site-nav"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

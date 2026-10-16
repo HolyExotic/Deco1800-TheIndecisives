@@ -217,3 +217,14 @@ body {
 .site-footer p {
   margin: 0;
 }
+
+/* POINTS ICON CROP THE DEFAULT BORDERS
+.points-icon-crop img {
+    position: absolute;
+    width: 22px;  /* enlarge artwork to push margins outside the crop
+    height: 22px;
+    max-width: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;  */

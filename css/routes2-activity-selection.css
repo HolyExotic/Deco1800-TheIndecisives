@@ -1,0 +1,152 @@
+
+/* Back arrow in the banner */
+a.back-link {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.top-banner .banner-heading {
+    margin-top: 30px;
+}
+
+.activity-select {
+    padding: 28px 15px;
+    color: #644426;
+}
+
+.select-title {
+    margin-bottom: 22px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #644426;
+}
+
+.act-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Card: same look as the Routes page cards */
+a.act-card,
+a.act-card:visited {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: #fffdf8;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(139, 90, 43, 0.12);
+    color: #644426;
+    text-decoration: none;
+    transition: transform 0.15s;
+    margin-bottom: 2px;
+}
+
+a.act-card:active {
+    transform: scale(0.98);
+}
+
+/* Icon tile (colour set per activity below) */
+.act-icon {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.flipped-activity-icon {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+.act-icon img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+/* Name and rewards */
+.act-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.act-info h3 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #644426;
+    padding-bottom: px;
+}
+
+
+.act-rewards {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.reward-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0px 8px;
+    gap: 4px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #644426;
+}
+
+
+.points-icon-crop {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.points-icon-crop img {
+    position: absolute;
+    width: 32px;  /* enlarge artwork to push margins outside the crop */
+    height: 32px;
+    max-width: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+.act-chevron {
+    flex-shrink: 0;
+    color: #a39280;
+}
+
+/* Three colours: soft tints of the app palette */
+.walking .act-icon,
+.walking .reward-chip { background: #f3dcc3; }   /* sand */
+
+.running .act-icon,
+.running .reward-chip { background: #f7d3c4; }   /* soft terracotta */
+
+.hiking .act-icon,
+.hiking .reward-chip  { background: #dfe8c6; }   /* sage */
+
+/* Footnote */
+.act-note {
+    margin: 16px 4px 250px;
+    font-size: 12px;
+    color: #84715f;
+}
