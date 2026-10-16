@@ -157,13 +157,20 @@
           <button id="closePurchase" class="close-purchase">×</button>
 
           <!-- Avatar preview -->
-          <div class="avatar-preview">
-            <!-- Your normal avatar -->
-            <!-- <img src="images/avatar.svg" alt="Avatar" class="avatar-base" /> -->
 
-            <!-- Customisation item -->
-            <img id="previewItem" src="" alt="" class="avatar-item" />
-          </div>
+      <div class="avatar-preview">
+          <img
+              id="previewAvatar"
+              src="images/dog.small.png"
+              alt="Your dog wearing the selected accessory"
+              class="avatar-base"
+          />
+      </div>
+
+
+            <!-- Customisation item [Don't need this part since images are already containing the items] -->
+            <!-- <img id="previewItem" src="" alt="" class="avatar-item" />
+          </div> -->
 
           <!-- Purchase button -->
           <button id="confirmPurchase" class="confirm-purchase">
@@ -177,7 +184,9 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script src="js/avatar.settings.js"></script>
     <script src="js/points.js"></script>
     <script src="js/customisation.js"></script>
+
   </body>
 </html>

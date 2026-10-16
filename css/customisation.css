@@ -283,13 +283,13 @@ body {
 
 /* Item worn by avatar */
 
-.avatar-item {
+/* .avatar-item {
   position: absolute;
   width: 150px;
   height: 150px;
   object-fit: contain;
   pointer-events: none;
-}
+} */
 
 /* Purchase button */
 

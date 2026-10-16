@@ -1,8 +1,10 @@
 .shadow {
     position: relative;
+    top: 450px;
 }
 .avatar-image {
-    position: abolute;
+    position: absolute;
+    top: 60px;
 }
 
 .Dog-name-input {
@@ -27,14 +29,18 @@
 }
 
 .hanger {
+    position: absolute;
     background:none;
     border: none;
+    z-index:30;
+    left: 60px;
+    top: 60px;
 }
 
 .back-shadow{
     position: absolute;
-    top: 220px;
-    left: 220px;
+    top: 280px;
+    left: 280px;
 }
 
 .view-accessories {
@@ -53,26 +59,15 @@
 }
 
 .inventory {
-    position: relative;
+    position: absolute;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #F8EEDC;
     box-shadow: 0 -2px 5px #edd8bd;
-}
-
-.close-inventory {
-    z-index: 10;
-    right: 5px;
-    width: 25px;
-    height: 25px;
-    border: none;
-    background: transparent;
-    color: #3f2c12;
-    font-size: 23px;
-    font-weight: 300;
-    cursor: pointer;
+    z-index: 20;
+    bottom:50px;
 }
 
 .shop-more {
@@ -127,3 +122,9 @@
     border-radius: 30px;
 }
 
+.outfit-item.selected,
+.Remove-accessory.selected {
+    background-color: #ecd1b5;
+    border-radius: 12px;
+    outline: 2px solid #d89c5c;
+}

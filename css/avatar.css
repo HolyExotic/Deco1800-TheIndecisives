@@ -23,29 +23,57 @@ h2 {
     height: 100px;
     width: 100px;
 }
+
 .avatar-container {
   display: flex;
   justify-content: center;
   width: 100%;
+  z-index: 10;
 
 }
-.avatar-image{
-    margin-top: 200px;
-    height:auto;
-    z-index: 1;
-    width: 100%;
-    margin-left: 80px;
-    }
 
+/* Small dog */
+.avatar-image img.dog-small {
+    position: relative;
+    width: 180px;
+    max-width: none;
+    object-fit: contain;
+    z-index: 10;
+    top: 230px;
+    right: 20px;
+}
+
+/* Medium dog */
+.avatar-image img.dog-med {
+    position: relative;
+    width: 250px;
+    max-width: none;
+    object-fit: contain;
+    top:150px;
+    left:12px;
+    z-index:10;
+}
+
+/* Large dog */
+.avatar-image img.dog-large {
+    position: relative;
+    width: 250px;
+    max-width: none;
+    object-fit: contain;
+    top: 110px;
+    left: 20px;
+    z-index: 10;
+}
 
 .shadow {
     position: absolute;
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-left: 10px;
     height: auto;
     transform: translateY(-80px);
+    top:620px;
+    z-index:1;
 }
 
 .avatar-menu1 {
@@ -76,15 +104,15 @@ h2 {
 
 .dog-accessories {
     position: relative;
-    top: 235px;
-    left: 0px;
+    top: 185px;
+    left: 20px;
     z-index: 1;
 }
 
 .buble-shadow2 {
     position: absolute;
-    top: 268px;
-    left: 210px;
+    top: 218px;
+    left: 230px;
 }
 
 .avatar-menu3 {
@@ -109,9 +137,12 @@ h2 {
 }
 
 .DogGo-btn {
+    position:absolute;
+    z-index: 40;
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 730px;
 
 }
 
@@ -157,3 +188,4 @@ h2 {
 .daily-quests,.DogGo-btn {
     cursor: pointer;
 }
+

@@ -31,14 +31,15 @@
         <main id="mainScreen" class="Accessories-customisation">
 
             <div class="Dog-name-input">
-                <input type="text" class="input-name" placeholder="Avatar Name">
+                <input type="text" class="input-name" 
+                data-avatar-name 
+                placeholder="Avatar Name">
             </div>
 
             <div class="avatar-container">
                 <div class="avatar-image">
                     <img src="images/dog.small.png"
-                        alt="A stylized small dog avatar facing forward with a calm expression, centered on a simple background, as the main subject in a dog customization screen"
-                        style="max-width: 200px; height: auto;" />
+                        data-avatar-image />
                 </div>
 
                 <div class="worn-accessory"> </div>
@@ -75,7 +76,7 @@
         
         <div class="outfit-options">
 
-            <button class="Remove-accessory">
+            <button class="Remove-accessory" data-accessory="none">
                 <span class="no-accessory-icon">
                     <img src = "images/accessories.none.png" class="item", style="max-height:auto; max-width:48px;" />
                 </span>
@@ -83,27 +84,23 @@
 
             <button
                 class="outfit-item"
-                data-accessory="hat"
-                aria-label="Brown hat"
-                aria-pressed="false"
+                data-accessory="cowboyhat"
             >
                 <img src="images/cowboy_hat.svg" class="item">
             </button>
 
             <button
                 class="outfit-item"
-                data-accessory="hat"
+                data-accessory="partyhat"
                 aria-label="Party hat"
-                aria-pressed="false"
             >
                 <img src="images/party_hat.svg" class="item"/>
             </button>
 
             <button
                 class="outfit-item"
-                data-accessory="hat"
+                data-accessory="bow"
                 aria-label="Red bow"
-                aria-pressed="false"
             >
                 <img src="images/red_bow.svg" class="item">
             </button>
@@ -112,16 +109,14 @@
                 class = "outfit-item"
                 data-accessory="glasses"
                 aria-label="Glasses"
-                aria-pressed="false"
             >
                 <img src="images/glasses.svg" class="item"/>
             </button>
 
             <button
                 class="outfit-item"
-                data-label="glasses"
+                data-accessory="sunglasses"
                 aria-label="Sun-glasses"
-                aria-pressed="false"
             >
 
                 <img src="images/sunglasses.svg" class="item"/>
@@ -136,15 +131,13 @@
     </section>
 
 
-      <!-- AI Disclosure Footer -->
-      <div id="site-footer"></div>
-
-
             <div id="site-nav"></div>
 
     </div>
 
+
     <script src="js/script.js"></script>
+    <script src="js/avatar.settings.js"></script>
     <script src="js/avatar.js"></script>
     <script src="js/accessories.customise.js"></script>
 

@@ -42,6 +42,11 @@ h2 {
     position: relative;
     overflow: hidden;
     background-color: #F0DDA3;
+    border:none;
+    transition: background-color 0.2s ease;
+}
+.dog-panel.selected {
+    background-color: #c5b37b;
 }
 
 .dog-overlay {
@@ -79,8 +84,8 @@ h2 {
 
 .img-large-dog {
     z-index: 10;
-    width: 360%;
-    left: 80%;
+    width: 270%;
+    left: 70%;
 }
 
 .dog-size-options.animate-dogs .img-small-dog,
