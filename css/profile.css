@@ -346,12 +346,14 @@
 
 .badge-card {
     position: relative;
-    width: 250px;
+    width: 265px;
+    max-width: calc(100vw - 40px);
     padding: 26px 20px 20px;
-    background: #fffdf8;
-    border-radius: 28px;
+    box-sizing: border-box;
+    background: #faf3e0;
+    border-radius: 35px;
     text-align: center;
-    box-shadow: 0 8px 24px rgba(139, 90, 43, 0.25);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .badge-card h3 {
@@ -367,19 +369,17 @@
 .badge-close {
     position: absolute;
     top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
+    right: 20px;
+    width: auto;
+    height: auto;
     padding: 0;
     border: none;
-    border-radius: 50%;
-    background: #f3dcc3;
-    color: #d69b5c;
-    font-size: 22px;
+    border-radius: 0;
+    background: none;
+    color: #d89c5c;
+    font-size: 34px;
+    font-weight: 700;
     line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
 }
 

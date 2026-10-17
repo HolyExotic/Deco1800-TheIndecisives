@@ -36,7 +36,7 @@
     </header>
     <!-- Customisation Content -->
     <main class="customisation-content">
-      <p class="profile-note">*Items can be viewed in your Profile</p>
+      <p class="profile-note">Accessories</p>
 
       <!-- Cowboy Hat -->
       <div class="item-card">
@@ -51,7 +51,12 @@
 
         <div class="points" data-item="cowboyHat" data-name="Cowboy Hat" data-cost="170"
           data-image="images/cowboy_hat.svg">
-          <span>170</span>
+          <span class="points-cost">
+            <span class="points-icon-crop" aria-hidden="true">
+              <img src="images/dog-points-icon.svg" alt="">
+            </span>
+            <span>170</span>
+          </span>
           <span>points</span>
         </div>
       </div>
@@ -70,7 +75,12 @@
 
         <div class="points" data-item="sunglasses" data-name="Sunglasses" data-cost="150"
           data-image="images/sunglasses.svg">
-          <span>150</span>
+          <span class="points-cost">
+            <span class="points-icon-crop" aria-hidden="true">
+              <img src="images/dog-points-icon.svg" alt="">
+            </span>
+            <span>150</span>
+          </span>
           <span>points</span>
         </div>
       </div>
@@ -87,7 +97,12 @@
 
         <div class="points" data-item="partyHat" data-name="Party Hat" data-cost="100"
           data-image="images/party_hat.svg">
-          <span>100</span>
+          <span class="points-cost">
+            <span class="points-icon-crop" aria-hidden="true">
+              <img src="images/dog-points-icon.svg" alt="">
+            </span>
+            <span>100</span>
+          </span>
           <span>points</span>
         </div>
       </div>
@@ -103,7 +118,12 @@
         </div>
 
         <div class="points" data-item="redBow" data-name="Red Bow" data-cost="110" data-image="images/red_bow.svg">
-          <span>110</span>
+          <span class="points-cost">
+            <span class="points-icon-crop" aria-hidden="true">
+              <img src="images/dog-points-icon.svg" alt="">
+            </span>
+            <span>110</span>
+          </span>
           <span>points</span>
         </div>
       </div>
@@ -118,8 +138,13 @@
           <h2>Glasses</h2>
         </div>
 
-        <div class="points" data-item="glasses" data-name="Glasses" data-cost="150" data-image="images/glasses.svg">
-          <span>150</span>
+        <div class="points" data-item="glasses" data-name="Glasses" data-cost="90" data-image="images/glasses.svg">
+          <span class="points-cost">
+            <span class="points-icon-crop" aria-hidden="true">
+              <img src="images/dog-points-icon.svg" alt="">
+            </span>
+            <span>90</span>
+          </span>
           <span>points</span>
         </div>
       </div>
@@ -150,8 +175,11 @@
 
         <!-- Purchase button -->
         <button id="confirmPurchase" class="confirm-purchase">
+         <span class="buy-for-label">Buy for</span>
+          <span class="confirm-points-icon" aria-hidden="true">
+            <img src="images/dog-points-icon.svg" alt="">
+          </span>
           <span id="confirmCost">30</span>
-          <span>Points</span>
         </button>
       </div>
     </div>

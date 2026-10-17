@@ -380,16 +380,16 @@ a.plan-btn .plan-icon img {
 }
 
 .reward-card {
+    position: relative;
     width: 100%;
-    max-width: 320px;
+    max-width: 310px;
     padding: 24px 20px 20px;
     box-sizing: border-box;
     text-align: center;
     color: #17130f;
-    background: #fbf4e2;
-    border: 1px solid #e4a05e;
-    border-radius: 22px;
-    box-shadow: 0 8px 24px rgba(100, 68, 38, 0.3);
+    background: #faf3e0;
+    border-radius: 35px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .reward-quest {

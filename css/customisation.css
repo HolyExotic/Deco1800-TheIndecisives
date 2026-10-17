@@ -129,11 +129,42 @@ body {
 
 /* Note */
 
+.points-cost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    font-weight: 600;
+}
+
+.points-icon-crop {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    overflow: hidden;
+}
+
+.points-icon-crop img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
 .profile-note {
   margin: 0 0 5px 5px;
   color: #222;
-  font-size: 13px;
+  font-size: 20px;
   line-height: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+   
 }
 
 /* Item cards */
@@ -294,19 +325,48 @@ body {
 /* Purchase button */
 
 .confirm-purchase {
-  width: 103px;
-  height: 35px;
-  border: none;
-  border-radius: 8px;
-  background: #d89c5c;
-  color: #fef9f4;
-  font-family: Arial, sans-serif;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  font-size: 11px;
+    width: 160px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    border: none;
+    border-radius: 8px;
+    background: #d89c5c;
+    color: #fef9f4;
+    font-family: "Ubuntu Sans", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+.confirm-points-icon {
+    position: relative;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    overflow: hidden;
+}
+
+.confirm-points-icon img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+.buy-for-label {
+    margin-right: 4px;
+}
+
+#confirmCost {
+    font-weight: 500;
 }
 
 .confirm-purchase:hover {
