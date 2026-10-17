@@ -60,6 +60,35 @@ a.plan-btn .plan-icon img {
     object-fit: contain;
 }
 
+.top-banner .points-counter {
+    position: absolute;
+    top: 48px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.top-banner .points-counter img {
+    position: absolute;
+    z-index: 2;
+    left: -26px;
+    width: 58px;
+    height: 58px;
+    margin: 0;
+    object-fit: contain;
+}
+
+.top-banner .points-counter-value {
+    position: relative;
+    z-index: 1;
+    padding: 6px 9px 6px 25px;
+    border-radius: 7px;
+    background: #644426;
+    color: #fffdf8;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
 
 /* Quests section */
 .quests-section {
@@ -352,7 +381,7 @@ a.plan-btn .plan-icon img {
 
 .reward-card {
     width: 100%;
-    max-width: 340px;
+    max-width: 320px;
     padding: 24px 20px 20px;
     box-sizing: border-box;
     text-align: center;
