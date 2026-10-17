@@ -1,5 +1,8 @@
+// USER TESTING RESETS:
+
 // localStorage.removeItem("purchasedItems");
 // localStorage.removeItem("dogAvatar");
+// localStorage.setItem("points","940");
 
 document.addEventListener("DOMContentLoaded", () => {
     // Inventory 
