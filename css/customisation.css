@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+a.back-link {
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 body {
   font-family: "Ubuntu Sans", Arial, Helvetica, sans-serif;
   background: #222;
@@ -11,7 +23,6 @@ body {
 }
 
 /* Main app */
-
 
 .app {
   width: 100%;
@@ -27,24 +38,13 @@ body {
 
 
 /* Header */
-.top-banner {
-  height: 98px;
-  width: 100%;
-  background-color: #d89c5c;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-}
 
 .top-banner h1 {
   margin: 0;
   padding-top: 30px;
 
   color: #fef9f4;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700;
 }
 
@@ -73,33 +73,32 @@ body {
 /* Points balance */
 .top-banner .points-counter {
   position: absolute;
+  top: 48px;
   right: 12px;
-  top: 50px;
-
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-
-  color: #fef9f4;
-  white-space: nowrap;
 }
 
 .top-banner .points-counter img {
-  width: 48px;
-  height: 48px;
+  position: absolute;
+  z-index: 2;
+  left: -26px;
+  width: 58px;
+  height: 58px;
+  margin: 0;
   object-fit: contain;
-  margin-right: 3px;
 }
 
-.top-banner .points-counter p {
-  margin: 0;
-  padding: 0;
-  margin-right: 5px;
-
-  color: #fef9f4;
-  font-size: 25px;
-  font-weight: 700;
+.top-banner .points-counter-value {
+  position: relative;
+  z-index: 1;
+  padding: 6px 9px 6px 25px;
+  border-radius: 7px;
+  background: #644426;
+  color: #fffdf8;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
 }
 
 /* Back arrow */
@@ -121,6 +120,7 @@ body {
   height: 48px;
   object-fit: contain;
 }
+
 /* Content */
 
 .customisation-content {
@@ -210,10 +210,10 @@ body {
 }
 
 .points.owned {
-    background-color: #b7a58b;
-    color: #fef9f4;
-    cursor: default;
-    pointer-events: none;
+  background-color: #b7a58b;
+  color: #fef9f4;
+  cursor: default;
+  pointer-events: none;
 }
 
 .purchase-modal {

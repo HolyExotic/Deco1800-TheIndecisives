@@ -10,16 +10,24 @@
 .Dog-name-input {
     position: absolute;
     padding: 30px 141px;
-    left: -140px;
+    left: -141px;
+    z-index: 20;
 }
 
 .input-name {
     background-color: white;
     border: none;
-    padding: 10px 70px;
+    padding: 10px 82px;
     justify-content: center;
     text-align: center;
     font-size: 20px;
+    font-family: "Ubuntu Sans", Arial, Helvetica, sans-serif;
+    color: #644426;
+       font-weight: 500;
+}
+
+.input-name::placeholder {
+    color: #b5a49a;
 }
 
 .view-accessories {
@@ -114,12 +122,14 @@
     margin: 8px auto 0;
     font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
     cursor: pointer;
-    color: #FFE8E8;
+    color: #fffdf8;
     font-size: 20px;
     background-color: #D89C5C;
-    border: 2px solid black;
+    border: 1px solid; 
     padding: 5px 100px;
     border-radius: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px
 }
 
 .outfit-item.selected,
@@ -132,4 +142,12 @@
 .outfit-item[hidden],
 .Remove-accessory[hidden] {
     display: none !important;
+}
+
+.top-banner .banner-heading {
+    font-size: 20px;
+}
+
+.outfit-options {
+    margin-left: 45px;
 }

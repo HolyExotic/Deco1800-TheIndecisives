@@ -17,12 +17,10 @@
     left: 60%;
 }
 
-.back-button {
-    top: 70px;
-}
+
 
 h2 {
-    font-size: 18px;
+    font-size: 25px;
 }
 
 .dog-size-options {
@@ -34,6 +32,7 @@ h2 {
     height: 450px;
     margin: 42px auto 80px;
 }
+
 
 .dog-panel {
     flex: 1;

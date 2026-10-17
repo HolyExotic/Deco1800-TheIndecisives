@@ -149,6 +149,17 @@ body {
   font-size: 10px;
 }
 
+a.back-link {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
 
 /* Centre button */
 
@@ -189,11 +200,7 @@ body {
   margin-top: 30px;
 }
 
-.top-banner .banner-heading {
-    font-size: 30px;
-    font-weight: 700;
-    color: #fff;
-}
+
 
 
 /* MARK: FOOTER */
@@ -237,4 +244,3 @@ body {
     padding-left: 20px;
   }
 
-  

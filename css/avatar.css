@@ -10,6 +10,7 @@ h2 {
     text-align: center;
     top: 10px;
     padding:10px;
+    margin-top: 20px;
 }
 
 .dog-avatar-selection, .dog-accessories, .daily-quests{
@@ -105,14 +106,14 @@ h2 {
 
 .dog-accessories {
     position: relative;
-    top: 185px;
+    top: 195px;
     left: 20px;
     z-index: 1;
 }
 
 .buble-shadow2 {
     position: absolute;
-    top: 218px;
+    top: 230px;
     left: 230px;
 }
 
@@ -148,15 +149,17 @@ h2 {
 }
 
 .lower-btn {
-    color: #FFE8E8;
-    font-size: 20px;
+    color: #f7f6f6;
+    font-size: 22px;
     background-color: #D89C5C;
-    border: 2px solid black;
-    padding: 5px 100px;
+    border: 1px ;
+    padding: 8px 100px;
     border-radius: 30px;
     position: absolute;
     left: 60px;
-    bottom: 60px;
+    bottom: 10px;
+    font-weight: 500;
+    font-family: 'Ubuntu Sans';
 }
 
 .avatar-menu1 {
@@ -190,3 +193,13 @@ h2 {
     cursor: pointer;
 }
 
+.top-banner .banner-heading {
+    position: static;
+    margin: 30px 0 0;
+    padding: 0;
+    color: #fff;
+    font-family: "Ubuntu Sans", Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}

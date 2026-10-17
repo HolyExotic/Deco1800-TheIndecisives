@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose an Avatar</title>
 
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/avatar.css" />
-  <link rel="stylesheet" href="css/customisation.css" />
-  <link rel="stylesheet" href="css/choose.avatar.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
-    rel="stylesheet">
-    
-    <link rel="images" href="images/" >
-     
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/avatar.css" />
+    <link rel="stylesheet" href="css/customisation.css" />
+    <link rel="stylesheet" href="css/choose.avatar.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="images" href="images/">
+
 </head>
+
 <body>
 
     <div class="app">
-            <header class="top-banner">
+  <header class="top-banner">
+    <a href="index.html" class="back-link" aria-label="Back to home">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
+             stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7" />
+        </svg>
+    </a>
 
-                <a href=" index.html" class="back-button" , style="padding: 10px; margin-top: -24px;">
-                <img src="images/back_button.svg" alt="back button" style="max-width: 30px;" /></a>
+    <h1 class="banner-heading">Avatars</h1>
+</header>
 
-                <h1 class="banner-heading"> Avatars </h1>
+        <main id="mainScreen" class="avatar-home">
 
-            </header>
-
-        <main id = "mainScreen" class = "avatar-home">
-        
             <h2> Choose your Dog size </h2>
 
-        <a href="coupons.html" class="shop-more">
-            Shop For More <img src = "images/shop.icon.grey.png" class="shop-icon"/>
-        </a>
-    
-        <section class="dog-size-options">
+            <a href="coupons.html" class="shop-more">
+                Shop For More <img src="images/shop.icon.grey.png" class="shop-icon" />
+            </a>
 
-            <button class="dog-panel" data-dog-size="small">
-                <img src="images/dog.small.png" class="img-small-dog" />
-                <div class="dog-overlay" aria-hidden="true"></div>
-            </button>
+            <section class="dog-size-options">
 
-            <button class="dog-panel" data-dog-size="med">
-                <img src="images/dog.med.png" class="img-med-dog" />
-                <div class="dog-overlay" aria-hidden="true"></div>
-            </button>
+                <button class="dog-panel" data-dog-size="small">
+                    <img src="images/dog.small.png" class="img-small-dog" />
+                    <div class="dog-overlay" aria-hidden="true"></div>
+                </button>
 
-            <button class="dog-panel" data-dog-size="large">
-                <img src="images/dog.large.png" class="img-large-dog" />
-                <div class="dog-overlay" aria-hidden="true"></div>
-            </button>
+                <button class="dog-panel" data-dog-size="med">
+                    <img src="images/dog.med.png" class="img-med-dog" />
+                    <div class="dog-overlay" aria-hidden="true"></div>
+                </button>
 
-        </section>
+                <button class="dog-panel" data-dog-size="large">
+                    <img src="images/dog.large.png" class="img-large-dog" />
+                    <div class="dog-overlay" aria-hidden="true"></div>
+                </button>
 
-    <div id="site-nav"></div>
+            </section>
 
-    <script src="js/script.js"></script>
-    <script src="js/avatar.settings.js"></script>
-    <script src="js/avatar.js"></script>
-    <script src="js/choose.avatar.js"></script>
-    
+            <div id="site-nav"></div>
+
+            <script src="js/script.js"></script>
+            <script src="js/avatar.settings.js"></script>
+            <script src="js/avatar.js"></script>
+            <script src="js/choose.avatar.js"></script>
+
 </body>
+
 </html>
