@@ -70,20 +70,20 @@ const AvatarSettings = {
 updateImage(img) {
     const avatar = this.get();
 
-    // Update the dog's image
+    // Update dog image
     img.src = this.imagePath(
         avatar.size,
         avatar.accessory
     );
 
-    // Remove any previously applied size classes
+    // Remove size classes
     img.classList.remove(
         "dog-small",
         "dog-med",
         "dog-large"
     );
 
-    // Apply the correct class for the selected size
+    // Apply size classess
     const sizeClasses = {
         small: "dog-small",
         med: "dog-med",
@@ -94,7 +94,7 @@ updateImage(img) {
         sizeClasses[avatar.size] ?? "dog-small"
     );
 
-    // Update the image description
+    // Update image description
     img.alt = `${avatar.size} dog wearing ${avatar.accessory}`;
 },
 

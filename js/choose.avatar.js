@@ -2,19 +2,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     const panels = document.querySelectorAll("[data-dog-size]");
 
-    // Read the previously saved dog size
+    // Read dog size
     const savedAvatar = AvatarSettings.get();
     setSelectedPanel(savedAvatar.size);
 
-    // Handle clicks on each dog panel
+    // Dog panel click handling
     panels.forEach(panel => {
         panel.addEventListener("click", () => {
             const size = panel.dataset.dogSize;
 
-            // Save the selected dog size
+            // Save selected dog size
             AvatarSettings.save({ size: size });
 
-            // Highlight the selected dog
+            // Highlight selected dog
             setSelectedPanel(size);
         });
     });

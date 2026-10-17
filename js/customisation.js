@@ -11,7 +11,7 @@ const confirmCost = document.getElementById("confirmCost");
 
 // Purchased items saved in localStorage
 
-// Items the player already owns
+// Items the player owns
 let purchasedItems = JSON.parse(
     localStorage.getItem("purchasedItems")
 ) || [];
@@ -63,12 +63,12 @@ purchaseButtons.forEach((button) => {
         const itemName = button.dataset.item;
         const cost = Number(button.dataset.cost);
 
-        // Don't open popup if already owned
+        // Don't open popup if owned
         if (purchasedItems.includes(itemName)) {
             return;
         }
 
-        // Get the matching accessory key
+        // Get matching accessory key
         const accessory = accessoryMap[itemName];
 
         // Save selected item
@@ -82,7 +82,7 @@ purchaseButtons.forEach((button) => {
         // Get the user's saved avatar size
         const avatar = AvatarSettings.get();
 
-        // Display the correct pre-made dog image
+        // Display the correct dog image and item
         previewAvatar.src = AvatarSettings.imagePath(
             avatar.size,
             selectedItem.accessory
