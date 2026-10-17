@@ -2,12 +2,12 @@
 // localStorage.removeItem("dogAvatar");
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Inventory elements
+    // Inventory 
     const hangerButton = document.querySelector(".hanger");
     const inventory = document.querySelector("#inventory");
     const closeButton = inventory?.querySelector(".close-inventory");
 
-    // Avatar elements
+    // Avatar 
     const avatarImage = document.querySelector("[data-avatar-image]");
     const nameInput = document.querySelector("[data-avatar-name]");
     const saveButton = document.querySelector(".save-button");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.getItem("purchasedItems")
     ) || [];
 
-    // Cowboy hat is owned by default
+    // Defaultly owned
     if (!purchasedItems.includes("cowboyHat")) {
         purchasedItems.push("cowboyHat");
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
-    // Match inventory accessory names to shop item IDs
+    // INventory and shop item IDs
     const accessoryMap = {
         cowboyhat: "cowboyHat",
         partyhat: "partyHat",
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sunglasses: "sunglasses"
     };
 
-    // Load saved avatar settings
+    // Load avatar settings
     let avatar = AvatarSettings.get();
     let selectedAccessory = avatar.accessory;
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return itemID && purchasedItems.includes(itemID);
     }
 
-    // Hide accessories the player has not purchased
+    // Not purchased accessories, hidden
     function updateInventory() {
         accessoryButtons.forEach(button => {
             const accessory = button.dataset.accessory;
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Open and close the inventory
+    // Open and close inventory
     const setInventoryVisible = (visible) => {
         if (!inventory || !hangerButton) return;
 
@@ -87,12 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // If a saved accessory is no longer owned, use the basic dog
     if (!isAccessoryOwned(selectedAccessory)) {
         selectedAccessory = "none";
     }
 
-    // Preview the selected dog and accessory
+    // Preview dog and accessory
     function updatePreview() {
         if (!avatarImage) return;
 
@@ -105,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `${avatar.size} dog wearing ${selectedAccessory}`;
     }
 
-    // Highlight the currently selected accessory
+    // Highlight currently selected accessory
     function updateSelection() {
         accessoryButtons.forEach(button => {
             const selected =
@@ -116,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Display the saved avatar
+    // Display saved avatar
     updateInventory();
     updatePreview();
     updateSelection();
@@ -125,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         nameInput.value = avatar.name;
     }
 
-    // Preview an owned accessory when clicked
+    // Preview owned accessory when clicked
     accessoryButtons.forEach(button => {
         button.addEventListener("click", () => {
             const accessory = button.dataset.accessory;
