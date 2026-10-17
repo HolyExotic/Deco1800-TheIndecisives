@@ -23,26 +23,29 @@
 <body>
 
     <div class="app">
-  <header class="top-banner">
-    <a href="index.html" class="back-link" aria-label="Back to home">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
-             stroke="#fff" stroke-width="2.5" stroke-linecap="round"
-             stroke-linejoin="round" aria-hidden="true">
-            <path d="M15 5l-7 7 7 7" />
-        </svg>
-    </a>
+        <header class="top-banner">
+            <a href="index.html" class="back-link" aria-label="Back to home">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 5l-7 7 7 7" />
+                </svg>
+            </a>
 
-    <h1 class="banner-heading">Avatars</h1>
-</header>
+            <h1 class="banner-heading">Avatars</h1>
+
+            <div class="points-counter">
+                <img src="images/dog-points-icon.svg" alt="Points">
+                <span class="points-counter-value">
+                    <span class="points-balance">940</span>
+                </span>
+            </div>
+        </header>
 
         <main id="mainScreen" class="avatar-home">
 
             <h2> Choose your Dog size </h2>
 
-            <a href="coupons.html" class="shop-more">
-                Shop For More <img src="images/shop.icon.grey.png" class="shop-icon" />
-            </a>
-
+         
             <section class="dog-size-options">
 
                 <button class="dog-panel" data-dog-size="small">
@@ -67,8 +70,28 @@
             <script src="js/script.js"></script>
             <script src="js/avatar.settings.js"></script>
             <script src="js/avatar.js"></script>
+            <script src="js/points.js"></script>
             <script src="js/choose.avatar.js"></script>
 
+        </main>
+
+        <div id="dogPurchaseModal" class="purchase-modal hidden">
+            <div class="purchase-card">
+                <button id="closeDogPurchase" class="close-purchase" aria-label="Close">×</button>
+
+                <div class="avatar-preview">
+                    <img id="previewDog" class="avatar-base" src="" alt="">
+                </div>
+
+                <button id="buyDog" class="confirm-purchase" type="button">
+                    <span>Buy for</span>
+                    <span class="buy-points-icon">
+                        <img src="images/dog-points-icon.svg" alt="">
+                    </span>
+                    <span id="dogCost"></span>
+                </button>
+            </div>
+        </div>
 </body>
 
 </html>

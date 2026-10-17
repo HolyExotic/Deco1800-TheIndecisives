@@ -117,3 +117,64 @@ h2 {
     }
 }
 
+
+.dog-panel {
+    isolation: isolate;
+}
+
+.dog-panel.is-locked .dog-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 11;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.dog-panel.is-locked .dog-overlay::after {
+    content: "LOCKED";
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    padding: 9px 0;
+    background: rgba(30, 25, 20, 0.95);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    transform: rotate(-12deg);
+}
+
+.dog-panel.is-locked .dog-overlay img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+#dogPurchaseModal .confirm-purchase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+#dogPurchaseModal .buy-points-icon {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  overflow: hidden;
+}
+
+#dogPurchaseModal .buy-points-icon img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+}

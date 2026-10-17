@@ -1,37 +1,113 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-    const panels = document.querySelectorAll("[data-dog-size]");
+    const dogButtons = document.querySelectorAll(".dog-panel");
+    const modal = document.getElementById("dogPurchaseModal");
+    const preview = document.getElementById("previewDog");
+    const costLabel = document.getElementById("dogCost");
+    const closeButton = document.getElementById("closeDogPurchase");
+    const buyButton = document.getElementById("buyDog");
 
-    // Read dog size
-    const savedAvatar = AvatarSettings.get();
-    setSelectedPanel(savedAvatar.size);
+    if (!modal || !preview || !costLabel || !closeButton || !buyButton) return;
 
-    // Dog panel click handling
-    panels.forEach(panel => {
-        panel.addEventListener("click", () => {
-            const size = panel.dataset.dogSize;
+    const prices = { med: 200, large: 350 };
+    let ownedSizes;
 
-            // Save selected dog size
-            AvatarSettings.save({ size: size });
+    try {
+        ownedSizes = JSON.parse(localStorage.getItem("ownedDogSizes")) || ["small"];
+    } catch {
+        ownedSizes = ["small"];
+    }
 
-            // Highlight selected dog
-            setSelectedPanel(size);
+    if (!ownedSizes.includes("small")) ownedSizes.push("small");
+
+    let pendingSize = null;
+
+    function closePopup() {
+        modal.classList.add("hidden");
+        pendingSize = null;
+    }
+
+    function equipDog(size) {
+        const avatar = AvatarSettings.get();
+
+        AvatarSettings.save({
+            ...avatar,
+            size
+        });
+
+        dogButtons.forEach(button => {
+            const selected = button.dataset.dogSize === size;
+            button.classList.toggle("selected", selected);
+            button.setAttribute("aria-pressed", String(selected));
+        });
+
+        closePopup();
+    }
+
+
+    function updateDogTiles() {
+        dogButtons.forEach(button => {
+            const locked = !ownedSizes.includes(button.dataset.dogSize);
+            button.classList.toggle("is-locked", locked);
+            button.setAttribute("aria-pressed", String(!locked));
+        });
+    }
+
+    const savedSize = AvatarSettings.get().size;
+    if (ownedSizes.includes(savedSize)) {
+        dogButtons.forEach(button => {
+            const selected = button.dataset.dogSize === savedSize;
+            button.classList.toggle("selected", selected);
+            button.setAttribute("aria-pressed", String(selected));
+        });
+    }
+
+    updateDogTiles();
+
+    dogButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const size = button.dataset.dogSize;
+
+            // Owned dogs equip immediately, with no popup.
+            if (ownedSizes.includes(size)) {
+                equipDog(size);
+                return;
+            }
+
+            // Unowned dogs open the purchase popup.
+            pendingSize = size;
+            preview.src = `images/dog.${size}.png`;
+            preview.alt = `${size} dog`;
+            costLabel.textContent = prices[size];
+            modal.classList.remove("hidden");
         });
     });
 
-    function setSelectedPanel(size) {
-        panels.forEach(panel => {
-            const isSelected = panel.dataset.dogSize === size;
+    buyButton.addEventListener("click", () => {
+        if (!pendingSize) return;
 
-            panel.classList.toggle("selected", isSelected);
+        const cost = prices[pendingSize];
 
-            const overlay = panel.querySelector(".dog-overlay");
-            if (overlay) {
-                overlay.classList.toggle("active", isSelected);
-            }
+        if (typeof spendPoints !== "function" || !spendPoints(cost)) {
+            alert("You don't have enough points!");
+            return;
+        }
 
-            panel.setAttribute("aria-pressed", String(isSelected));
-        });
-    }
+        ownedSizes.push(pendingSize);
+        localStorage.setItem("ownedDogSizes", JSON.stringify(ownedSizes));
+
+        updateDogTiles();
+        equipDog(pendingSize);
+    });
+
+    closeButton.addEventListener("click", closePopup);
+
+    modal.addEventListener("click", event => {
+        if (event.target === modal) closePopup();
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+            closePopup();
+        }
+    });
 });
-

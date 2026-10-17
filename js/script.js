@@ -440,3 +440,52 @@ document.addEventListener("click", event => {
   });
 });
 
+
+// Save route preferences when the form is submitted
+const routePrefsForm = document.querySelector(".route-form");
+
+if (routePrefsForm) {
+  routePrefsForm.addEventListener("submit", () => {
+    const selectedPrefs = [
+      ...routePrefsForm.querySelectorAll(
+        'input[name="preferences"]:checked'
+      )
+    ].map(input => input.value);
+
+    localStorage.setItem(
+      "profilePreferences",
+      JSON.stringify(selectedPrefs)
+    );
+  });
+}
+
+// Display saved route preferences on the profile
+const profilePrefsContainer = document.getElementById("profile-preferences");
+
+if (profilePrefsContainer) {
+  let preferences;
+
+  try {
+    preferences = JSON.parse(localStorage.getItem("profilePreferences"));
+  } catch {
+    preferences = null;
+  }
+
+  if (!Array.isArray(preferences)) {
+    preferences = ["Quiet", "Greenery", "Fountains"];
+  }
+
+  // Convert the existing singular value to the profile label.
+  preferences = preferences.map(pref =>
+    pref === "Fountain" ? "Fountains" : pref
+  );
+
+  profilePrefsContainer.replaceChildren();
+
+  preferences.forEach(preference => {
+    const chip = document.createElement("span");
+    chip.className = "pref-chip";
+    chip.textContent = preference;
+    profilePrefsContainer.appendChild(chip);
+  });
+}
