@@ -269,7 +269,6 @@ if (badgeRow) {
 // Quest reward popup
 
 const rewardModal = document.getElementById('reward-modal');
-
 if (rewardModal) {
     const nameEl = document.getElementById('reward-name');
     const coinsEl = document.getElementById('reward-coins');
@@ -295,10 +294,11 @@ if (rewardModal) {
                 itemEl.hidden = false;
             }
 
-            // Show two tiles normally, or three for the 25 km quest.
+            // Keep three tiles for Walk 25 km; make the first two quests' tiles narrower.
             rewardRow.style.gridTemplateColumns = hasItemReward
                 ? 'repeat(3, minmax(0, 1fr))'
-                : 'repeat(2, minmax(0, 1fr))';
+                : 'repeat(2, minmax(0, 90px))';
+            rewardRow.style.justifyContent = hasItemReward ? 'stretch' : 'center';
 
             rewardModal.hidden = false;
         });
