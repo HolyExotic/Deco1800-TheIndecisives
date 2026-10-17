@@ -1,0 +1,404 @@
+a.back-link {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+body:has(.details-page) {
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Fit the screen exactly so the Go button never needs scrolling */
+.details-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+    overflow: hidden;
+    background: #fbf4e2;
+}
+
+.details-page .top-banner {
+    flex: none;
+}
+
+/* Map area fills everything under the banner */
+.map-stage {
+    --sheet-offset: 190px;
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.map-view {
+    position: absolute;
+    inset: 0 0 var(--sheet-offset) 0;
+    transition: bottom 0.28s ease;
+}
+
+.map-view svg {
+    display: block;
+}
+
+.map-view text {
+    font-weight: 600;
+}
+
+/* Pull-up sheet */
+.sheet {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    background: #fbf4e2;
+    border: 1px solid #e4a05e;
+    border-bottom: 0;
+    border-radius: 22px 22px 0 0;
+    box-shadow: 0 -4px 14px rgba(100, 68, 38, 0.2);
+    color: #644426;;
+}
+
+.sheet-grip {
+    flex: none;
+    padding: 0 20px 10px;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+}
+
+.sheet-grip:active {
+    cursor: grabbing;
+}
+
+.sheet-handle {
+    display: block;
+    width: 100%;
+    padding: 10px 0 12px;
+    background: none;
+    border: 0;
+    cursor: inherit;
+}
+
+.sheet-handle span {
+    display: block;
+    width: 44px;
+    height: 5px;
+    margin: 0 auto;
+    border-radius: 3px;
+    background: #d7b58d;
+}
+
+.sheet-summary h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.sheet-meta {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.sheet-body {
+    flex: 1;
+    min-height: 0;
+    padding: 0 20px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.sheet-inner {
+    display: flow-root;
+}
+
+.sheet-body h3 {
+    margin: 20px 0 8px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #644426;;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.stats div {
+    padding: 10px 6px;
+    text-align: center;
+    background: #fffaf6;
+    border: 1px solid #e4a05e;
+    border-radius: 22px;
+    box-shadow: 0 4px 10px rgba(100, 68, 38, 0.12);
+}
+
+.stats strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.stats span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.start-line {
+    margin: 0 0 4px;
+    font-size: 15px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    padding: 3px 10px;
+    border: 1px solid #987755;
+    border-radius: 999px;
+    background: #ecc280;
+    color: #644426;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.features {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e4d3b5;
+}
+
+.features strong {
+    font-size: 14px;
+}
+
+.features p {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* Go button */
+.sheet-footer {
+    flex: none;
+    padding: 12px 20px calc(16px + env(safe-area-inset-bottom, 0px));
+    background: #fbf4e2;
+    border-top: 1px solid #e4d3b5;
+}
+
+.go-button {
+    display: block;
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: #9b642e;
+    border-radius: 999px;
+}
+
+.go-button:active {
+    background: #7c4f23;
+}
+
+.go-button.is-finish {
+    background: #c47f35;
+}
+
+/* Popups */
+.modal {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(23, 19, 15, 0.55);
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 24px 20px 20px;
+    text-align: center;
+    color: #644426;
+    background: #fbf4e2;
+    border: 1px solid #e4a05e;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(100, 68, 38, 0.3);
+}
+
+.modal-card h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.modal-text {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: #6b5a45;
+}
+
+.reward-box {
+    margin-bottom: 18px;
+    padding: 14px;
+    background: #fffaf6;
+    border: 1px solid #e4a05e;
+    border-radius: 18px;
+    box-shadow: 0 4px 10px rgba(100, 68, 38, 0.12);
+}
+
+.reward-heading {
+    margin: 0 0 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #644426;
+}
+
+.reward-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+.reward-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.reward-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90px;
+    padding: 8px 4px 10px;
+    background: #fbf4e2;
+    border: 1px solid #e4d3b5;
+    border-radius: 14px;
+}
+
+.reward-label {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.reward-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.reward-body-row {
+    flex-direction: row;
+    gap: 6px;
+}
+
+.reward-line {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.reward-line strong {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.reward-line span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.reward-item .reward-line strong {
+    font-size: 13px;
+}
+
+/* Crops the empty margin around the points SVG */
+.reward-icon-crop {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.reward-icon-crop img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+.reward-item img {
+    display: block;
+    flex: none;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 13px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: #9b642e;
+    border: 1px solid #9b642e;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.modal-btn.secondary {
+    color: #9b642e;
+    background: transparent;
+}

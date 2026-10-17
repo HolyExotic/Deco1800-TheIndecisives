@@ -123,10 +123,11 @@ a.plan-btn .plan-icon img {
 
 .quest-thumb img {
     display: block;
-    width: 26px;
-    height: 26px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
 }
+
 
 .quest-content {
     flex: 1;
@@ -328,13 +329,6 @@ a.plan-btn .plan-icon img {
     display: block;
 }
 
-
-
-/* =========================
-   REWARD POPUP
-========================= */
-
-
 /* =========================
    REWARD POPUP
 ========================= */
@@ -348,7 +342,7 @@ a.plan-btn .plan-icon img {
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(23, 19, 15, 0.55);
 }
 
 .reward-modal[hidden],
@@ -356,177 +350,141 @@ a.plan-btn .plan-icon img {
     display: none !important;
 }
 
-/* Popup card */
 .reward-card {
-    position: relative;
     width: 100%;
-    max-width: 310px;
-    padding: 26px 20px 20px;
+    max-width: 340px;
+    padding: 24px 20px 20px;
     box-sizing: border-box;
-    border: 1px solid #e5e5e5;
-    border-radius: 18px;
-    background: #ffffff;
-    color: #644426;
     text-align: center;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+    color: #17130f;
+    background: #fbf4e2;
+    border: 1px solid #e4a05e;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(100, 68, 38, 0.3);
 }
 
-/* Close button */
-.reward-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    background: #f2f2f2;
-    color: #644426;
-    font-size: 21px;
-    cursor: pointer;
-}
-
-/* Quest title */
 .reward-quest {
-    margin: 0;
+    margin: 0 0 16px;
     padding: 0 10px;
-    color: #644426;
-    font-size: 22px;
+    color: #17130f;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.25;
     overflow-wrap: anywhere;
 }
 
-/* Rewards heading */
-.reward-label {
-    margin: 18px 0 12px;
-    color: #777777;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.reward-box {
+    margin-bottom: 18px;
+    padding: 14px;
+    background: #fffaf6;
+    border: 1px solid #e4a05e;
+    border-radius: 18px;
+    box-shadow: 0 4px 10px rgba(100, 68, 38, 0.12);
 }
 
-/* Reward tiles */
+.reward-heading {
+    margin: 0 0 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #644426;
+}
+
+/* JS sets 2 or 3 columns depending on the quest */
 .reward-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    width: 100%;
+    gap: 8px;
 }
 
-/* Individual reward tile */
 .reward-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
     min-width: 0;
-    min-height: 72px;
-    padding: 12px 8px;
+    min-height: 90px;
+    padding: 8px 4px 10px;
     box-sizing: border-box;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    background: #ffffff;
+    background: #fbf4e2;
+    border: 1px solid #e4d3b5;
+    border-radius: 14px;
 }
 
-/* Larger icons beside reward text */
-.reward-item img,
-.reward-item svg {
-    display: block;
-    flex: 0 0 30px;
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
+.reward-tag {
+    font-size: 12px;
+    color: #aaa;
 }
 
-/* Empty item icon placeholder */
-.reward-item-placeholder {
-    flex: 0 0 30px;
-    width: 30px;
-    height: 30px;
-    box-sizing: border-box;
-    border: 1.5px dashed #cccccc;
-    border-radius: 6px;
-    background: transparent;
-}
-
-/* Reward amount and label */
-.reward-text {
+.reward-body {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    min-width: 0;
-    text-align: left;
-    line-height: 1.15;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
-.reward-amount {
-    color: #c88943;
-    font-size: 18px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.reward-unit {
-    margin-top: 4px;
-    color: #644426;
-    font-size: 11px;
-    font-weight: 600;
-}
-
-/* Three tiles when the item reward is visible */
-.reward-row:has(#reward-item-item:not([hidden])) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+.reward-body-row {
+    flex-direction: row;
     gap: 6px;
 }
 
-.reward-row:has(#reward-item-item:not([hidden])) .reward-item {
-    gap: 5px;
-    padding: 10px 4px;
+.reward-amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: #17130f;
+    white-space: nowrap;
 }
 
-.reward-row:has(#reward-item-item:not([hidden])) .reward-item img,
-.reward-row:has(#reward-item-item:not([hidden])) .reward-item svg,
-.reward-row:has(#reward-item-item:not([hidden])) .reward-item-placeholder {
-    flex-basis: 25px;
-    width: 25px;
-    height: 25px;
+/* Crops the empty margin around the points SVG */
+.reward-icon-crop {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
 }
 
-.reward-row:has(#reward-item-item:not([hidden])) .reward-amount {
-    font-size: 16px;
+.reward-icon-crop img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
 }
 
-.reward-row:has(#reward-item-item:not([hidden])) .reward-unit {
-    font-size: 10px;
+.reward-item img.glasses {
+    display: block;
+    flex: none;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
 }
 
-/* Got it button */
+.reward-item-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #17130f;
+    white-space: nowrap;
+}
+
 button.reward-ok {
     display: block;
     width: 100%;
-    margin-top: 18px;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 10px;
-    background: #d69b5c;
-    color: #ffffff;
+    padding: 13px;
+    border: 1px solid #9b642e;
+    border-radius: 999px;
+    background: #9b642e;
+    color: #fff;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
 }
 
-button.reward-ok:hover {
-    background: #bf8245;
-}
-
 button.reward-ok:active {
-    transform: scale(0.98);
+    background: #7c4f23;
 }

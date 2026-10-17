@@ -82,7 +82,8 @@ const isRoutesPage = [
   "routes.html",
   "routes2-activity-selection.html",
   "routes3-customise-routes.html",
-  "routes4-route-selection.html"
+  "routes4-route-selection.html",
+  "routes5-route-details.html"
 ].includes(currentPage);
 
 document.querySelectorAll(".bottom-nav .nav-link").forEach(link => {
@@ -438,3 +439,4 @@ document.addEventListener("click", event => {
     }
   });
 });
+

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Route Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/routes5-route-details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app details-page">
+        <header class="top-banner">
+            <a class="back-link" id="back-link" href="routes4-route-selection.html"
+                aria-label="Back to route selection">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 5l-7 7 7 7" />
+                </svg>
+            </a>
+            <h1 class="banner-heading">Route Details</h1>
+        </header>
+
+        <main class="map-stage" id="map-stage">
+            <div class="map-view" id="map-view" role="img" aria-label="Simulated map of the route"></div>
+
+            <section class="sheet" id="sheet" aria-label="Route information">
+                <div class="sheet-grip" id="sheet-grip">
+                    <button class="sheet-handle" type="button" id="sheet-handle" aria-expanded="false"
+                        aria-label="Show more route details"><span></span></button>
+                    <div class="sheet-summary">
+                        <h2 id="route-name"></h2>
+                    </div>
+                    <div class="stats" id="sheet-stats"></div>
+                </div>
+
+                <div class="sheet-body" id="sheet-body">
+                    <div class="sheet-inner" id="sheet-inner">
+                        <div id="route-content"></div>
+                        <div id="site-footer"></div>
+                    </div>
+                </div>
+
+                <div class="sheet-footer">
+                    <button class="go-button" id="go-button" type="button">Go</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Finish route confirmation -->
+        <div class="modal" id="finish-modal" role="dialog" aria-modal="true" aria-labelledby="finish-title" hidden>
+            <div class="modal-card">
+                <h2 id="finish-title">Finish Route?</h2>
+                <p class="modal-text" id="finish-text"></p>
+                <div class="modal-actions">
+                    <button class="modal-btn secondary" id="finish-cancel" type="button">Cancel</button>
+                    <button class="modal-btn" id="finish-confirm" type="button">Finish</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity completed -->
+        <div class="modal" id="complete-modal" role="dialog" aria-modal="true" aria-labelledby="complete-title" hidden>
+            <div class="modal-card">
+                <h2 id="complete-title">Activity Completed</h2>
+                <p class="modal-text" id="complete-text"></p>
+                <div class="reward-box">
+                    <p class="reward-heading">Rewards</p>
+                    <div class="reward-tiles">
+                        <div class="reward-tile">
+                            <span class="reward-label">Points</span>
+                            <div class="reward-body reward-body-row">
+                                <span class="reward-icon-crop"><img src="images/dog-points-icon.svg" alt=""></span>
+                                <p class="reward-line"><strong id="reward-points">10</strong></p>
+                            </div>
+                        </div>
+                        <div class="reward-tile">
+                            <span class="reward-label">XP</span>
+                            <div class="reward-body">
+                                <p class="reward-line"><strong id="reward-xp">10</strong></p>
+                            </div>
+                        </div>
+                        <div class="reward-tile reward-item">
+                            <span class="reward-label">Item</span>
+                            <div class="reward-body">
+                                <img src="images/glasses.svg" alt="" width="30" height="30">
+                                <p class="reward-line"><strong>Glasses</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn" id="complete-done" type="button">Done</button>
+                </div>
+            </div>
+        </div>
+          <div id="site-nav"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/points.js"></script>
+    <script src="js/routes-data.js"></script>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const routeIndex = Math.min(Math.max(Number(params.get("route")) || 0, 0), ROUTES.length - 1);
+        const route = ROUTES[routeIndex];
+        const routeType = params.get("routeType") || "Loop";
+        const isLoop = routeType === "Loop";
+        const startLocation = params.get("startLocation") || "Current location";
+
+        const displayName = isLoop ? route.name : route.name.replace(/\s+Loop\b/i, "");
+        const typeLabel = isLoop ? "Loop" : "Out & back";
+
+        document.title = displayName + " – Route Details";
+        document.getElementById("route-name").textContent = displayName;
+
+        // Back link keeps the customise choices so results don't reset
+        const back = new URLSearchParams(params);
+        back.delete("route");
+        document.getElementById("back-link").href =
+            "routes4-route-selection.html" + (back.toString() ? "?" + back.toString() : "");
+
+        /* ---------- Tag info ---------- */
+        const TAG_DESC = {
+            "Quiet": "Low traffic and little noise along the way.",
+            "Shade": "Tree cover for hot days and hot paws.",
+            "Greenery": "Lots of grass, trees and planted verges.",
+            "Suburb": "Residential streets with footpaths.",
+            "Off-leash": "Includes an off-leash area to run free.",
+            "Park": "Passes through or around a park.",
+            "Fountains": "Water stops for you and your dog.",
+            "Variety of scents": "Plenty of new smells to sniff out.",
+            "Uncrowded": "Usually room to spare on the path."
+        };
+        const tagDesc = tag => TAG_DESC[tag] || "";
+
+        // Only these tags are pinned on the map; the rest appear in the details sheet
+        const MAP_TAGS = ["Fountains", "Park", "Off-leash"];
+
+        /* ---------- Simulated map ---------- */
+        function rng(seed) {
+            return function () {
+                seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+                let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+                t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+                return ((t ^ t >>> 14) >>> 0) / 4294967296;
+            };
+        }
+
+        function buildMap() {
+            const rand = rng(routeIndex * 97 + 13);
+            const pts = isLoop ? [...route.points, route.points[0]] : route.points;
+            const pointString = pts.map(p => p.join(",")).join(" ");
+
+            // Parks
+            let parks = "";
+            for (let i = 0; i < 4; i++) {
+                const cx = (rand() * 120 - 20).toFixed(1), cy = (rand() * 120 - 20).toFixed(1);
+                const rx = (8 + rand() * 12).toFixed(1), ry = (6 + rand() * 10).toFixed(1);
+                const rot = (rand() * 60 - 30).toFixed(0);
+                parks += `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#D3E5B8" transform="rotate(${rot} ${cx} ${cy})"/>`;
+            }
+
+            // River
+            const wy = 10 + rand() * 60;
+            const water = `<path d="M-20 ${wy.toFixed(1)} C 10 ${(wy - 18).toFixed(1)}, 30 ${(wy + 22).toFixed(1)}, 60 ${(wy - 6).toFixed(1)} S 100 ${(wy + 14).toFixed(1)}, 110 ${(wy - 4).toFixed(1)}" fill="none" stroke="#BFDDEB" stroke-width="7" stroke-linecap="round"/>`;
+
+            // Street grid
+            let lines = "";
+            for (let k = -3; k < 9; k++) {
+                const y = (k * 14 + rand() * 4).toFixed(1);
+                const x = (k * 14 + rand() * 4).toFixed(1);
+                lines += `<line x1="-40" y1="${y}" x2="120" y2="${y}"/><line x1="${x}" y1="-40" x2="${x}" y2="120"/>`;
+            }
+            const rot = (rand() * 36 - 18).toFixed(1);
+            const roads = `
+                <g transform="rotate(${rot} 40 40)" stroke-linecap="round">
+                    <g stroke="#E4DAC5" stroke-width="2.6">${lines}</g>
+                    <g stroke="#FFFFFF" stroke-width="1.7">${lines}</g>
+                </g>`;
+
+            const cx = route.points.reduce((sum, p) => sum + p[0], 0) / route.points.length;
+            const cy = route.points.reduce((sum, p) => sum + p[1], 0) / route.points.length;
+            const n = route.points.length;
+
+            // Label pill pushed outward from the middle of the route
+            function pill(p, label, fill, textFill, stroke, dist) {
+                let vx = p[0] - cx, vy = p[1] - cy;
+                const len = Math.hypot(vx, vy) || 1;
+                vx /= len; vy /= len;
+                const w = label.length * 1.9 + 6;
+                const px = Math.min(Math.max(p[0] + vx * dist, w / 2 + 2), 78 - w / 2);
+                const py = Math.min(Math.max(p[1] + vy * dist, 6), 74);
+                return `
+                    <line x1="${p[0]}" y1="${p[1]}" x2="${px.toFixed(1)}" y2="${py.toFixed(1)}" stroke="#9b642e" stroke-width="0.5"/>
+                    <rect x="${(px - w / 2).toFixed(1)}" y="${(py - 2.8).toFixed(1)}" width="${w.toFixed(1)}" height="5.6" rx="2.8"
+                          fill="${fill}" stroke="${stroke}" stroke-width="0.6"/>
+                    <text x="${px.toFixed(1)}" y="${py.toFixed(1)}" font-size="3.1" fill="${textFill}"
+                          text-anchor="middle" dominant-baseline="central">${label}</text>`;
+            }
+
+            // Pins for water stops, parks and off-leash areas only
+            const mapTags = route.tags.filter(t => MAP_TAGS.includes(t));
+            let pins = "";
+            mapTags.forEach((tag, j) => {
+                const idx = 1 + Math.floor(((j + 0.5) * (n - 2)) / mapTags.length);
+                const p = route.points[Math.min(idx, n - 2)];
+                pins += `<circle cx="${p[0]}" cy="${p[1]}" r="1.3" fill="#fff" stroke="#9b642e" stroke-width="0.7"/>`
+                    + pill(p, tag, "#fff", "#24190f", "#c47f35", 10);
+            });
+
+            // Clear start and end markers
+            const start = route.points[0];
+            const end = route.points[n - 1];
+            let markers;
+            if (isLoop) {
+                markers = pill(start, "Start / End", "#5B9A4B", "#fff", "#fff", 11)
+                    + `<circle cx="${start[0]}" cy="${start[1]}" r="3.2" fill="#5B9A4B" stroke="#fff" stroke-width="1.2"/>
+                           <circle cx="${start[0]}" cy="${start[1]}" r="1.1" fill="#fff"/>`;
+            } else {
+                markers = pill(start, "Start", "#5B9A4B", "#fff", "#fff", 11)
+                    + pill(end, "End", "#C0504D", "#fff", "#fff", 11)
+                    + `<circle cx="${start[0]}" cy="${start[1]}" r="3.2" fill="#5B9A4B" stroke="#fff" stroke-width="1.2"/>
+                           <circle cx="${end[0]}" cy="${end[1]}" r="3.2" fill="#C0504D" stroke="#fff" stroke-width="1.2"/>`;
+            }
+
+            document.getElementById("map-view").innerHTML = `
+                <svg viewBox="-10 -10 100 100" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
+                    <rect x="-60" y="-60" width="200" height="200" fill="#F1EBDD"/>
+                    ${parks}
+                    ${water}
+                    ${roads}
+                    <polyline points="${pointString}" fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <polyline points="${pointString}" fill="none" stroke="#9b642e" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+                    ${pins}
+                    ${markers}
+                </svg>`;
+        }
+        buildMap();
+
+        /* ---------- Sheet content ---------- */
+        document.getElementById("sheet-stats").innerHTML = `
+            <div><strong>${route.km.toFixed(1)} km</strong><span>Distance</span></div>
+            <div><strong>${route.minutes} min</strong><span>Duration</span></div>
+            <div><strong>${typeLabel}</strong><span>Type</span></div>`;
+
+        document.getElementById("route-content").innerHTML = `
+            <h3>Route features</h3>
+            <div class="chips">
+                ${route.tags.map(t => `<span class="chip">${t}</span>`).join("")}
+            </div>
+            <ul class="features">
+                ${route.tags.map(t => `<li><strong>${t}</strong><p>${tagDesc(t)}</p></li>`).join("")}
+            </ul>`;
+
+        /* ---------- Pull-up sheet ---------- */
+        const stage = document.getElementById("map-stage");
+        const sheet = document.getElementById("sheet");
+        const grip = document.getElementById("sheet-grip");
+        const handle = document.getElementById("sheet-handle");
+
+        const footerEl = sheet.querySelector(".sheet-footer");
+        const ORDER = ["peek", "half", "full"];
+        let snaps = {};
+        let current = "peek";
+
+        function computeSnaps() {
+
+            
+            const h = stage.clientHeight;
+            // Peek = just the handle, name, three stat bubbles and the Go button
+            const peek = grip.offsetHeight + footerEl.offsetHeight + 1;
+            // Full = exactly enough room for the content, ending at the AI disclosure
+            const inner = document.getElementById("sheet-inner");
+            const full = Math.min(h - 16, peek + inner.offsetHeight);
+            snaps = { peek, half: Math.min(Math.max(Math.round(h * 0.55), peek + 140), full), full };
+        }
+
+        function setHeight(px, animate) {
+            sheet.style.transition = animate ? "height .28s ease" : "none";
+            sheet.style.height = px + "px";
+            // Map shrinks to the visible area above the sheet, up to the half position
+            stage.style.setProperty("--sheet-offset", Math.min(px, snaps.half) + "px");
+        }
+
+        function snapTo(name) {
+            current = name;
+            setHeight(snaps[name], true);
+            handle.setAttribute("aria-expanded", String(name !== "peek"));
+            handle.setAttribute("aria-label", name === "full" ? "Collapse route details" : "Show more route details");
+        }
+
+        computeSnaps();
+        setHeight(snaps.peek, false);
+        const refresh = () => { computeSnaps(); setHeight(snaps[current], false); };
+        window.addEventListener("resize", refresh);
+        window.addEventListener("load", refresh);
+        if (document.fonts) document.fonts.ready.then(refresh);
+
+        let dragging = false, moved = false, startY = 0, startH = 0, pid = null, suppressClick = false;
+
+        grip.addEventListener("pointerdown", e => {
+            dragging = true; moved = false;
+            startY = e.clientY;
+            startH = sheet.offsetHeight;
+            pid = e.pointerId;
+        });
+
+        grip.addEventListener("pointermove", e => {
+            if (!dragging) return;
+            const dy = startY - e.clientY;
+            if (!moved && Math.abs(dy) > 5) {
+                moved = true;
+                grip.setPointerCapture(pid);
+            }
+            if (moved) {
+                setHeight(Math.min(Math.max(startH + dy, snaps.peek), snaps.full), false);
+            }
+        });
+
+        function endDrag() {
+            if (!dragging) return;
+            dragging = false;
+            if (!moved) return;
+            suppressClick = true;
+            const h = sheet.offsetHeight;
+            const nearest = ORDER.reduce((a, b) =>
+                Math.abs(snaps[b] - h) < Math.abs(snaps[a] - h) ? b : a);
+            snapTo(nearest);
+        }
+        grip.addEventListener("pointerup", endDrag);
+        grip.addEventListener("pointercancel", endDrag);
+
+        // Tap / keyboard: step peek → half → full → peek
+        grip.addEventListener("click", () => {
+            if (suppressClick) { suppressClick = false; return; }
+            snapTo(ORDER[(ORDER.indexOf(current) + 1) % ORDER.length]);
+        });
+
+        /* ---------- Go / Finish route ---------- */
+        const REWARD = { points: 10, xp: 10 };
+        const goBtn = document.getElementById("go-button");
+        const finishModal = document.getElementById("finish-modal");
+        const completeModal = document.getElementById("complete-modal");
+        let routeStarted = false;
+
+        function openModal(modal, focusEl) {
+            modal.hidden = false;
+            if (focusEl) focusEl.focus();
+        }
+
+        goBtn.addEventListener("click", () => {
+            if (!routeStarted) {
+                routeStarted = true;
+                goBtn.textContent = "Finish Route";
+                goBtn.classList.add("is-finish");
+                return;
+            }
+            document.getElementById("finish-text").textContent =
+                `Are you sure you want to finish ${displayName}?`;
+            openModal(finishModal, document.getElementById("finish-confirm"));
+        });
+
+        document.getElementById("finish-cancel").addEventListener("click", () => {
+            finishModal.hidden = true;
+        });
+        finishModal.addEventListener("click", e => {
+            if (e.target === finishModal) finishModal.hidden = true;
+        });
+
+        document.getElementById("finish-confirm").addEventListener("click", () => {
+            finishModal.hidden = true;
+            earnPoints(REWARD.points);
+            
+            document.getElementById("complete-text").textContent =
+                `${displayName} · ${route.km.toFixed(1)} km · ${route.minutes} min`;
+            document.getElementById("reward-points").textContent = REWARD.points;
+            document.getElementById("reward-xp").textContent = REWARD.xp;
+            openModal(completeModal, document.getElementById("complete-done"));
+
+        });
+
+        document.getElementById("complete-done").addEventListener("click", () => {
+            window.location.href = "routes.html";
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape" && !finishModal.hidden) finishModal.hidden = true;
+        });
+    </script>
+</body>
+
+</html>

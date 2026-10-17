@@ -38,7 +38,7 @@
                     <!-- Quest 1 -->
                     <div class="quests-card" data-name="Complete 5 walks" data-reward="25" data-xp="20">
                         <div class="quest-thumb">
-                            <img src="images/points_icon.svg" alt="">
+                            <img src="images/dog-points-icon.svg" alt="dog points">
                         </div>
                         <div class="quest-content">
                             <h3 class="quest-title">Complete 5 walks</h3>
@@ -54,7 +54,7 @@
                     <!-- Quest 2 -->
                     <div class="quests-card" data-name="Explore 3 new parks" data-reward="25" data-xp="15">
                         <div class="quest-thumb">
-                            <img src="images/points_icon.svg" alt="">
+                            <img src="images/dog-points-icon.svg" alt="dog points">
                         </div>
                         <div class="quest-content">
                             <h3 class="quest-title">Explore 3 new parks</h3>
@@ -70,7 +70,7 @@
                     <!-- Quest 3 -->
                     <div class="quests-card" data-name="Walk 25 km" data-reward="75" data-xp="40">
                         <div class="quest-thumb">
-                            <img src="images/points_icon.svg" alt="">
+                            <img src="images/sunglasses.svg" alt="sunglasses">
                         </div>
                         <div class="quest-content">
                             <h3 class="quest-title">Walk 25 km</h3>
@@ -194,42 +194,38 @@
 
                 <h3 class="reward-quest" id="reward-name"></h3>
 
-                <p class="reward-label">Rewards</p>
+                <div class="reward-box">
+                    <p class="reward-heading">Rewards</p>
 
-                <div class="reward-row">
-                    <div class="reward-item">
-                        <img src="images/points_icon.svg" alt="">
-                        <div class="reward-text">
-                            <span class="reward-amount">+<span id="reward-coins">25</span></span>
-                            <span class="reward-unit">points</span>
+                    <div class="reward-row">
+                        <div class="reward-item">
+                            <span class="reward-tag">Points</span>
+                            <div class="reward-body reward-body-row">
+                                <span class="reward-icon-crop"><img src="images/dog-points-icon.svg" alt=""></span>
+                                <strong class="reward-amount" id="reward-coins">25</strong>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="reward-item">
-                        <svg viewBox="0 0 24 24" fill="#d69b5c" stroke="#d69b5c" stroke-width="1.5"
-                            stroke-linejoin="round">
-                            <path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z" />
-                        </svg>
-                        <div class="reward-text">
-                            <span class="reward-amount">+<span id="reward-xp">30</span></span>
-                            <span class="reward-unit">XP</span>
+                        <div class="reward-item">
+                            <span class="reward-tag">XP</span>
+                            <div class="reward-body">
+                                <strong class="reward-amount" id="reward-xp">30</strong>
+                            </div>
                         </div>
-                    </div>
 
-
-                    <div class="reward-item" id="reward-item-item" hidden>
-                        <div class="reward-item-placeholder"></div>
-                        <div class="reward-text">
-                            <span class="reward-amount">1</span>
-                            <span class="reward-unit">item</span>
+                        <div class="reward-item" id="reward-item-item" hidden>
+                            <span class="reward-tag">Item</span>
+                            <div class="reward-body">
+                           <img class="glasses" src="images/sunglasses.svg" alt="sunglasses">
+                                <strong class="reward-item-name">Sunglasses</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <button class="reward-ok" id="reward-ok">Got it</button>
+                <button class="reward-ok" id="reward-ok" type="button">Got it</button>
             </div>
         </div>
-
         <div id="site-nav"></div>
     </div>
 
