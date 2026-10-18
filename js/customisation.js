@@ -1,3 +1,19 @@
+//AI Acknowledgement
+
+//Tool used: ChatGPT (OpenAI)
+//Date used: 1 October 2026
+
+//How AI was used:
+//- Suggested code used for storing purchased items
+//- Helped explain JS code
+
+//Prompts included:
+//- "How can items be 'purchased' and 'stored' for a customisation feature in an app?"
+//- "Explain this part of the code, what is it's purpose?"
+
+//All code was reviewed, modified, and understood by the author before submission.
+
+
 const purchaseButtons = document.querySelectorAll(".points");
 
 const purchaseModal = document.getElementById("purchaseModal");
@@ -54,10 +70,6 @@ updatePurchasedItems();
 
 
 // MARK: Open purchase popup
-
-
- // MARK: Open purchase popup
-
 purchaseButtons.forEach((button) => {
     button.addEventListener("click", () => {
         const itemName = button.dataset.item;
