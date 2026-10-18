@@ -110,9 +110,9 @@ const userIcon = L.divIcon({
     iconAnchor: [18, 18]
 });
 
-// Create the demo location icon
+// Create the default location icon
 const demoIcon = L.divIcon({
-    className: "user-location-marker",
+    className: "default-location-marker",
     html: "You",
     iconSize: [36, 36],
     iconAnchor: [18, 18]
