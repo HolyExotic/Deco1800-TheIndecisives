@@ -1,6 +1,6 @@
 // Create the Leaflet map
 const map = L.map("map", {
-    scrollWheelZoom: false,
+    scrollWheelZoom: true,
     inertia: false
 }).setView(
     [-27.48, 153.02],
