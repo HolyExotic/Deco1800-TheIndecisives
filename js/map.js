@@ -435,11 +435,16 @@ async function loadFountains() {
                 {icon: fountainIcon}
             );
 
-            marker.bindPopup(`
-                <strong>${fountain.park_name}</strong>
-                <br>
-                ${fountain.item_description}
-            `);
+            // Show fountain details when selected
+            marker.on("click", () => {
+                selectedLocationCoordinates = [lat, lon];
+                locationTitle.textContent =
+                    fountain.park_name || "Drinking Fountain";
+                locationSuburb.textContent = "Drinking Fountain";
+                locationInfo.textContent =
+                    `Facility: ${fountain.item_description || "Not specified"}`;
+                locationDetails.classList.remove("hidden");
+            });
 
         marker.addTo(fountainLayer);
         });
