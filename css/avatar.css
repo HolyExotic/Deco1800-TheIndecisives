@@ -146,13 +146,14 @@ h2 {
     align-items: center;
     top: 730px;
 
+
 }
 
 .lower-btn {
     color: #f7f6f6;
     font-size: 22px;
     background-color: #D89C5C;
-    border: 1px ;
+    border: 1.5px rgb(126, 95, 47) solid;
     padding: 8px 100px;
     border-radius: 30px;
     position: absolute;
@@ -160,6 +161,8 @@ h2 {
     bottom: 10px;
     font-weight: 500;
     font-family: 'Ubuntu Sans';
+    cursor: pointer;
+
 }
 
 .avatar-menu1 {
