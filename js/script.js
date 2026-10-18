@@ -492,7 +492,7 @@ if (profilePrefsContainer) {
 
 
 
-//MARK: INVENTORY
+// Updates finished activity item reward
 function addOwnedItem(id) {
   let items;
   try {
