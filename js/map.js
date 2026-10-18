@@ -4,7 +4,6 @@ const map = L.map("map").setView(
     15
 );
 
-
 // Move the zoom control to the bottom-right
 map.zoomControl.setPosition("bottomright");
 
