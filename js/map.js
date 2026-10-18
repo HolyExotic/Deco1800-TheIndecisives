@@ -1,5 +1,8 @@
-// Create the Leaflet map and set Brisbane as the initial location
-const map = L.map("map").setView(
+// Create the Leaflet map
+const map = L.map("map", {
+    scrollWheelZoom: false,
+    inertia: false
+}).setView(
     [-27.48, 153.02],
     15
 );

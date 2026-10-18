@@ -180,15 +180,15 @@ body {
 .fountain-marker,
 .park-marker,
 .off-leash-marker {
-    position: relative;
     width: 34px;
     height: 34px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
     line-height: 1;
-    z-index: 1;
 }
 
 /* Pin background shape */
