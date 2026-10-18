@@ -43,6 +43,7 @@
     z-index:30;
     left: 60px;
     top: 60px;
+    cursor: pointer;
 }
 
 .back-shadow{
