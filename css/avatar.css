@@ -206,3 +206,29 @@ h2 {
     font-weight: 700;
     text-align: center;
 }
+
+
+/* Mobile home page layout */
+@media (max-width: 480px) {
+
+    /* Keep DogGo button above the navbar */
+    .DogGo-btn {
+        position: fixed;
+        top: auto;
+        bottom: 74px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: calc(100% - 40px);
+        max-width: 340px;
+        z-index: 1900;
+    }
+
+    /* Centre the DogGo button */
+    .lower-btn {
+        position: static;
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 16px;
+    }
+}
