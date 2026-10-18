@@ -287,7 +287,7 @@ async function searchLocations() {
 
                 // Close search and display location details
                 searchPanel.classList.add("hidden");
-                locationDetails.classList.remove("hidden");
+                showSelectedLocation();
             });
             searchResults.appendChild(item);
         });
@@ -416,6 +416,11 @@ getDirectionsButton.addEventListener("click", () => {
 
 });
 
+// Show location details
+function showSelectedLocation() {
+    locationDetails.classList.remove("hidden");
+}
+
 
 // Load drinking fountain data from Brisbane City Council Open Data
 async function loadFountains() {
@@ -443,7 +448,7 @@ async function loadFountains() {
                 locationSuburb.textContent = "Drinking Fountain";
                 locationInfo.textContent =
                     `Facility: ${fountain.item_description || "Not specified"}`;
-                locationDetails.classList.remove("hidden");
+                showSelectedLocation();
             });
 
         marker.addTo(fountainLayer);
@@ -502,7 +507,7 @@ async function loadParks() {
                 `Address: ${address || "Not available"}
         Park size: ${park.park_size || "Not available"}`;
 
-            locationDetails.classList.remove("hidden");
+            showSelectedLocation();
         });
     
         marker.addTo(parkLayer);  
@@ -552,7 +557,7 @@ async function loadOffLeashAreas() {
                 Agility equipment: ${area.dog_agility_equipment || "Not specified"}
                 Lighting: ${area.lighting || "Not specified"}`;
 
-                locationDetails.classList.remove("hidden");
+                showSelectedLocation();
             });
             marker.addTo(offLeashLayer);
         });
@@ -631,7 +636,7 @@ async function loadTrails() {
             Directions will use the selected point on the trail.`;
 
                 // Open the location details card
-                locationDetails.classList.remove("hidden");
+                showSelectedLocation();
 
             });
 
