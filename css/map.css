@@ -206,6 +206,27 @@ body {
     z-index: -1;
 }
 
+/* Selected park marker */
+.park-marker.selected-marker::before {
+    background: #b7db7a;
+    border: 3px solid #4f6f2f;
+    box-shadow: 0 0 0 4px rgba(79, 111, 47, 0.25);
+}
+
+/* Selected fountain marker */
+.fountain-marker.selected-marker::before {
+    background: #b9e5f7;
+    border: 3px solid #3f7f99;
+    box-shadow: 0 0 0 4px rgba(63, 127, 153, 0.25);
+}
+
+/* Selected off-leash marker */
+.off-leash-marker.selected-marker::before {
+    background: #f3d3a4;
+    border: 3px solid #8b5e34;
+    box-shadow: 0 0 0 4px rgba(139, 94, 52, 0.25);
+}
+
 /* Individual emoji sizes */
 .fountain-marker {
     font-size: 20px;

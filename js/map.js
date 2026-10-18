@@ -93,6 +93,9 @@ let selectedLocationCoordinates = null;
 // Store the marker for the selected search result
 let searchMarker = null;
 
+// Store the currently selected marker
+let selectedMarker = null;
+
 
 // Demo user starting location for the WIP
 //const userLocation = [-27.485, 153.02];
@@ -286,7 +289,7 @@ async function searchLocations() {
 
                 // Close search and display location details
                 searchPanel.classList.add("hidden");
-                showSelectedLocation();
+                showSelectedLocation(searchMarker);
             });
             searchResults.appendChild(item);
         });
@@ -392,6 +395,7 @@ resetFilters.addEventListener("click", () => {
 // Close the location details card
 closeLocationDetails.addEventListener("click", () => {
     locationDetails.classList.add("hidden");
+    clearSelectedMarker();
 });
 
 // Open Google Maps walking directions
@@ -415,8 +419,27 @@ getDirectionsButton.addEventListener("click", () => {
 
 });
 
-// Show location details
-function showSelectedLocation() {
+// Remove the previous marker highlight
+function clearSelectedMarker() {
+    if (selectedMarker) {
+        selectedMarker.getElement()?.classList.remove("selected-marker");
+        selectedMarker.setZIndexOffset(0);
+        selectedMarker = null;
+    }
+}
+
+// Show location details and highlight the selected marker
+function showSelectedLocation(marker = null) {
+
+    clearSelectedMarker();
+
+    selectedMarker = marker;
+
+    if (selectedMarker) {
+        selectedMarker.getElement()?.classList.add("selected-marker");
+        selectedMarker.setZIndexOffset(1000);
+    }
+
     locationDetails.classList.remove("hidden");
 }
 
@@ -447,7 +470,7 @@ async function loadFountains() {
                 locationSuburb.textContent = "Drinking Fountain";
                 locationInfo.textContent =
                     `Facility: ${fountain.item_description || "Not specified"}`;
-                showSelectedLocation();
+                showSelectedLocation(marker);
             });
 
         marker.addTo(fountainLayer);
@@ -506,7 +529,7 @@ async function loadParks() {
                 `Address: ${address || "Not available"}
         Park size: ${park.park_size || "Not available"}`;
 
-            showSelectedLocation();
+            showSelectedLocation(marker);
         });
     
         marker.addTo(parkLayer);  
@@ -556,7 +579,7 @@ async function loadOffLeashAreas() {
                 Agility equipment: ${area.dog_agility_equipment || "Not specified"}
                 Lighting: ${area.lighting || "Not specified"}`;
 
-                showSelectedLocation();
+                showSelectedLocation(marker);
             });
             marker.addTo(offLeashLayer);
         });
