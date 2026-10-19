@@ -23,7 +23,7 @@
     font-size: 20px;
     font-family: "Ubuntu Sans", Arial, Helvetica, sans-serif;
     color: #644426;
-       font-weight: 500;
+    font-weight: 500;
 }
 
 .input-name::placeholder {
@@ -43,6 +43,7 @@
     z-index:30;
     left: 60px;
     top: 60px;
+    cursor:pointer;
 }
 
 .back-shadow{
