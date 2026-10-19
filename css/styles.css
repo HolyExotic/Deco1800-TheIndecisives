@@ -27,7 +27,7 @@ body {
   width: 100%;
   max-width: 390px;
   min-height: 100vh;
-  max-height: 780px;
+  height: auto;
   background: #FAF3E0;
   position: relative;
   display: flex;
