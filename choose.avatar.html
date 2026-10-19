@@ -43,41 +43,39 @@
 
         <main id="mainScreen" class="avatar-home">
 
-            <h2> Choose your Dog size </h2>
+            <h2> Select your Dog size </h2>
 
-         
+
             <section class="dog-size-options">
 
                 <button class="dog-panel" data-dog-size="small">
-                    <img src="images/dog.small.png" class="img-small-dog" />
+                    <img src="images/dog.small.png" class="img-small-dog" alt="" />
                     <div class="dog-overlay" aria-hidden="true"></div>
                 </button>
 
                 <button class="dog-panel" data-dog-size="med">
-                    <img src="images/dog.med.png" class="img-med-dog" />
+                    <img src="images/dog.med.png" class="img-med-dog" alt="" />
                     <div class="dog-overlay" aria-hidden="true"></div>
                 </button>
 
                 <button class="dog-panel" data-dog-size="large">
-                    <img src="images/dog.large.png" class="img-large-dog" />
+                    <img src="images/dog.large.png" class="img-large-dog" alt="" />
                     <div class="dog-overlay" aria-hidden="true"></div>
                 </button>
 
             </section>
-
             <div id="site-nav"></div>
 
-            <script src="js/script.js"></script>
-            <script src="js/avatar.settings.js"></script>
-            <script src="js/avatar.js"></script>
-            <script src="js/points.js"></script>
-            <script src="js/choose.avatar.js"></script>
+
 
         </main>
 
-        <div id="dogPurchaseModal" class="purchase-modal hidden">
+        <div id="dogPurchaseModal" class="purchase-modal hidden" role="dialog" aria-modal="true"
+            aria-labelledby="dogPurchaseTitle">
             <div class="purchase-card">
                 <button id="closeDogPurchase" class="close-purchase" aria-label="Close">×</button>
+
+                <h2 id="dogPurchaseTitle" class="purchase-title">Confirm Purchase</h2>
 
                 <div class="avatar-preview">
                     <img id="previewDog" class="avatar-base" src="" alt="">
@@ -92,6 +90,14 @@
                 </button>
             </div>
         </div>
+    </div>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/avatar.settings.js"></script>
+    <script src="js/avatar.js"></script>
+    <script src="js/points.js"></script>
+    <script src="js/choose.avatar.js"></script>
 </body>
 
 </html>

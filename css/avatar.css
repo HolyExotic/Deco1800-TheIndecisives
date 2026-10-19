@@ -247,3 +247,38 @@ h2 {
         padding: 10px 16px;
     }
 }
+
+
+/* Allows cursor to go through overlapping dog image on the bubbles*/
+.avatar-container,
+.avatar-image,
+.avatar-image img,
+.worn-accessory {
+    pointer-events: none;
+}
+
+.bubble-label {
+    position: absolute;
+    top: -12px;
+    left: 55%;
+    transform: translateX(-50%);
+    padding: 3px 12px;
+    background: #7d4d28;
+    color: #fff;
+    border: 0.5px solid #FAF3E0;   
+    font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+
+/* Press feedback */
+.dog-avatar-selection:active,
+.dog-accessories:active,
+.daily-quests:active {
+    filter: brightness(0.9);
+}
+

@@ -1,24 +1,3 @@
-.shop-more {
-    margin-top: 0px;
-    color: #B5A49A;
-    font-size: 12px;
-    text-decoration: underline;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-}
-
-.shop-icon{
-    position: absolute;
-    max-height: 14px; 
-    max-height: auto;
-    margin-bottom: 0.1px;
-    left: 60%;
-}
-
-
-
 h2 {
     font-size: 25px;
 }
@@ -33,20 +12,18 @@ h2 {
     margin: 42px auto 80px;
 }
 
-
+/* Panels */
 .dog-panel {
     flex: 1;
     min-width: 0;
     height: 100%;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
     background-color: #F0DDA3;
-    border:none;
+    border: none;
     transition: background-color 0.2s ease;
     cursor: pointer;
-}
-.dog-panel.selected {
-    background-color: #c5b37b;
 }
 
 .dog-overlay {
@@ -55,11 +32,7 @@ h2 {
     z-index: 4;
 }
 
-.dog-overlay.active {
-    background-color: #c5b37b;
-}
-
-
+/* Dog images */
 .img-small-dog, .img-med-dog, .img-large-dog {
     position: absolute;
     bottom: 0;
@@ -117,64 +90,164 @@ h2 {
     }
 }
 
-
-.dog-panel {
-    isolation: isolate;
+/* Selected dog size */
+.dog-panel.selected {
+    background-color: #f7c456;
+    outline: 2px solid #8b5d11;
+    outline-offset: 0;
 }
 
-.dog-panel.is-locked .dog-overlay {
+.dog-panel.selected::after {
+    content: "Selected";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 12; /* above the dog image (10) */
+    padding: 6px 54px;
+    background: #7d4d28;
+    color: #fff;
+    font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* Locked (buyable) dog size */
+.dog-panel.is-locked .dog-overlay {
     z-index: 11;
     display: grid;
     place-items: center;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.45);
 }
 
-.dog-panel.is-locked .dog-overlay::after {
-    content: "LOCKED";
+.buy-banner {
+    display: none;
+}
+
+.dog-panel.is-locked .buy-banner {
     position: absolute;
-    left: -10%;
-    width: 120%;
-    padding: 9px 0;
-    background: rgba(30, 25, 20, 0.95);
+    left: -15%;
+    width: 130%;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: #D89C5C;
     color: #fff;
     font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-align: center;
-    transform: rotate(-12deg);
+    font-weight: 600;
+    line-height: 1.1;
+    white-space: nowrap;
+    transform: rotate(-8deg);
+    font-family: 'Ubuntu Sans';
 }
 
-.dog-panel.is-locked .dog-overlay img {
-    width: 36px;
-    height: 36px;
+.buy-banner .price-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.buy-icon {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    overflow: hidden;
+}
+
+.buy-icon img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    max-width: none;
+    transform: translate(-50%, -50%);
     object-fit: contain;
 }
 
+/* Purchase popup */
 #dogPurchaseModal .confirm-purchase {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 #dogPurchaseModal .buy-points-icon {
-  position: relative;
-  display: block;
-  width: 24px;
-  height: 24px;
-  flex: 0 0 24px;
-  overflow: hidden;
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    overflow: hidden;
 }
 
 #dogPurchaseModal .buy-points-icon img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 38px;
-  height: 38px;
-  max-width: none;
-  transform: translate(-50%, -50%);
-  object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 38px;
+    height: 38px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+#dogPurchaseModal .purchase-title {
+    margin: 0 0 12px;
+    padding: 0 28px;
+    font-size: 18px;
+    color: #664022;
+    text-align: center;
+}
+
+#dogPurchaseModal .close-purchase {
+    top: 8px;
+    right: 12px;
+}
+
+#dogPurchaseModal .purchase-card {
+    position: relative;
+}
+
+#dogPurchaseModal .purchase-title {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0 40px; /* keeps text clear of the × button */
+    font-size: 18px;
+    color: #664022;
+    text-align: center;
+    pointer-events: none;
+}
+
+#dogPurchaseModal .avatar-preview img {
+    transform: scale(0.85);
+    transform-origin: bottom center;
+}
+
+.dog-panel.is-locked .dog-overlay::after {
+    content: "BUY";
+    position: absolute;
+    left: -15%;
+    width: 130%;
+    padding: 9px 0;
+    background: #D89C5C;
+    color: #fff;
+    font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    transform: rotate(-8deg);
 }
