@@ -207,7 +207,21 @@ h2 {
     text-align: center;
 }
 
+/* Home page layout for larger screens */
+@media (min-width: 481px) {
 
+    /* Limit the height of the home page */
+    .app.home-app {
+        height: 780px;
+        min-height: 780px;
+    }
+
+    /* Keep the navbar at the bottom of the home page */
+    .app.home-app #site-nav {
+        position: absolute;
+        bottom: 10px;
+    }
+}
 
 /* Mobile home page layout */
 @media (max-width: 480px) {
