@@ -489,3 +489,21 @@ if (profilePrefsContainer) {
     profilePrefsContainer.appendChild(chip);
   });
 }
+
+
+
+// Updates finished activity item reward
+function addOwnedItem(id) {
+  let items;
+  try {
+    items = JSON.parse(localStorage.getItem("purchasedItems"));
+  } catch {
+    items = null;
+  }
+  if (!Array.isArray(items)) items = [];
+
+  if (items.includes(id)) return false; // already owned
+  items.push(id);
+  localStorage.setItem("purchasedItems", JSON.stringify(items));
+  return true;
+}

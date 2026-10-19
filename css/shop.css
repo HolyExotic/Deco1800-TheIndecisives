@@ -27,6 +27,19 @@ body {
 
 /* Top points section */
 
+  /* AI Acknowledgement
+
+  Tool used: ChatGPT (OpenAI)
+  Date used: 22 September 2026
+
+  How AI was used:
+  - Suggested code on how to curve rectangle's corners
+
+  Prompts included:
+  - "How do I curve this rectangle's corners"
+
+  All code was reviewed, modified, and understood by the author before submission. */
+
 .points-section {
   height: 200px;
   background: #D89C5C;
@@ -53,7 +66,41 @@ body {
   margin-top: 2px;
 }
 
-/* Feature buttons */
+.points-total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.points-total img {
+  display: block;
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}
+
+.points-icon-crop {
+  position: relative;
+  display: block;
+  flex: 0 0 57px;
+  width: 58px;
+  height: 58px;
+  overflow: hidden;
+}
+
+.points-icon-crop img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78px;
+  height: 78px;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+}
+
+/* Main buttons */
 
 .CCs {
   display: flex;
@@ -92,75 +139,7 @@ body {
   font-size: 12px;
 }
 
-/* Featured section */
-
-.featured {
-  margin-top: 54px;
-  padding: 0 16px;
-}
-
-#featured-title {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 8px;
-}
-
-.offer-card {
-  height: 57px;
-  background: white;
-  border-radius: 13px;
-  margin-bottom: 3px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.offer-image {
-  width: 55px;
-  height: 100%;
-  background: #ecd1b5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 29px;
-  flex-shrink: 0;
-}
-
-.offer-image img {
-  width: 43px;
-  height: 43px;
-  object-fit: contain;
-}
-
-.offer-content {
-  flex: 1;
-  height: 100%;
-  padding: 5px 12px 4px 19px;
-  position: relative;
-}
-
-.offer-title {
-  font-size: 12px;
-  line-height: 14px;
-}
-
-.offer-subtitle {
-  font-size: 11px;
-  margin-top: 1px;
-}
-
-.offer-bottom {
-  position: absolute;
-  bottom: 4px;
-  right: 12px;
-  font-size: 9px;
-  color: #555;
-}
-
-.arrow {
-  font-size: 14px;
-  margin-left: 4px;
-}
+/* The dogs*/
 
 .shop-art {
   display: block;
@@ -172,48 +151,3 @@ body {
   bottom: -20px;
 }
 
-
-.points-section {
-  position: relative;
-}
-
-.points-total {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-}
-
-.points-total img {
-  display: block;
-  width: 68px;
-  height: 68px;
-  object-fit: contain;
-}
-
-#points-number {
-  font-size: 52px;
-  line-height: 1;
-  font-weight: 400;
-  color: white;
-}
-
-.points-icon-crop {
-  position: relative;
-  display: block;
-  flex: 0 0 57px;
-  width: 58px;
-  height: 58px;
-  overflow: hidden;
-}
-
-.points-icon-crop img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 78px;
-  height: 78px;
-  max-width: none;
-  transform: translate(-50%, -50%);
-  object-fit: contain;
-}

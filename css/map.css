@@ -122,11 +122,9 @@ body {
     display: block;
     width: 100%;
     padding: 10px;
-
     background: transparent;
     border: none;
     border-bottom: 1px solid #ccc;
-
     text-align: left;
     cursor: pointer;
 }
@@ -182,7 +180,6 @@ body {
 .fountain-marker,
 .park-marker,
 .off-leash-marker {
-    position: relative;
     width: 34px;
     height: 34px;
 
@@ -192,7 +189,6 @@ body {
 
     text-align: center;
     line-height: 1;
-    z-index: 1;
 }
 
 /* Pin background shape */
@@ -202,15 +198,33 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-
     background: #fff5df;
     border: 1px solid #6b5845;
     border-radius: 50% 50% 50% 0;
-
     transform: rotate(-45deg);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-
     z-index: -1;
+}
+
+/* Selected park marker */
+.park-marker.selected-marker::before {
+    background: #b7db7a;
+    border: 3px solid #4f6f2f;
+    box-shadow: 0 0 0 4px rgba(79, 111, 47, 0.25);
+}
+
+/* Selected fountain marker */
+.fountain-marker.selected-marker::before {
+    background: #b9e5f7;
+    border: 3px solid #3f7f99;
+    box-shadow: 0 0 0 4px rgba(63, 127, 153, 0.25);
+}
+
+/* Selected off-leash marker */
+.off-leash-marker.selected-marker::before {
+    background: #f3d3a4;
+    border: 3px solid #8b5e34;
+    box-shadow: 0 0 0 4px rgba(139, 94, 52, 0.25);
 }
 
 /* Individual emoji sizes */
@@ -309,7 +323,6 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-
     background: #ead4ae;
     border: 1px solid #6b5845;
     border-radius: 24px;
@@ -477,20 +490,30 @@ body {
     font-size: 16px;
 }
 
-/* Current user location marker */
-.user-location-marker {
+/* Shared location marker style */
+.user-location-marker,
+.default-location-marker {
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5bc5a;
     color: black;
     border: 1px solid #333;
     border-radius: 50%;
     font-size: 10px;
     font-weight: 600;
     text-align: center;
+}
+
+/* Actual user location */
+.user-location-marker {
+    background: #f5bc5a;
+}
+
+/* Default location */
+.default-location-marker {
+    background: #4EA8DE;
 }
 
 /* Set Leaflet bottom controls  */

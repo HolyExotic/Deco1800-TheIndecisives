@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-          <div id="site-nav"></div>
+        <div id="site-nav"></div>
     </div>
 
     <script src="js/script.js"></script>
@@ -273,7 +273,7 @@
 
         function computeSnaps() {
 
-            
+
             const h = stage.clientHeight;
             // Peek = just the handle, name, three stat bubbles and the Go button
             const peek = grip.offsetHeight + footerEl.offsetHeight + 1;
@@ -378,13 +378,15 @@
         document.getElementById("finish-confirm").addEventListener("click", () => {
             finishModal.hidden = true;
             earnPoints(REWARD.points);
-            
+
+            const gotGlasses = addOwnedItem("glasses");
+            document.querySelector(".reward-item").hidden = !gotGlasses;
+
             document.getElementById("complete-text").textContent =
                 `${displayName} · ${route.km.toFixed(1)} km · ${route.minutes} min`;
             document.getElementById("reward-points").textContent = REWARD.points;
             document.getElementById("reward-xp").textContent = REWARD.xp;
             openModal(completeModal, document.getElementById("complete-done"));
-
         });
 
         document.getElementById("complete-done").addEventListener("click", () => {

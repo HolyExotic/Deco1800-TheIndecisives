@@ -1,9 +1,11 @@
-// Create the Leaflet map and set Brisbane as the initial location
-const map = L.map("map").setView(
+// Create the Leaflet map
+const map = L.map("map", {
+    scrollWheelZoom: true,
+    inertia: false
+}).setView(
     [-27.48, 153.02],
     15
 );
-
 
 // Move the zoom control to the bottom-right
 map.zoomControl.setPosition("bottomright");
@@ -94,6 +96,9 @@ let selectedLocationCoordinates = null;
 // Store the marker for the selected search result
 let searchMarker = null;
 
+// Store the currently selected marker
+let selectedMarker = null;
+
 
 // Demo user starting location for the WIP
 //const userLocation = [-27.485, 153.02];
@@ -110,9 +115,9 @@ const userIcon = L.divIcon({
     iconAnchor: [18, 18]
 });
 
-// Create the demo location icon
+// Create the default location icon
 const demoIcon = L.divIcon({
-    className: "user-location-marker",
+    className: "default-location-marker",
     html: "You",
     iconSize: [36, 36],
     iconAnchor: [18, 18]
@@ -287,7 +292,7 @@ async function searchLocations() {
 
                 // Close search and display location details
                 searchPanel.classList.add("hidden");
-                locationDetails.classList.remove("hidden");
+                showSelectedLocation(searchMarker);
             });
             searchResults.appendChild(item);
         });
@@ -393,6 +398,7 @@ resetFilters.addEventListener("click", () => {
 // Close the location details card
 closeLocationDetails.addEventListener("click", () => {
     locationDetails.classList.add("hidden");
+    clearSelectedMarker();
 });
 
 // Open Google Maps walking directions
@@ -416,6 +422,30 @@ getDirectionsButton.addEventListener("click", () => {
 
 });
 
+// Remove the previous marker highlight
+function clearSelectedMarker() {
+    if (selectedMarker) {
+        selectedMarker.getElement()?.classList.remove("selected-marker");
+        selectedMarker.setZIndexOffset(0);
+        selectedMarker = null;
+    }
+}
+
+// Show location details and highlight the selected marker
+function showSelectedLocation(marker = null) {
+
+    clearSelectedMarker();
+
+    selectedMarker = marker;
+
+    if (selectedMarker) {
+        selectedMarker.getElement()?.classList.add("selected-marker");
+        selectedMarker.setZIndexOffset(1000);
+    }
+
+    locationDetails.classList.remove("hidden");
+}
+
 
 // Load drinking fountain data from Brisbane City Council Open Data
 async function loadFountains() {
@@ -435,11 +465,16 @@ async function loadFountains() {
                 {icon: fountainIcon}
             );
 
-            marker.bindPopup(`
-                <strong>${fountain.park_name}</strong>
-                <br>
-                ${fountain.item_description}
-            `);
+            // Show fountain details when selected
+            marker.on("click", () => {
+                selectedLocationCoordinates = [lat, lon];
+                locationTitle.textContent =
+                    fountain.park_name || "Drinking Fountain";
+                locationSuburb.textContent = "Drinking Fountain";
+                locationInfo.textContent =
+                    `Facility: ${fountain.item_description || "Not specified"}`;
+                showSelectedLocation(marker);
+            });
 
         marker.addTo(fountainLayer);
         });
@@ -497,7 +532,7 @@ async function loadParks() {
                 `Address: ${address || "Not available"}
         Park size: ${park.park_size || "Not available"}`;
 
-            locationDetails.classList.remove("hidden");
+            showSelectedLocation(marker);
         });
     
         marker.addTo(parkLayer);  
@@ -547,7 +582,7 @@ async function loadOffLeashAreas() {
                 Agility equipment: ${area.dog_agility_equipment || "Not specified"}
                 Lighting: ${area.lighting || "Not specified"}`;
 
-                locationDetails.classList.remove("hidden");
+                showSelectedLocation(marker);
             });
             marker.addTo(offLeashLayer);
         });
@@ -626,7 +661,7 @@ async function loadTrails() {
             Directions will use the selected point on the trail.`;
 
                 // Open the location details card
-                locationDetails.classList.remove("hidden");
+                showSelectedLocation();
 
             });
 

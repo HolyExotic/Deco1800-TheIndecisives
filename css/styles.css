@@ -27,7 +27,7 @@ body {
   width: 100%;
   max-width: 390px;
   min-height: 100vh;
-  height: auto;
+  max-height: 780px;
   background: #FAF3E0;
   position: relative;
   display: flex;
@@ -243,4 +243,5 @@ a.back-link {
   .construction {
     padding-left: 20px;
   }
+
 

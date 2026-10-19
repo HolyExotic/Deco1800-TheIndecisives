@@ -146,13 +146,14 @@ h2 {
     align-items: center;
     top: 730px;
 
+
 }
 
 .lower-btn {
     color: #f7f6f6;
     font-size: 22px;
     background-color: #D89C5C;
-    border: 1px ;
+    border: 1.5px rgb(126, 95, 47) solid;
     padding: 8px 100px;
     border-radius: 30px;
     position: absolute;
@@ -160,6 +161,8 @@ h2 {
     bottom: 10px;
     font-weight: 500;
     font-family: 'Ubuntu Sans';
+    cursor: pointer;
+
 }
 
 .avatar-menu1 {
@@ -202,4 +205,31 @@ h2 {
     font-size: 30px;
     font-weight: 700;
     text-align: center;
+}
+
+
+
+/* Mobile home page layout */
+@media (max-width: 480px) {
+
+    /* Keep DogGo button above the navbar */
+    .DogGo-btn {
+        position: fixed;
+        top: auto;
+        bottom: 74px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: calc(100% - 40px);
+        max-width: 340px;
+        z-index: 1900;
+    }
+
+    /* Centre the DogGo button */
+    .lower-btn {
+        position: static;
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 16px;
+    }
 }

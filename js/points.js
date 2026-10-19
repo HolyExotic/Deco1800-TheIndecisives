@@ -1,3 +1,19 @@
+//AI Acknowledgement
+
+//Tool used: ChatGPT (OpenAI)
+//Date used: 1 October 2026
+
+//How AI was used:
+//- Suggested code to store and update the amount of points the user has
+//- Helped explain JS code
+
+//Prompts included:
+//- "How can points be updated when thigns are stores"
+//- "Explain this part of the code, what is it's purpose?"
+
+//All code was reviewed, modified, and understood by the author before submission.
+
+
 // Get the user's current points
 function getPoints() {
     const savedPoints = localStorage.getItem("points");
