@@ -274,20 +274,29 @@ h2 {
     pointer-events: none;
 }
 
-/* Smooth hover transition */
+
+
+/* Bubble hover and press effects */
 .dog-avatar-selection img,
 .dog-accessories img,
-.daily-quests img {
-    transition: transform 0.2s ease,
-                filter 0.2s ease;
+.daily-quests img,
+.bubble-label {
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-/* Subtle hover highlight */
+/* Hover highlight */
 .dog-avatar-selection:hover img,
 .dog-accessories:hover img,
 .daily-quests:hover img {
     transform: scale(1.06);
-    filter: drop-shadow(0 3px 4px rgba(100, 64, 34, 0.25));
+    filter: brightness(1.05) drop-shadow(0 3px 4px rgba(100, 64, 34, 0.25));
+}
+
+/* Subtitle animation */
+.dog-avatar-selection:hover .bubble-label,
+.dog-accessories:hover .bubble-label,
+.daily-quests:hover .bubble-label {
+    transform: translateX(-50%) translateY(-3px) scale(1.05);
 }
 
 /* Press feedback */
@@ -296,8 +305,6 @@ h2 {
 .daily-quests:active img {
     transform: scale(0.97);
 }
-
-
 
 
 /* About Us link on Home page */

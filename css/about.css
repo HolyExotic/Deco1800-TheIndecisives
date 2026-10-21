@@ -1,116 +1,199 @@
-    /* About page */
+/* About page */
 
-    body {
-        margin: 0;
-        font-family: 'Ubuntu Sans', Arial, sans-serif;
-        background: #222;
+body {
+    margin: 0;
+    font-family: 'Ubuntu Sans', Arial, sans-serif;
+    background: #222;
 
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-    /* Main container */
+/* Main container */
 
-    .app.about-app {
-        width: 100%;
-        max-width: 390px;
+.app.about-app {
+    width: 100%;
+    max-width: 390px;
 
-        min-height: 100vh;
-        height: auto;
+    min-height: 100vh;
+    height: auto;
 
-        background: #FAF3E0;
+    background: #FAF3E0;
 
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        overflow: visible;
-    }
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
 
-    /* Main content */
+/* Main content */
+
+.about-content {
+    padding: 20px 18px 100px;
+}
+
+/* Individual sections */
+
+.about-section {
+    background: #FFF9F0;
+    border-radius: 16px;
+
+    padding: 18px;
+    margin-bottom: 16px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+/* Section titles */
+
+.about-section h2 {
+    margin: 0 0 12px;
+    padding: 0;
+
+    color: #664022;
+    font-size: 19px;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Paragraphs */
+
+.about-section p {
+    margin: 0 0 12px;
+
+    color: #45372B;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Team members */
+
+.about-section .team-members {
+    color: #A16B36;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+
+    margin-top: 14px;
+}
+
+/* Data sources */
+
+.about-sources {
+    padding-left: 18px;
+    margin: 0 0 14px;
+}
+
+.about-sources li {
+    color: #45372B;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.about-sources a {
+    color: #98602F;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Mobile layout */
+
+@media (max-width: 480px) {
 
     .about-content {
-        padding: 20px 18px 100px;
+        padding: 16px 14px 100px;
     }
-
-    /* Individual sections */
 
     .about-section {
-        background: #FFF9F0;
-        border-radius: 16px;
+        padding: 16px;
+    }
+}
 
-        padding: 18px;
-        margin-bottom: 16px;
 
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+/* Meet Our Team - match the existing section cards */
+.meet-our-team {
+    background: #FFF9F0;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.meet-our-team h2 {
+    margin: 0 0 12px;
+    padding: 0;
+    color: #664022;
+    font-size: 19px;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Two-column grid inside the card */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.team-member {
+    position: relative;
+    height: 145px;
+    background: #f4d38c;
+    border: 1px solid #ead7bd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-member img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px 8px 28px;
+    box-sizing: border-box;
+}
+
+.team-name {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+
+    padding: 5px 12px;
+    background: #7d4d28;
+    color: white;
+    border-radius: 12px;
+
+    font-family: 'Ubuntu Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.team-member:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(100, 64, 34, 0.15);
+}
+
+/* Match the smaller spacing on mobile */
+@media (max-width: 480px) {
+    .meet-our-team {
+        padding: 16px;
     }
 
-    /* Section titles */
-
-    .about-section h2 {
-        margin: 0 0 12px;
-        padding: 0;
-
-        color: #664022;
-        font-size: 19px;
-        font-weight: 700;
-        text-align: left;
+    .team-grid {
+        gap: 10px;
     }
 
-    /* Paragraphs */
-
-    .about-section p {
-        margin: 0 0 12px;
-
-        color: #45372B;
-        font-size: 13px;
-        line-height: 1.65;
+    .team-member {
+        height: 135px;
     }
-
-    .about-section p:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Team members */
-
-    .about-section .team-members {
-        color: #A16B36;
-        font-size: 14px;
-        font-weight: 600;
-        text-align: center;
-
-        margin-top: 14px;
-    }
-
-    /* Data sources */
-
-    .about-sources {
-        padding-left: 18px;
-        margin: 0 0 14px;
-    }
-
-    .about-sources li {
-        color: #45372B;
-        font-size: 13px;
-        line-height: 1.6;
-        margin-bottom: 10px;
-    }
-
-    .about-sources a {
-        color: #98602F;
-        font-weight: 600;
-        text-decoration: underline;
-    }
-
-    /* Mobile layout */
-
-    @media (max-width: 480px) {
-
-        .about-content {
-            padding: 16px 14px 100px;
-        }
-
-        .about-section {
-            padding: 16px;
-        }
-    }
+}
