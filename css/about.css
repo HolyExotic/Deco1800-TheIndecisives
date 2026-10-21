@@ -178,10 +178,6 @@ body {
     white-space: nowrap;
 }
 
-.team-member:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(100, 64, 34, 0.15);
-}
 
 /* Match the smaller spacing on mobile */
 @media (max-width: 480px) {
