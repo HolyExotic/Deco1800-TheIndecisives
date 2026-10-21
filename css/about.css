@@ -1,0 +1,155 @@
+/* About page */
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu Sans', Arial, sans-serif;
+    background: #222;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Main container */
+
+.app.about-app {
+    width: 100%;
+    max-width: 390px;
+
+    min-height: 100vh;
+    height: auto;
+
+    background: #FAF3E0;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+/* Header */
+
+.about-banner {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #D89C5C;
+}
+
+.about-banner h1 {
+    margin: 0;
+    padding: 0;
+
+    color: white;
+    font-size: 27px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Back button */
+
+.about-back {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: white;
+    font-size: 32px;
+    text-decoration: none;
+    line-height: 1;
+}
+
+/* Main content */
+
+.about-content {
+    padding: 20px 18px 100px;
+}
+
+/* Individual sections */
+
+.about-section {
+    background: #FFF9F0;
+    border-radius: 16px;
+
+    padding: 18px;
+    margin-bottom: 16px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+/* Section titles */
+
+.about-section h2 {
+    margin: 0 0 12px;
+    padding: 0;
+
+    color: #664022;
+    font-size: 19px;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Paragraphs */
+
+.about-section p {
+    margin: 0 0 12px;
+
+    color: #45372B;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Team members */
+
+.about-section .team-members {
+    color: #A16B36;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+
+    margin-top: 14px;
+}
+
+/* Data sources */
+
+.about-sources {
+    padding-left: 18px;
+    margin: 0 0 14px;
+}
+
+.about-sources li {
+    color: #45372B;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.about-sources a {
+    color: #98602F;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Mobile layout */
+
+@media (max-width: 480px) {
+
+    .about-content {
+        padding: 16px 14px 100px;
+    }
+
+    .about-section {
+        padding: 16px;
+    }
+}
