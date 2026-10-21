@@ -274,13 +274,31 @@ h2 {
     pointer-events: none;
 }
 
+/* Smooth hover transition */
+.dog-avatar-selection img,
+.dog-accessories img,
+.daily-quests img {
+    transition: transform 0.2s ease,
+                filter 0.2s ease;
+}
+
+/* Subtle hover highlight */
+.dog-avatar-selection:hover img,
+.dog-accessories:hover img,
+.daily-quests:hover img {
+    transform: scale(1.06);
+    filter: drop-shadow(0 3px 4px rgba(100, 64, 34, 0.25));
+}
 
 /* Press feedback */
-.dog-avatar-selection:active,
-.dog-accessories:active,
-.daily-quests:active {
-    filter: brightness(0.9);
+.dog-avatar-selection:active img,
+.dog-accessories:active img,
+.daily-quests:active img {
+    transform: scale(0.97);
 }
+
+
+
 
 /* About Us link on Home page */
 
@@ -294,8 +312,8 @@ h2 {
     gap: 3px;
     color: #664022;
     font-family: 'Ubuntu Sans', Arial, sans-serif;
-    font-size: 8px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 700;
     text-decoration: none;
     z-index: 1800;
 }

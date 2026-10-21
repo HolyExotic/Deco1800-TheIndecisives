@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>About DogGo!</title>
 
@@ -14,10 +13,8 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Ubuntu+Sans:wght@400;500;600;700&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Ubuntu+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 </head>
 
@@ -25,13 +22,14 @@
 
     <div class="app about-app">
 
-        <header class="top-banner about-banner">
-            <a href="index.html"
-               class="about-back"
-               aria-label="Back to Home">
-                &#8592;
+        <header class="top-banner">
+            <a href="index.html" class="back-link" aria-label="Back to home">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 5l-7 7 7 7" />
+                </svg>
             </a>
-            <h1>About DogGo!</h1>
+            <h1 class="banner-heading">About Us</h1>
         </header>
 
         <main class="about-content">
@@ -150,32 +148,29 @@
 
                 <ul class="about-sources">
                     <li>
-                        <a href="https://data.brisbane.qld.gov.au/"
-                           target="_blank" rel="noopener noreferrer">
+                        <a href="https://data.brisbane.qld.gov.au/" target="_blank" rel="noopener noreferrer">
                             Brisbane City Council Open Data
                         </a>
                         for location information.
                     </li>
 
                     <li>
-                        <a href="https://leafletjs.com/"
-                           target="_blank" rel="noopener noreferrer">
+                        <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">
                             Leaflet
                         </a>
                         for interactive map functionality.
                     </li>
 
                     <li>
-                        <a href="https://www.openstreetmap.org/copyright"
-                           target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">
                             OpenStreetMap
                         </a>
                         for base map tiles.
                     </li>
 
                     <li>
-                        <a href="https://developers.google.com/maps/documentation/urls/guide"
-                           target="_blank" rel="noopener noreferrer">
+                        <a href="https://developers.google.com/maps/documentation/urls/guide" target="_blank"
+                            rel="noopener noreferrer">
                             Google Maps
                         </a>
                         for external walking directions.
@@ -200,4 +195,5 @@
     <script src="js/script.js"></script>
 
 </body>
+
 </html>
