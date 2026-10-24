@@ -167,6 +167,7 @@ body {
     font-size: 12px;
     line-height: 15px;
     text-align: center;
+    cursor: pointer;
 }
 
 .points-panel strong {
@@ -195,4 +196,8 @@ body {
         padding-left: 20px;
         padding-right: 20px;
     }
+}
+
+.points-panel .points-cost strong {
+    font-weight: 600;
 }
