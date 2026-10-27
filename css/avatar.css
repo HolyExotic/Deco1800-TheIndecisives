@@ -259,13 +259,12 @@ h2 {
 
 .bubble-label {
     position: absolute;
-    top: -12px;
+    top: -14px;
     left: 55%;
     transform: translateX(-50%);
     padding: 3px 12px;
-    background: #7d4d28;
-    color: #fff;
-    border: 0.5px solid #FAF3E0;   
+    background: none;
+    color: #7d4d28;
     font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 500;
@@ -311,13 +310,13 @@ h2 {
 
 .about-us-link {
     position: absolute;
-    left: 14px;
-    bottom: 115px;
+    right: 14px;
+    top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3px;
-    color: #664022;
+    color: white;
     font-family: 'Ubuntu Sans', Arial, sans-serif;
     font-size: 10px;
     font-weight: 700;
@@ -335,7 +334,7 @@ h2 {
     align-items: center;
     justify-content: center;
 
-    background: #D89C5C;
+    background: #ecb77f;
     color: white;
 
     border-radius: 50%;
