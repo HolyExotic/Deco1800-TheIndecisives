@@ -1,15 +1,19 @@
 //AI Acknowledgement
 
 //Tool used: Google Gemini
-//Date used: 19 September 2026
+//Date used: 19,22,26 September 2026, 3,20 October 2026
 
 //How AI was used:
-//- Suggested code used for storing purchased items
-//- Helped explain JS code
+//- Suggested code used for geolocation, searching, and filtering features
+//- Used to explain JS code
 
 //Prompts included:
-//- "How can items be 'purchased' and 'stored' for a customisation feature in an app?"
-//- "Explain this part of the code, what is it's purpose?"
+//- "if I wanna conduct a function about showing current location, how can I implement it?” 
+//- “I am setting a coordinate of a location. Is it including lat and lon?” 
+//- “I am creating a filter panel, how can I implement the checkbox or slider in the panel?” 
+//- “How can I implement the search function, is this should be implemented by using JavaScript?” 
+//- “I used geolocation in my website, can I still include the demo location before getting users' real location?” 
+//- “Right now I got a filter, can I also show the info on the nav bar, is that JavaScript?”" 
 
 //All code was reviewed, modified, and understood by the author before submission.
 

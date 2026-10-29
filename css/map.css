@@ -1,3 +1,17 @@
+/* AI Acknowledgement
+
+Tool used: Google Gemini
+Date used: 19 September 2026, 
+
+How AI was used:
+- Suggested code used for implenting z index
+
+Prompts included:
+- “I am creating a filter panel, how can I implement the checkbox or slider in the panel?” 
+- “So I probably implement z-index in CSS for this section?” 
+
+- All code was reviewed, modified, and understood by the author before submission. */
+
 * {
     box-sizing: border-box;
 }
