@@ -15,7 +15,7 @@
 //- “I used geolocation in my website, can I still include the demo location before getting users' real location?” 
 //- “Right now I got a filter, can I also show the info on the nav bar, is that JavaScript?”" 
 
-//All code was reviewed, modified, and understood by the author before submission.
+// All code was reviewed, modified, and understood by the author before submission.
 
 // Create the Leaflet map
 const map = L.map("map", {
