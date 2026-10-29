@@ -196,11 +196,9 @@ body {
 .off-leash-marker {
     width: 34px;
     height: 34px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
     line-height: 1;
 }
@@ -351,7 +349,6 @@ body {
     height: 18px;
     left: 2px;
     bottom: 2px;
-
     background: #a87936;
     border-radius: 50%;
     transition: 0.2s;

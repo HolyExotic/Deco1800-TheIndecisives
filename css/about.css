@@ -4,7 +4,6 @@ body {
     margin: 0;
     font-family: 'Ubuntu Sans', Arial, sans-serif;
     background: #222;
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -15,12 +14,9 @@ body {
 .app.about-app {
     width: 100%;
     max-width: 390px;
-
     min-height: 100vh;
     height: auto;
-
     background: #FAF3E0;
-
     position: relative;
     display: flex;
     flex-direction: column;
@@ -38,10 +34,8 @@ body {
 .about-section {
     background: #FFF9F0;
     border-radius: 16px;
-
     padding: 18px;
     margin-bottom: 16px;
-
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
 }
 
@@ -50,7 +44,6 @@ body {
 .about-section h2 {
     margin: 0 0 12px;
     padding: 0;
-
     color: #664022;
     font-size: 19px;
     font-weight: 700;
@@ -61,7 +54,6 @@ body {
 
 .about-section p {
     margin: 0 0 12px;
-
     color: #45372B;
     font-size: 13px;
     line-height: 1.65;
@@ -78,7 +70,6 @@ body {
     font-size: 14px;
     font-weight: 600;
     text-align: center;
-
     margin-top: 14px;
 }
 
@@ -166,12 +157,10 @@ body {
     position: absolute;
     bottom: 8px;
     right: 8px;
-
     padding: 5px 12px;
     background: #7d4d28;
     color: white;
     border-radius: 12px;
-
     font-family: 'Ubuntu Sans', Arial, sans-serif;
     font-size: 13px;
     font-weight: 600;
