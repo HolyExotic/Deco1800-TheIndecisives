@@ -1,3 +1,18 @@
+//AI Acknowledgement
+
+//Tool used: Google Gemini
+//Date used: 19 September 2026
+
+//How AI was used:
+//- Suggested code used for storing purchased items
+//- Helped explain JS code
+
+//Prompts included:
+//- "How can items be 'purchased' and 'stored' for a customisation feature in an app?"
+//- "Explain this part of the code, what is it's purpose?"
+
+//All code was reviewed, modified, and understood by the author before submission.
+
 // Create the Leaflet map
 const map = L.map("map", {
     scrollWheelZoom: true,
