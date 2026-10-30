@@ -259,21 +259,21 @@ h2 {
 
 .bubble-label {
     position: absolute;
-    top: -14px;
+    top: auto;
+    bottom: 100%;
+    margin-bottom: -2px;
     left: 55%;
     transform: translateX(-50%);
     padding: 3px 12px;
     background: none;
     color: #7d4d28;
     font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 700;
     white-space: nowrap;
     border-radius: 10px;
     pointer-events: none;
 }
-
-
 
 /* Bubble hover and press effects */
 .dog-avatar-selection img,
@@ -348,4 +348,17 @@ h2 {
     .about-us-link {
         bottom: 140px;
     }
+}
+
+.dog-avatar-selection,
+.dog-accessories,
+.daily-quests {
+    height: auto;
+    padding: 0;
+}
+
+.dog-avatar-selection img,
+.dog-accessories img,
+.daily-quests img {
+    display: block;
 }
