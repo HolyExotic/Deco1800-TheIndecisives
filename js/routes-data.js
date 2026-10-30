@@ -4,11 +4,11 @@
 //Date used: 13 October 2026
 
 //How AI was used:
-//- Suggested code used for storing purchased items
+//- Suggested code for generating different set routes based on some of the routes I gave it.
 //- Helped explain JS code
 
 //Prompts included:
-//- "How can items be 'purchased' and 'stored' for a customisation feature in an app?"
+//- "What code would be needed to have set routes that includes the routes information i included previously?"
 //- "Explain this part of the code, what is it's purpose?"
 
 //All code was reviewed, modified, and understood by the author before submission.

@@ -272,6 +272,22 @@ if (badgeRow) {
 
 //MARK: ROUTES
 
+//AI Acknowledgement
+
+//Tool used: Claude
+//Date used: 14 October 2026
+
+//How AI was used:
+//- Suggested code for generating different functionality such as achievement popup, monthly activity popup, customising routes.
+//- Helped explain JS code
+//- Debug code
+
+//Prompts included:
+//- "What js is required to have a working achievement popup?"
+//- "Why is this layout not consistent?"
+
+//All code was reviewed, modified, and understood by the author before submission.
+
 // Quest reward popup
 
 const rewardModal = document.getElementById('reward-modal');
