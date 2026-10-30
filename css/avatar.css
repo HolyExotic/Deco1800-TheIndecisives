@@ -88,7 +88,7 @@ h2 {
     top: 285px;
     right: 10px;
     z-index: 1;
-
+    
 }
 
 .buble-shadow1 {
@@ -212,7 +212,7 @@ h2 {
 
     /* Limit the height of the home page */
     .app.home-app {
-        height: 100vh;
+        height: 780px;
         min-height: 780px;
     }
 
@@ -259,13 +259,12 @@ h2 {
 
 .bubble-label {
     position: absolute;
-    top: -12px;
+    top: -14px;
     left: 55%;
     transform: translateX(-50%);
     padding: 3px 12px;
-    background: #7d4d28;
-    color: #fff;
-    border: 0.5px solid #FAF3E0;
+    background: none;
+    color: #7d4d28;
     font-family: 'Ubuntu Sans', Arial, Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 500;
@@ -273,6 +272,7 @@ h2 {
     border-radius: 10px;
     pointer-events: none;
 }
+
 
 
 /* Bubble hover and press effects */
@@ -334,7 +334,7 @@ h2 {
     align-items: center;
     justify-content: center;
 
-    background: #ecb77f;
+    background: #f8c084;
     color: white;
 
     border-radius: 50%;
@@ -349,5 +349,3 @@ h2 {
         bottom: 140px;
     }
 }
-
-
