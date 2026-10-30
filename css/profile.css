@@ -595,7 +595,7 @@
 
 
 /* Add customise icon to card */
-.dog-avatar-card {            
+.dog-avatar-card {
     position: relative;
 }
 
@@ -610,4 +610,12 @@
     display: block;
     width: 48px;
     height: auto;
+}
+
+.footer-note {
+  text-align: center;
+  font-family: 'Ubuntu Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: #664022;
+  margin: 1px 0 70px; /* bottom margin clears the navbar */
 }

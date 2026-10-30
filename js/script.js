@@ -104,6 +104,11 @@ document.querySelectorAll(".bottom-nav .nav-link").forEach(link => {
 const footerMount = document.getElementById("site-footer");
 
 if (footerMount) {
+  const profileNote = currentPage === "profile.html"
+
+    ? `<p>Péter Borkó. “Brown Boxer Dog · Free Stock Photo.” Pexels, 10 July 2024, www.pexels.com/photo/brown-boxer-dog-27072997/. Accessed 30 Oct. 2026.</p>`
+    : "";
+
   footerMount.insertAdjacentHTML(
     "beforeend",
     `
@@ -112,6 +117,7 @@ if (footerMount) {
           AI Disclosure: AI tools were used to assist in the
           development and creation of this page.
         </p>
+        ${profileNote}
       </footer>
     `,
   );
@@ -155,7 +161,7 @@ if (periodBtn) {
 const cal = document.getElementById('chart-month');
 
 if (cal) {
-  
+
     const now = new Date(2026, 9, 14);
 
     const activeDays = [1, 3, 4, 6, 7, 8, 9, 10, 11, 13, 14];
