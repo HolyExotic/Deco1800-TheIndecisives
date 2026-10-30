@@ -244,4 +244,7 @@ a.back-link {
     padding-left: 20px;
   }
 
+  .site-footer p + p {
+  margin-top: 12px;
+}
 

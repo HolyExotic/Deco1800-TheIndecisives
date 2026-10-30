@@ -1,3 +1,20 @@
+//AI Acknowledgement
+
+//Tool used: Claude
+//Date used: 13 October 2026
+
+//How AI was used:
+//- Suggested code used for storing purchased items
+//- Helped explain JS code
+
+//Prompts included:
+//- "How can items be 'purchased' and 'stored' for a customisation feature in an app?"
+//- "Explain this part of the code, what is it's purpose?"
+
+//All code was reviewed, modified, and understood by the author before submission.
+
+
+
 // Shared route data for routes4 (results) and routes5 (details)
 const ROUTES = [
     {
